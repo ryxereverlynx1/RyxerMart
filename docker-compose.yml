@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  # RyxerMart Next.js Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ryxermart_app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://ryxer_admin:supersecurepassword@postgres:5432/ryxermart?schema=public
+      - APP_URL=http://localhost:3000
+      - SESSION_SECRET=ryxermart-production-secret-key-replace-with-cryptographically-random-string-in-production-min32
+      - ADMIN_EMAIL=contact@ryxermart.com
+      - WHATSAPP_NUMBER=919876543210
+      - GOOGLE_AI_API_KEY=${GOOGLE_AI_API_KEY}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - SMTP_FROM=${SMTP_FROM}
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # PostgreSQL Relational Database Service
+  postgres:
+    image: postgres:16-alpine
+    container_name: ryxermart_db
+    restart: always
+    environment:
+      POSTGRES_USER: ryxer_admin
+      POSTGRES_PASSWORD: supersecurepassword
+      POSTGRES_DB: ryxermart
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ryxer_admin -d ryxermart"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    driver: local

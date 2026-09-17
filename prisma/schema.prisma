@@ -1,0 +1,215 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model AdminUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         String    @default("ADMIN") // ADMIN, MANAGER
+  active       Boolean   @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Category {
+  id           String    @id @default(cuid())
+  slug         String    @unique
+  name         String
+  description  String?
+  icon         String?
+  displayOrder Int       @default(0)
+  active       Boolean   @default(true)
+  services     Service[]
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Service {
+  id               String           @id @default(cuid())
+  slug             String           @unique
+  name             String
+  shortDescription String
+  fullDescription  String
+  categoryId       String
+  category         Category         @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  price            Int              // Authoritative price in INR
+  originalPrice    Int?             // For discount display
+  pricingType      String           @default("FIXED") // FIXED, STARTING_FROM, CUSTOM_QUOTE, ENQUIRY
+  featured         Boolean          @default(false)
+  active           Boolean          @default(true)
+  displayOrder     Int              @default(0)
+  thumbnail        String?
+  deliveryTime     String?          // e.g. "3-5 business days"
+  revisions        String?          // e.g. "Unlimited" or "3 rounds"
+  hostingInfo      String?          // e.g. "1 Year High-Speed SSD Hosting included"
+  supportInfo      String?          // e.g. "30 Days Free Technical Support"
+  warrantyPeriod   String?          // e.g. "30 Days Warranty"
+  tags             String?          // Comma-separated tags
+  seoTitle         String?
+  seoDescription   String?
+  seoKeywords      String?
+  features         ServiceFeature[]
+  faqs             ServiceFAQ[]
+  images           ServiceImage[]
+  orderItems       OrderItem[]
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  @@index([slug])
+  @@index([active])
+  @@index([categoryId])
+}
+
+model ServiceFeature {
+  id           String   @id @default(cuid())
+  serviceId    String
+  service      Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  featureText  String
+  isIncluded   Boolean  @default(true)
+  displayOrder Int      @default(0)
+
+  @@index([serviceId])
+}
+
+model ServiceFAQ {
+  id           String   @id @default(cuid())
+  serviceId    String
+  service      Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  question     String
+  answer       String
+  displayOrder Int      @default(0)
+
+  @@index([serviceId])
+}
+
+model ServiceImage {
+  id           String   @id @default(cuid())
+  serviceId    String
+  service      Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  imageUrl     String
+  altText      String?
+  displayOrder Int      @default(0)
+
+  @@index([serviceId])
+}
+
+model GeneralFAQ {
+  id           String   @id @default(cuid())
+  question     String
+  answer       String
+  category     String   @default("General")
+  displayOrder Int      @default(0)
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Customer {
+  id          String   @id @default(cuid())
+  fullName    String
+  phone       String
+  email       String
+  city        String
+  state       String
+  country     String   @default("India")
+  companyName String?
+  websiteUrl  String?
+  orders      Order[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([phone])
+  @@index([email])
+}
+
+model Order {
+  id                     String      @id @default(cuid())
+  orderNumber            String      @unique // e.g. RXM-20260917-A8F2
+  customerId             String
+  customer               Customer    @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  subtotal               Int         // Server-calculated sum of items
+  discount               Int         @default(0)
+  total                  Int         // Server-calculated total
+  requirements           String?     // Custom project requirements / message
+  preferredContact       String      @default("WhatsApp")
+  status                 String      @default("NEW") // NEW, CONTACTED, IN_DISCUSSION, CONFIRMED, IN_PROGRESS, COMPLETED, CANCELLED, ARCHIVED
+  internalNotes          String?     // Private admin notes, never exposed to customer
+  emailStatus            String      @default("PENDING") // PENDING, SENT, FAILED
+  emailError             String?
+  whatsappLinkGenerated  String?
+  items                  OrderItem[]
+  createdAt              DateTime    @default(now())
+  updatedAt              DateTime    @updatedAt
+
+  @@index([orderNumber])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model OrderItem {
+  id          String   @id @default(cuid())
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  serviceId   String?
+  service     Service? @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+  serviceName String
+  serviceSlug String
+  unitPrice   Int      // Historical price snapshot at purchase time
+  quantity    Int      @default(1)
+  subtotal    Int
+
+  @@index([orderId])
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String
+  message   String
+  status    String   @default("NEW") // NEW, READ, RESPONDED, ARCHIVED
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Setting {
+  key       String   @id
+  value     String
+  group     String   @default("GENERAL") // GENERAL, CONTACT, SOCIAL, SEO
+  updatedAt DateTime @updatedAt
+}
+
+model ChatbotSetting {
+  id                   String   @id @default("default")
+  systemPrompt         String
+  businessInstructions String
+  restrictions         String
+  tone                 String   @default("professional")
+  welcomeMessage       String
+  fallbackMessage      String
+  isEnabled            Boolean  @default(true)
+  updatedAt            DateTime @updatedAt
+}
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  adminUserId String?
+  adminName   String?
+  action      String   // LOGIN, LOGOUT, SERVICE_CREATE, SERVICE_UPDATE, PRICE_CHANGE, STATUS_CHANGE, SETTINGS_UPDATE
+  targetType  String?  // SERVICE, ORDER, SETTING, CHATBOT
+  targetId    String?
+  metadata    String?  // JSON string
+  ipAddress   String?
+  createdAt   DateTime @default(now())
+
+  @@index([action])
+  @@index([createdAt])
+}
