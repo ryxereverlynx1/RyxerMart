@@ -35,7 +35,19 @@ export default function AdminDashboardPage() {
     );
   }
 
-  const { stats, recentOrders } = data || { stats: {}, recentOrders: [] };
+  const defaultStats = {
+    totalOrders: 0,
+    newOrders: 0,
+    pendingOrders: 0,
+    emailFailures: 0,
+    totalServices: 4,
+    activeServices: 4,
+    featuredServices: 2,
+    contactRequests: 0,
+  };
+
+  const stats = data?.stats || defaultStats;
+  const recentOrders = Array.isArray(data?.recentOrders) ? data.recentOrders : [];
 
   return (
     <div className="space-y-8">
@@ -66,7 +78,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Email Failure Notice Banner if any */}
-      {stats.emailFailures > 0 && (
+      {(stats.emailFailures || 0) > 0 && (
         <div className="p-4 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 rounded-2xl flex items-center justify-between gap-4 transition-colors">
           <div className="flex items-center gap-3 text-amber-800 dark:text-amber-200">
             <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0" />
