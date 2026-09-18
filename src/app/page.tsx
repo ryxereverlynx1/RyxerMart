@@ -77,7 +77,7 @@ export default async function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {services.map((service, index) => (
-            <ScrollReveal key={service.id} animation="fade-up" delay={index * 120}>
+            <ScrollReveal key={service.id} animation="fade-up" delay={index * 120} className="h-full flex flex-col">
               <ServiceCard service={service as any} />
             </ScrollReveal>
           ))}

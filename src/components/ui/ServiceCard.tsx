@@ -108,7 +108,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
           : undefined,
         willChange: "transform",
       }}
-      className={`card-spotlight group relative flex flex-col justify-between bg-white dark:bg-slate-900 rounded-2xl border transition-all duration-300 ${
+      className={`card-spotlight group relative flex flex-col justify-between bg-white dark:bg-slate-900 rounded-2xl border transition-all duration-300 w-full h-full min-h-[640px] ${
         service.featured
           ? "border-brand-violet/50 ring-2 ring-brand-violet/20 dark:ring-brand-violet/40 shadow-card dark:shadow-dark-card hover:shadow-card-glow dark:hover:shadow-card-glow hover:border-brand-violet"
           : "border-slate-200 dark:border-slate-800 hover:border-brand-violet/40 dark:hover:border-purple-500/40 shadow-subtle hover:shadow-card-hover dark:hover:shadow-dark-hover"
@@ -126,34 +126,34 @@ export function ServiceCard({ service }: ServiceCardProps) {
 
       <div className="p-6 sm:p-7 flex-1 flex flex-col relative z-10">
         {/* Category & Header with interactive Icon */}
-        <div className="flex items-center justify-between gap-2 mb-3">
-          <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 flex items-center justify-center transition-all duration-300 group-hover:shadow-sm">
+        <div className="flex items-center justify-between gap-2 mb-3 min-h-[36px]">
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60 flex items-center justify-center transition-all duration-300 group-hover:shadow-sm flex-shrink-0">
               {getServiceIcon()}
             </div>
-            <span className="text-[11px] uppercase tracking-wider font-bold text-brand-violet dark:text-purple-300 bg-brand-violet-light/80 dark:bg-slate-800 px-2.5 py-1 rounded-lg transition-colors">
+            <span className="text-[11px] uppercase tracking-wider font-bold text-brand-violet dark:text-purple-300 bg-brand-violet-light/80 dark:bg-slate-800 px-2.5 py-1 rounded-lg transition-colors truncate">
               {service.category?.name || "Web Development"}
             </span>
           </div>
 
           {service.deliveryTime && (
-            <span className="inline-flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400 font-medium">
+            <span className="inline-flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400 font-medium flex-shrink-0 whitespace-nowrap">
               <Zap className="w-3 h-3 text-amber-500 flex-shrink-0" />
               <span>{service.deliveryTime}</span>
             </span>
           )}
         </div>
 
-        <h3 className="text-xl font-bold text-brand-navy dark:text-white tracking-tight mt-1 mb-2 group-hover:text-brand-royal dark:group-hover:text-indigo-200 group-hover:translate-x-1.5 transition-all duration-200">
-          {service.name}
+        <h3 className="text-xl font-bold text-brand-navy dark:text-white tracking-tight mt-1 mb-2 group-hover:text-brand-royal dark:group-hover:text-indigo-200 group-hover:translate-x-1.5 transition-all duration-200 min-h-[3.5rem] flex items-center">
+          <span className="line-clamp-2">{service.name}</span>
         </h3>
 
-        <p className="text-sm text-slate-600 dark:text-slate-300 line-clamp-3 mb-6 leading-relaxed flex-shrink-0">
+        <p className="text-sm text-slate-600 dark:text-slate-300 line-clamp-3 mb-6 leading-relaxed flex-shrink-0 h-[4.5rem] overflow-hidden">
           {service.shortDescription}
         </p>
 
         {/* Pricing Area with subtle hover elevation */}
-        <div className="py-4 border-y border-slate-100 dark:border-slate-800/80 mb-6 bg-slate-50/70 dark:bg-slate-800/40 -mx-6 sm:-mx-7 px-6 sm:px-7 rounded-none transition-all duration-200 group-hover:bg-brand-ice/30 dark:group-hover:bg-slate-800/70">
+        <div className="py-4 border-y border-slate-100 dark:border-slate-800/80 mb-6 bg-slate-50/70 dark:bg-slate-800/40 -mx-6 sm:-mx-7 px-6 sm:px-7 rounded-none transition-all duration-200 group-hover:bg-brand-ice/30 dark:group-hover:bg-slate-800/70 min-h-[88px] flex flex-col justify-center">
           <div className="flex items-baseline gap-2.5 transition-transform duration-200 group-hover:-translate-y-1">
             <span className="text-3xl font-black text-brand-navy dark:text-white group-hover:text-brand-royal dark:group-hover:text-white transition-colors">
               ₹{service.price.toLocaleString("en-IN")}
@@ -170,35 +170,39 @@ export function ServiceCard({ service }: ServiceCardProps) {
         </div>
 
         {/* Features Preview List with hover reactions */}
-        <div className="space-y-2.5 flex-1 mb-6">
-          <p className="text-xs font-bold text-slate-900 dark:text-slate-200 uppercase tracking-wider">
-            What&apos;s Included:
-          </p>
-          <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-            {service.features?.slice(0, 6).map((feat, idx) => (
-              <li
-                key={idx}
-                className="flex items-start gap-2.5 text-xs sm:text-sm group/feat hover:text-slate-900 dark:hover:text-white transition-colors"
-              >
-                <div className="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/feat:scale-110 group-hover/feat:bg-emerald-200 transition-all">
-                  <Check className="w-3 h-3 stroke-[2.5]" />
-                </div>
-                <span className="leading-tight group-hover/feat:translate-x-0.5 transition-transform">
-                  {feat.featureText}
-                </span>
-              </li>
-            ))}
-            {service.features && service.features.length > 6 && (
-              <li className="text-xs font-semibold text-brand-violet dark:text-purple-400 pt-1">
+        <div className="space-y-2.5 flex-1 mb-6 flex flex-col justify-between min-h-[220px]">
+          <div>
+            <p className="text-xs font-bold text-slate-900 dark:text-slate-200 uppercase tracking-wider mb-2.5">
+              What&apos;s Included:
+            </p>
+            <ul className="space-y-2.5 text-sm text-slate-600 dark:text-slate-300">
+              {service.features?.slice(0, 6).map((feat, idx) => (
+                <li
+                  key={idx}
+                  className="flex items-start gap-2.5 text-xs sm:text-sm group/feat hover:text-slate-900 dark:hover:text-white transition-colors min-h-[24px]"
+                >
+                  <div className="w-4 h-4 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/feat:scale-110 group-hover/feat:bg-emerald-200 transition-all">
+                    <Check className="w-3 h-3 stroke-[2.5]" />
+                  </div>
+                  <span className="leading-snug group-hover/feat:translate-x-0.5 transition-transform line-clamp-2">
+                    {feat.featureText}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="h-6 flex items-center pt-1">
+            {service.features && service.features.length > 6 ? (
+              <span className="text-xs font-semibold text-brand-violet dark:text-purple-400">
                 + {service.features.length - 6} more included features
-              </li>
-            )}
-          </ul>
+              </span>
+            ) : null}
+          </div>
         </div>
       </div>
 
       {/* Card Actions with multi-stage interactive buttons */}
-      <div className="p-6 sm:p-7 pt-0 flex flex-col sm:flex-row items-center gap-2.5 relative z-10">
+      <div className="p-6 sm:p-7 pt-0 mt-auto flex flex-col sm:flex-row items-center gap-2.5 relative z-10">
         <Link
           href={`/services/${service.slug}`}
           className="w-full sm:flex-1 py-3 px-4 text-center text-xs sm:text-sm font-bold text-brand-navy dark:text-slate-200 hover:text-brand-violet dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700/80 rounded-xl transition-all flex items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet hover:scale-[1.02] active:scale-[0.95]"

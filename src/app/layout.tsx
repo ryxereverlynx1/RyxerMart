@@ -65,9 +65,17 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/logo.png",
-        width: 800,
-        height: 800,
+        url: "https://ryxer.site/images/og-image.png",
+        width: 1200,
+        height: 630,
+        type: "image/png",
+        alt: "RyxerMart | Professional Website, E-Commerce & Web Solutions Agency",
+      },
+      {
+        url: "https://ryxer.site/images/logo.png",
+        width: 512,
+        height: 512,
+        type: "image/png",
         alt: "RyxerMart Web Solutions Agency Logo",
       },
     ],
@@ -76,7 +84,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "RyxerMart | Web Development & E-Commerce Solutions",
     description: "Launch your business online with affordable, high-converting websites starting at ₹3,499.",
-    images: ["/images/logo.png"],
+    images: ["https://ryxer.site/images/og-image.png"],
   },
   robots: {
     index: true,
@@ -92,8 +100,18 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
   },
 };
 
@@ -110,6 +128,13 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <meta name="color-scheme" content="dark light" />
+        {/* Favicons & SERP App Icons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
         {/* Geo-targeting for Indian Local & National Search */}
         <meta name="geo.region" content="IN-PB" />
         <meta name="geo.placename" content="Jalandhar, Punjab" />

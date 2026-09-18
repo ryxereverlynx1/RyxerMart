@@ -7,9 +7,17 @@ export function getOrganizationSchema() {
     "@id": `${SITE_URL}/#organization`,
     name: "RyxerMart",
     legalName: "RyxerMart Web Solutions",
+    alternateName: ["Ryxer Mart", "Ryxer", "ryxer.site"],
     url: SITE_URL,
-    logo: `${SITE_URL}/images/logo.png`,
-    image: `${SITE_URL}/images/logo.png`,
+    logo: {
+      "@type": "ImageObject",
+      "@id": `${SITE_URL}/#logo`,
+      url: `${SITE_URL}/images/logo.png`,
+      caption: "RyxerMart Official Logo",
+      width: "512",
+      height: "512",
+    },
+    image: `${SITE_URL}/images/og-image.png`,
     description:
       "Leading website design, e-commerce development, and digital web solutions agency in India. High-performing, SEO-optimized business websites starting at ₹3,499 with 1 year free high-speed hosting and SSL certificate.",
     telephone: "+91 7719421910",
@@ -111,6 +119,7 @@ export function getWebsiteSchema() {
     "@id": `${SITE_URL}/#website`,
     url: SITE_URL,
     name: "RyxerMart",
+    alternateName: ["Ryxer Mart", "ryxer.site"],
     description: "Professional Website & E-Commerce Solutions for Growing Indian Businesses",
     publisher: {
       "@id": `${SITE_URL}/#organization`,

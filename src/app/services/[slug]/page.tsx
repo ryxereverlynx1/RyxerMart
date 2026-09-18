@@ -233,9 +233,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               You Might Also Be Interested In
             </h2>
           </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             {relatedServices.map((rel, index) => (
-              <ScrollReveal key={rel.id} animation="fade-up" delay={index * 100}>
+              <ScrollReveal key={rel.id} animation="fade-up" delay={index * 100} className="h-full flex flex-col">
                 <ServiceCard service={rel as any} />
               </ScrollReveal>
             ))}

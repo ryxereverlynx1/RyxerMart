@@ -231,7 +231,7 @@ export function ServicesFilterView({
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {filteredServices.map((service, index) => (
-            <ScrollReveal key={service.id} animation="fade-up" delay={index * 100}>
+            <ScrollReveal key={service.id} animation="fade-up" delay={index * 100} className="h-full flex flex-col">
               <ServiceCard service={service} />
             </ScrollReveal>
           ))}

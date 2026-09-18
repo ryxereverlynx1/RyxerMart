@@ -26,7 +26,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       {
         userAgent: "Googlebot-Image",
-        allow: ["/", "/images/"],
+        allow: ["/", "/images/", "/favicon.ico", "/*.png", "/*.ico", "/*.webp"],
       },
       {
         userAgent: "Bingbot",
