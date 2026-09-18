@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   description:
     "Explore our complete range of website development, online stores, and digital solutions packages. Transparent pricing from ₹3,499 with 1 year free SSD cloud hosting, free SSL, and WhatsApp checkout.",
   alternates: {
-    canonical: "https://www.ryxer.site/services",
+    canonical: "https://ryxer.site/services",
   },
   openGraph: {
     title: "Website & E-Commerce Development Packages | RyxerMart",
     description:
       "Choose from Starter, Royal, and E-Commerce website development packages with free hosting and SSL included. Transparent Indian agency pricing.",
-    url: "https://www.ryxer.site/services",
+    url: "https://ryxer.site/services",
     type: "website",
   },
 };

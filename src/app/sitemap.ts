@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://www.ryxer.site";
+  const baseUrl = "https://ryxer.site";
   const defaultLogo = `${baseUrl}/images/logo.png`;
 
   // Fetch all active service packages from database with resilient fallback

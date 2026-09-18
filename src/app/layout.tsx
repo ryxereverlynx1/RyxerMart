@@ -10,7 +10,7 @@ import { ChatbotWidget } from "@/components/chat/ChatbotWidget";
 import { getOrganizationSchema, getWebsiteSchema, getSiteNavigationSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.ryxer.site"),
+  metadataBase: new URL("https://ryxer.site"),
   title: {
     default: "RyxerMart | Professional Website, E-Commerce & Web Solutions Agency",
     template: "%s | RyxerMart",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "website developer punjab",
     "online store maker india",
   ],
-  authors: [{ name: "RyxerMart Web Solutions", url: "https://www.ryxer.site" }],
+  authors: [{ name: "RyxerMart Web Solutions", url: "https://ryxer.site" }],
   creator: "RyxerMart",
   publisher: "RyxerMart",
   category: "technology",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: "https://www.ryxer.site",
+    canonical: "https://ryxer.site",
   },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION || process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "googlee8371948291f09c2",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: "RyxerMart | Professional Website & E-Commerce Development",
     description:
       "Modern, fast, mobile-friendly websites and online stores built for Indian businesses. Starting at ₹3,499 with 1 year free hosting and SSL included.",
-    url: "https://www.ryxer.site",
+    url: "https://ryxer.site",
     siteName: "RyxerMart",
     locale: "en_IN",
     type: "website",
@@ -153,12 +153,12 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#F8FAFC] dark:bg-[#090D1A] text-slate-900 dark:text-slate-100 selection:bg-brand-violet-subtle dark:selection:bg-brand-violet-hover/30 selection:text-brand-navy dark:selection:text-white transition-colors duration-200">
+      <body className="min-h-screen flex flex-col bg-[#F8FAFC] dark:bg-[#090D1A] text-slate-900 dark:text-slate-100 selection:bg-brand-violet-subtle dark:selection:bg-brand-violet-hover/30 selection:text-brand-navy dark:selection:text-white transition-colors duration-200 overflow-x-hidden w-full">
         <ThemeProvider>
           <ToastProvider>
             <CartProvider>
               <Navbar />
-              <main className="flex-1">{children}</main>
+              <main className="flex-1 overflow-x-hidden w-full">{children}</main>
               <Footer />
               <CartDrawer />
               <ChatbotWidget />

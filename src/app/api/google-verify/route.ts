@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 /**
  * Dynamic Google Search Console verification endpoint.
  * When Google Search Console tests HTML file verification, it visits:
- * https://www.ryxer.site/google<hash>.html
+ * https://ryxer.site/google<hash>.html
  * Google expects a 200 OK response with the exact body:
  * "google-site-verification: google<hash>.html"
  */
@@ -20,7 +20,6 @@ export async function GET(request: NextRequest) {
       headers: {
         "Content-Type": "text/html; charset=utf-8",
         "Cache-Control": "public, max-age=86400, s-maxage=86400",
-        "X-Robots-Tag": "noindex, nofollow",
       },
     });
   }

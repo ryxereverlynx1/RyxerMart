@@ -121,7 +121,7 @@ export default async function Image() {
             </span>
           </div>
           <span style={{ color: "#64748B", fontSize: 20, fontWeight: 800 }}>
-            www.ryxer.site
+            ryxer.site
           </span>
         </div>
       </div>

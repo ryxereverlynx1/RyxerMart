@@ -65,7 +65,7 @@ export function generateWhatsAppOrderLink(
   businessNumberOverride?: string
 ): string {
   const rawNumber =
-    businessNumberOverride || process.env.WHATSAPP_NUMBER || "919876543210";
+    businessNumberOverride || process.env.WHATSAPP_NUMBER || "917719421910";
   // Clean non-digits from phone number
   const cleanNumber = rawNumber.replace(/[^0-9]/g, "");
   const message = formatWhatsAppMessage(data);
@@ -81,7 +81,7 @@ export function generateWhatsAppContactLink(
   businessNumberOverride?: string
 ): string {
   const rawNumber =
-    businessNumberOverride || process.env.WHATSAPP_NUMBER || "919876543210";
+    businessNumberOverride || process.env.WHATSAPP_NUMBER || "917719421910";
   const cleanNumber = rawNumber.replace(/[^0-9]/g, "");
 
   return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;

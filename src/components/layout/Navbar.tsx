@@ -87,7 +87,7 @@ export function Navbar() {
             >
               <Image
                 src="/images/logo.png"
-                alt="RyxerMart Logo"
+                alt="RyxerMart Web Solutions - Web Development & E-Commerce Agency"
                 fill
                 sizes="48px"
                 className="object-contain group-hover:scale-110 group-hover:rotate-1 transition-all duration-300"
@@ -142,7 +142,7 @@ export function Navbar() {
 
             {/* WhatsApp Quick CTA */}
             <a
-              href="https://wa.me/919876543210?text=Hello%20RyxerMart%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+              href="https://wa.me/917719421910?text=Hello%20RyxerMart%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 text-xs font-bold text-brand-navy dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-700 rounded-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] btn-shimmer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet"
@@ -208,7 +208,7 @@ export function Navbar() {
               <ThemeToggle showLabel />
             </div>
             <a
-              href="https://wa.me/919876543210?text=Hello%20RyxerMart%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+              href="https://wa.me/917719421910?text=Hello%20RyxerMart%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-brand-navy dark:bg-brand-royal text-white rounded-lg text-sm font-bold shadow-subtle hover:opacity-95 transition-opacity active:scale-98"

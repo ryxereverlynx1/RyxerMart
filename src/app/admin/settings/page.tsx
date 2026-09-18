@@ -126,9 +126,9 @@ export default function AdminBusinessSettingsPage() {
               </label>
               <input
                 type="text"
-                value={settings.whatsapp_number || "919876543210"}
+                value={settings.whatsapp_number || "917719421910"}
                 onChange={(e) => handleChange("whatsapp_number", e.target.value)}
-                placeholder="919876543210"
+                placeholder="917719421910"
                 className="w-full px-3.5 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-850 focus:outline-none focus:ring-2 focus:ring-brand-violet"
               />
             </div>

@@ -11,13 +11,12 @@ export const metadata: Metadata = {
   description:
     "Learn about RyxerMart, an Indian web development and digital solutions company built to deliver high-performing, search-engine-ready websites and online stores without agency markup.",
   alternates: {
-    canonical: "https://www.ryxer.site/about",
+    canonical: "https://ryxer.site/about",
   },
   openGraph: {
-    title: "About Us | RyxerMart Web Development",
-    description:
-      "Empowering small businesses and entrepreneurs across India with high-performance websites and e-commerce stores.",
-    url: "https://www.ryxer.site/about",
+    title: "About RyxerMart | Professional Web Agency in India",
+    description: "Learn about RyxerMart's mission to deliver fast, transparent, high-converting websites starting at ₹3,499.",
+    url: "https://ryxer.site/about",
     type: "website",
   },
 };
@@ -111,7 +110,7 @@ export default function AboutPage() {
               Explore Service Packages <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/917719421910"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-brand-navy dark:text-slate-200 text-sm font-bold rounded-xl transition-colors inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet active:scale-98"

@@ -33,7 +33,7 @@ export function Footer() {
               Browse Packages <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="https://wa.me/919876543210?text=Hello%20RyxerMart%2C%20I%20would%20like%20to%20discuss%20a%20website%20project."
+              href="https://wa.me/917719421910?text=Hello%20RyxerMart%2C%20I%20would%20like%20to%20discuss%20a%20website%20project."
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white text-sm font-bold rounded-lg transition-colors border border-white/20 flex items-center gap-2"
@@ -52,8 +52,9 @@ export function Footer() {
               <div className="relative w-10 h-10 overflow-hidden rounded bg-white p-1">
                 <Image
                   src="/images/logo.png"
-                  alt="RyxerMart Logo"
+                  alt="RyxerMart Web Solutions - Affordable Web Design Agency Logo"
                   fill
+                  sizes="40px"
                   className="object-contain"
                 />
               </div>
@@ -135,8 +136,8 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-brand-violet flex-shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-white transition-colors">
-                  +91 98765 43210
+                <a href="tel:+917719421910" className="hover:text-white transition-colors">
+                  +91 7719421910
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
@@ -148,7 +149,7 @@ export function Footer() {
               <li className="flex items-center gap-2.5">
                 <MessageSquare className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                 <a
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/917719421910"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"

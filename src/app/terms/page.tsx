@@ -5,7 +5,7 @@ export const metadata = {
   title: "Terms and Conditions | RyxerMart",
   description: "Terms of service and service development conditions for RyxerMart customers.",
   alternates: {
-    canonical: "https://www.ryxer.site/terms",
+    canonical: "https://ryxer.site/terms",
   },
 };
 

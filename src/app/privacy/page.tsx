@@ -5,7 +5,7 @@ export const metadata = {
   title: "Privacy Policy | RyxerMart",
   description: "Privacy policy describing how RyxerMart collects, uses, and protects customer inquiry information.",
   alternates: {
-    canonical: "https://www.ryxer.site/privacy",
+    canonical: "https://ryxer.site/privacy",
   },
 };
 

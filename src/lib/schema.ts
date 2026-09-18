@@ -1,4 +1,4 @@
-export const SITE_URL = "https://www.ryxer.site";
+export const SITE_URL = "https://ryxer.site";
 
 export function getOrganizationSchema() {
   return {

@@ -11,13 +11,12 @@ export const metadata: Metadata = {
   description:
     "Get in touch with RyxerMart for instant website quotes, e-commerce stores, and digital solutions. Contact us via WhatsApp (+91 7719421910), direct phone, or email.",
   alternates: {
-    canonical: "https://www.ryxer.site/contact",
+    canonical: "https://ryxer.site/contact",
   },
   openGraph: {
-    title: "Contact Us | RyxerMart Web Development",
-    description:
-      "Reach out to RyxerMart for business websites and e-commerce stores with transparent pricing and fast 3–5 day delivery.",
-    url: "https://www.ryxer.site/contact",
+    title: "Contact RyxerMart | Start Your Web Project",
+    description: "Message our web engineering team on WhatsApp or submit a query for custom web development.",
+    url: "https://ryxer.site/contact",
     type: "website",
   },
 };
@@ -74,7 +73,9 @@ export default function ContactPage() {
               <div>
                 <h3 className="text-sm font-bold text-brand-navy dark:text-white">Phone Support</h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5">
-                  +91 98765 43210
+                  <a href="tel:+917719421910" className="hover:text-brand-violet dark:hover:text-purple-400 transition-colors">
+                    +91 7719421910
+                  </a>
                 </p>
                 <span className="text-[11px] text-slate-400 dark:text-slate-500">Mon - Sat: 9:30 AM to 7:00 PM IST</span>
               </div>
@@ -109,7 +110,7 @@ export default function ContactPage() {
                   Fastest way to get project advice and quick turnaround estimates.
                 </p>
                 <a
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/917719421910"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-3 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 active:scale-98"

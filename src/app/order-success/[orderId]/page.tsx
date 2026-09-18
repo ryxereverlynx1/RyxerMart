@@ -41,7 +41,7 @@ export default async function OrderSuccessPage({ params }: OrderSuccessProps) {
 
   const whatsappUrl =
     order.whatsappLinkGenerated ||
-    `https://wa.me/919876543210?text=${encodeURIComponent(
+    `https://wa.me/917719421910?text=${encodeURIComponent(
       `Hello RyxerMart, I have submitted order #${order.orderNumber}. Please review my enquiry.`
     )}`;
 

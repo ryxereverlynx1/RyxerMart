@@ -56,7 +56,7 @@ export function ServiceDetailAction({ service }: ServiceDetailActionProps) {
     router.push("/checkout");
   };
 
-  const whatsappDirectUrl = `https://wa.me/919876543210?text=${encodeURIComponent(
+  const whatsappDirectUrl = `https://wa.me/917719421910?text=${encodeURIComponent(
     `Hello RyxerMart, I am interested in the ${service.name} (₹${service.price.toLocaleString("en-IN")}) package. Please provide more details.`
   )}`;
 

@@ -58,7 +58,7 @@ export function HeroInteractive() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-navy dark:text-white tracking-tight leading-[1.12]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-brand-navy dark:text-white tracking-tight leading-[1.12]">
               Build Your Business <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-violet via-purple-400 to-indigo-400">
                 Online &amp; Fast.

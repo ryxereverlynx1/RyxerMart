@@ -177,7 +177,7 @@ export default async function HomePage() {
                 <div className="flex items-start gap-3 p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-subtle transition-colors">
                   <MapPin className="w-5 h-5 text-brand-violet dark:text-purple-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-xs font-bold text-brand-navy dark:text-slate-200 uppercase tracking-wider">Office Location</h4>
+                    <h3 className="text-xs font-bold text-brand-navy dark:text-slate-200 uppercase tracking-wider">Office Location</h3>
                     <p className="text-sm text-slate-700 dark:text-slate-300">Jalandhar, Punjab, India</p>
                   </div>
                 </div>
@@ -185,15 +185,15 @@ export default async function HomePage() {
                 <div className="flex items-start gap-3 p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-subtle transition-colors">
                   <Phone className="w-5 h-5 text-brand-violet dark:text-purple-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-xs font-bold text-brand-navy dark:text-slate-200 uppercase tracking-wider">Phone Consultation</h4>
-                    <p className="text-sm text-slate-700 dark:text-slate-300">+91 98765 43210</p>
+                    <h3 className="text-xs font-bold text-brand-navy dark:text-slate-200 uppercase tracking-wider">Phone Consultation</h3>
+                    <p className="text-sm text-slate-700 dark:text-slate-300">+91 7719421910</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3 p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-subtle transition-colors">
                   <Mail className="w-5 h-5 text-brand-violet dark:text-purple-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-xs font-bold text-brand-navy dark:text-slate-200 uppercase tracking-wider">Business Inquiries</h4>
+                    <h3 className="text-xs font-bold text-brand-navy dark:text-slate-200 uppercase tracking-wider">Business Inquiries</h3>
                     <p className="text-sm text-slate-700 dark:text-slate-300">
                       <a href="mailto:ryxereverlynx@gmail.com" className="hover:text-brand-violet dark:hover:text-purple-400 transition-colors">
                         ryxereverlynx@gmail.com
@@ -205,12 +205,12 @@ export default async function HomePage() {
                 <div className="flex items-start gap-3 p-4 bg-emerald-50 dark:bg-emerald-950/30 rounded-xl border border-emerald-200 dark:border-emerald-900/50 transition-colors">
                   <MessageSquare className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-xs font-bold text-emerald-900 dark:text-emerald-200 uppercase tracking-wider">Instant WhatsApp Chat</h4>
+                    <h3 className="text-xs font-bold text-emerald-900 dark:text-emerald-200 uppercase tracking-wider">Instant WhatsApp Chat</h3>
                     <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-0.5">
                       For immediate questions regarding packages and quotations, message our support lead.
                     </p>
                     <a
-                      href="https://wa.me/919876543210?text=Hello%20RyxerMart%2C%20I%20have%20a%20question%20about%20your%20services."
+                      href="https://wa.me/917719421910?text=Hello%20RyxerMart%2C%20I%20have%20a%20question%20about%20your%20services."
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 mt-2 text-xs font-bold text-emerald-800 dark:text-emerald-300 hover:underline group"

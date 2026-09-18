@@ -38,7 +38,7 @@ export async function generateMetadata({
 
   const title = service.seoTitle || `${service.name} - ₹${service.price.toLocaleString("en-IN")} | RyxerMart`;
   const description = service.seoDescription || service.shortDescription;
-  const canonicalUrl = `https://www.ryxer.site/services/${slug}`;
+  const canonicalUrl = `https://ryxer.site/services/${slug}`;
 
   return {
     title,
