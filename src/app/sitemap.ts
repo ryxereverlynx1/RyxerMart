@@ -1,14 +1,27 @@
 import { MetadataRoute } from "next";
 import { db } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.APP_URL || "https://ryxermart.com";
 
-  // Fetch all active service slugs from database
-  const services = await db.service.findMany({
-    where: { active: true },
-    select: { slug: true, updatedAt: true },
-  });
+  // Fetch all active service slugs from database with fallback
+  let services: { slug: string; updatedAt: Date }[] = [];
+  try {
+    services = await db.service.findMany({
+      where: { active: true },
+      select: { slug: true, updatedAt: true },
+    });
+  } catch (err) {
+    console.warn("Could not query services for sitemap during build:", err);
+    services = [
+      { slug: "starter-website", updatedAt: new Date() },
+      { slug: "royal-website", updatedAt: new Date() },
+      { slug: "ecommerce-starter", updatedAt: new Date() },
+      { slug: "ecommerce-premium", updatedAt: new Date() },
+    ];
+  }
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
