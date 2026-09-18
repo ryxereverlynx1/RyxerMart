@@ -1,8 +1,8 @@
 import React from "react";
 import { Metadata } from "next";
-import { db } from "@/lib/db";
 import { ServicesFilterView } from "@/components/services/ServicesFilterView";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { getActiveServices, getActiveCategories } from "@/lib/catalog";
 
 export const dynamic = "force-dynamic";
 
@@ -13,22 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default async function ServicesPage() {
-  const services = await db.service.findMany({
-    where: { active: true },
-    orderBy: { displayOrder: "asc" },
-    include: {
-      category: true,
-      features: {
-        where: { isIncluded: true },
-        orderBy: { displayOrder: "asc" },
-      },
-    },
-  });
-
-  const categories = await db.category.findMany({
-    where: { active: true },
-    orderBy: { displayOrder: "asc" },
-  });
+  const services = await getActiveServices();
+  const categories = await getActiveCategories();
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">

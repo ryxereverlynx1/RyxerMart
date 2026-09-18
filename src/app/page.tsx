@@ -24,28 +24,16 @@ import { HeroInteractive } from "@/components/home/HeroInteractive";
 import { InteractiveHowItWorks } from "@/components/home/InteractiveHowItWorks";
 import { InteractiveWhyCards } from "@/components/home/InteractiveWhyCards";
 import { InteractiveFAQAccordion } from "@/components/ui/InteractiveFAQAccordion";
+import { getActiveServices, getGeneralFaqs } from "@/lib/catalog";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  // Fetch active services with features and categories directly from database
-  const services = await db.service.findMany({
-    where: { active: true },
-    orderBy: { displayOrder: "asc" },
-    include: {
-      category: true,
-      features: {
-        where: { isIncluded: true },
-        orderBy: { displayOrder: "asc" },
-      },
-    },
-  });
+  // Fetch active services with features and categories with zero-downtime fallback
+  const services = await getActiveServices();
 
-  // Fetch active general FAQs
-  const faqs = await db.generalFAQ.findMany({
-    where: { active: true },
-    orderBy: { displayOrder: "asc" },
-  });
+  // Fetch active general FAQs with zero-downtime fallback
+  const faqs = await getGeneralFaqs();
 
   return (
     <div className="space-y-20 pb-20">

@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { db } from "@/lib/db";
+import { getServiceBySlug, getActiveServices } from "@/lib/catalog";
 import { ServiceDetailAction } from "@/components/services/ServiceDetailAction";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -26,9 +26,7 @@ export async function generateMetadata({
   params,
 }: ServicePageProps): Promise<Metadata> {
   const { slug } = await params;
-  const service = await db.service.findUnique({
-    where: { slug },
-  });
+  const service = await getServiceBySlug(slug);
 
   if (!service || !service.active) {
     return {
@@ -50,36 +48,15 @@ export async function generateMetadata({
 export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const { slug } = await params;
 
-  const service = await db.service.findUnique({
-    where: { slug },
-    include: {
-      category: true,
-      features: {
-        where: { isIncluded: true },
-        orderBy: { displayOrder: "asc" },
-      },
-      faqs: {
-        orderBy: { displayOrder: "asc" },
-      },
-    },
-  });
+  const service = await getServiceBySlug(slug);
 
   if (!service || !service.active) {
     notFound();
   }
 
   // Related services in the same category or general
-  const relatedServices = await db.service.findMany({
-    where: {
-      id: { not: service.id },
-      active: true,
-    },
-    take: 3,
-    include: {
-      category: true,
-      features: { where: { isIncluded: true }, take: 4 },
-    },
-  });
+  const allServices = await getActiveServices();
+  const relatedServices = allServices.filter((s) => s.id !== service.id).slice(0, 3);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
@@ -102,7 +79,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <ScrollReveal animation="fade-up">
             <div>
               <span className="text-xs font-extrabold uppercase tracking-widest text-brand-violet dark:text-purple-400">
-                {service.category.name}
+                {service.category?.name || "Web Development"}
               </span>
               <h1 className="text-3xl sm:text-4xl font-black text-brand-navy dark:text-white tracking-tight mt-1">
                 {service.name}
@@ -151,7 +128,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {service.features.map((feat) => (
+                {(service.features || []).map((feat) => (
                   <div key={feat.id} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
                     <span className="text-sm font-medium text-slate-700 dark:text-slate-300 leading-snug">
@@ -176,7 +153,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </ScrollReveal>
 
           {/* Service FAQs (if any) */}
-          {service.faqs.length > 0 && (
+          {service.faqs && service.faqs.length > 0 && (
             <ScrollReveal animation="fade-up" delay={400}>
               <div className="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-subtle space-y-4 transition-colors">
                 <h2 className="text-xl font-bold text-brand-navy dark:text-white tracking-tight">

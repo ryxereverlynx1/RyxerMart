@@ -1,8 +1,8 @@
 import React from "react";
-import { db } from "@/lib/db";
 import { HelpCircle, MessageSquare } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { InteractiveFAQAccordion } from "@/components/ui/InteractiveFAQAccordion";
+import { getGeneralFaqs } from "@/lib/catalog";
 
 export const dynamic = "force-dynamic";
 
@@ -13,10 +13,7 @@ export const metadata = {
 };
 
 export default async function FAQPage() {
-  const faqs = await db.generalFAQ.findMany({
-    where: { active: true },
-    orderBy: { displayOrder: "asc" },
-  });
+  const faqs = await getGeneralFaqs();
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-12">

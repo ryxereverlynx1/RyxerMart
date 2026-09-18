@@ -20,16 +20,20 @@ interface OrderSuccessProps {
 export default async function OrderSuccessPage({ params }: OrderSuccessProps) {
   const { orderId } = await params;
 
-  // Query order by orderNumber or ID
-  const order = await db.order.findFirst({
-    where: {
-      OR: [{ orderNumber: orderId }, { id: orderId }],
-    },
-    include: {
-      customer: true,
-      items: true,
-    },
-  });
+  let order = null;
+  try {
+    order = await db.order.findFirst({
+      where: {
+        OR: [{ orderNumber: orderId }, { id: orderId }],
+      },
+      include: {
+        customer: true,
+        items: true,
+      },
+    });
+  } catch (err) {
+    console.error("[Database Notice] Could not fetch order:", err);
+  }
 
   if (!order) {
     notFound();
