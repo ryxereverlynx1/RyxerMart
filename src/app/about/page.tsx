@@ -3,15 +3,37 @@ import Link from "next/link";
 import { ShieldCheck, Code, Smartphone, ArrowRight, MessageSquare } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-export const metadata = {
-  title: "About Us | RyxerMart Web Development",
+import { Metadata } from "next";
+import { getBreadcrumbSchema } from "@/lib/schema";
+
+export const metadata: Metadata = {
+  title: "About Us — India's High-Converting Web Agency | RyxerMart",
   description:
-    "Learn about RyxerMart, an Indian web development and digital solutions company focused on delivering high-performing, affordable websites and e-commerce stores.",
+    "Learn about RyxerMart, an Indian web development and digital solutions company built to deliver high-performing, search-engine-ready websites and online stores without agency markup.",
+  alternates: {
+    canonical: "https://www.ryxer.site/about",
+  },
+  openGraph: {
+    title: "About Us | RyxerMart Web Development",
+    description:
+      "Empowering small businesses and entrepreneurs across India with high-performance websites and e-commerce stores.",
+    url: "https://www.ryxer.site/about",
+    type: "website",
+  },
 };
 
 export default function AboutPage() {
+  const breadcrumbs = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "About Us", url: "/about" },
+  ]);
+
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       {/* Intro Header */}
       <ScrollReveal animation="fade-down">
         <div className="max-w-3xl space-y-4">

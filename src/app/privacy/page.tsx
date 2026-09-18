@@ -4,6 +4,9 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 export const metadata = {
   title: "Privacy Policy | RyxerMart",
   description: "Privacy policy describing how RyxerMart collects, uses, and protects customer inquiry information.",
+  alternates: {
+    canonical: "https://www.ryxer.site/privacy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

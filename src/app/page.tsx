@@ -25,6 +25,7 @@ import { InteractiveHowItWorks } from "@/components/home/InteractiveHowItWorks";
 import { InteractiveWhyCards } from "@/components/home/InteractiveWhyCards";
 import { InteractiveFAQAccordion } from "@/components/ui/InteractiveFAQAccordion";
 import { getActiveServices, getGeneralFaqs } from "@/lib/catalog";
+import { getFaqSchema } from "@/lib/schema";
 
 export const dynamic = "force-dynamic";
 
@@ -34,9 +35,14 @@ export default async function HomePage() {
 
   // Fetch active general FAQs with zero-downtime fallback
   const faqs = await getGeneralFaqs();
+  const faqSchema = getFaqSchema(faqs);
 
   return (
     <div className="space-y-20 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* 1. HERO SECTION */}
       <section className="border-b border-brand-border dark:border-slate-800 bg-gradient-to-b from-white via-brand-ice/40 to-slate-50 dark:from-slate-950 dark:via-brand-dark dark:to-slate-950">
         <HeroInteractive />

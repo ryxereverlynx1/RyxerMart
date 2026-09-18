@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.APP_URL || "https://ryxermart.com";
+  const baseUrl = process.env.APP_URL || "https://www.ryxer.site";
 
   // Fetch all active service slugs from database with fallback
   let services: { slug: string; updatedAt: Date }[] = [];

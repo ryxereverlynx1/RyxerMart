@@ -16,6 +16,8 @@ import {
   ArrowLeft,
 } from "lucide-react";
 
+import { getProductServiceSchema, getBreadcrumbSchema } from "@/lib/schema";
+
 export const dynamic = "force-dynamic";
 
 interface ServicePageProps {
@@ -34,13 +36,35 @@ export async function generateMetadata({
     };
   }
 
+  const title = service.seoTitle || `${service.name} - ₹${service.price.toLocaleString("en-IN")} | RyxerMart`;
+  const description = service.seoDescription || service.shortDescription;
+  const canonicalUrl = `https://www.ryxer.site/services/${slug}`;
+
   return {
-    title: service.seoTitle || `${service.name} Package - ₹${service.price.toLocaleString("en-IN")} | RyxerMart`,
-    description: service.seoDescription || service.shortDescription,
-    keywords: service.seoKeywords ? service.seoKeywords.split(",") : undefined,
+    title,
+    description,
+    keywords: service.seoKeywords ? service.seoKeywords.split(",").map((k) => k.trim()) : undefined,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
-      title: service.name,
-      description: service.shortDescription,
+      title,
+      description,
+      url: canonicalUrl,
+      type: "website",
+      siteName: "RyxerMart",
+      images: [
+        {
+          url: service.thumbnail || "/images/logo.png",
+          alt: service.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [service.thumbnail || "/images/logo.png"],
     },
   };
 }
@@ -54,12 +78,27 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     notFound();
   }
 
+  const productSchema = getProductServiceSchema(service);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Services", url: "/services" },
+    { name: service.name, url: `/services/${service.slug}` },
+  ]);
+
   // Related services in the same category or general
   const allServices = await getActiveServices();
   const relatedServices = allServices.filter((s) => s.id !== service.id).slice(0, 3);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Breadcrumb / Back button */}
       <ScrollReveal animation="fade-down">
         <div>

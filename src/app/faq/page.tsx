@@ -4,19 +4,45 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { InteractiveFAQAccordion } from "@/components/ui/InteractiveFAQAccordion";
 import { getGeneralFaqs } from "@/lib/catalog";
 
+import { Metadata } from "next";
+import { getFaqSchema, getBreadcrumbSchema } from "@/lib/schema";
+
 export const dynamic = "force-dynamic";
 
-export const metadata = {
-  title: "Frequently Asked Questions | RyxerMart",
+export const metadata: Metadata = {
+  title: "Frequently Asked Questions — Web Design, Hosting & WhatsApp Checkout | RyxerMart",
   description:
-    "Everything you need to know about RyxerMart website packages, hosting, domains, WhatsApp ordering, and delivery timelines.",
+    "Everything you need to know about RyxerMart website packages, free hosting, SSL security, WhatsApp checkout, delivery timelines, and post-launch technical support.",
+  alternates: {
+    canonical: "https://www.ryxer.site/faq",
+  },
+  openGraph: {
+    title: "Frequently Asked Questions | RyxerMart",
+    description:
+      "Find quick answers to common questions about RyxerMart web development and e-commerce solutions.",
+    url: "https://www.ryxer.site/faq",
+    type: "website",
+  },
 };
 
 export default async function FAQPage() {
   const faqs = await getGeneralFaqs();
+  const faqSchema = getFaqSchema(faqs);
+  const breadcrumbs = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "FAQ", url: "/faq" },
+  ]);
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
       <ScrollReveal animation="fade-down">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="text-xs font-extrabold uppercase tracking-widest text-brand-violet dark:text-purple-400">

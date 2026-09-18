@@ -7,9 +7,19 @@ import { getActiveServices, getActiveCategories } from "@/lib/catalog";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Website & E-Commerce Packages | RyxerMart",
+  title: "Website & E-Commerce Development Packages | RyxerMart",
   description:
-    "Explore our complete range of website development, e-commerce stores, and digital solutions packages with transparent pricing, SSL, and hosting included.",
+    "Explore our complete range of website development, online stores, and digital solutions packages. Transparent pricing from ₹3,499 with 1 year free SSD cloud hosting, free SSL, and WhatsApp checkout.",
+  alternates: {
+    canonical: "https://www.ryxer.site/services",
+  },
+  openGraph: {
+    title: "Website & E-Commerce Development Packages | RyxerMart",
+    description:
+      "Choose from Starter, Royal, and E-Commerce website development packages with free hosting and SSL included. Transparent Indian agency pricing.",
+    url: "https://www.ryxer.site/services",
+    type: "website",
+  },
 };
 
 export default async function ServicesPage() {

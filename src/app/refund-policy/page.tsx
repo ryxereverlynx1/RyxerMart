@@ -4,6 +4,9 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 export const metadata = {
   title: "Refund & Cancellation Policy | RyxerMart",
   description: "RyxerMart policies on service cancellations, milestone approvals, and revisions.",
+  alternates: {
+    canonical: "https://www.ryxer.site/refund-policy",
+  },
 };
 
 export default function RefundPolicyPage() {
