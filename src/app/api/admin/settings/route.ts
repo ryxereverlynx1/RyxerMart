@@ -3,6 +3,20 @@ import { db } from "@/lib/db";
 import { logAudit } from "@/lib/audit";
 import { getAuthSession } from "@/lib/auth";
 
+const DEFAULT_SETTINGS: Record<string, string> = {
+  business_name: "RyxerMart Web Solutions",
+  business_email: "ryxereverlynx@gmail.com",
+  admin_email: "ryxereverlynx@gmail.com",
+  business_phone: "+91 7719421910",
+  whatsapp_number: "+91 7719421910",
+  business_address: "Jalandhar, Punjab, India",
+  currency: "INR",
+  currency_symbol: "₹",
+  notification_email_enabled: "true",
+  chatbot_enabled: "true",
+  maintenance_mode: "false",
+};
+
 export async function GET() {
   try {
     const settings = await db.setting.findMany();
@@ -11,10 +25,12 @@ export async function GET() {
       return acc;
     }, {} as Record<string, string>);
 
-    return NextResponse.json({ settings: settingsMap });
+    return NextResponse.json({
+      settings: Object.keys(settingsMap).length > 0 ? settingsMap : DEFAULT_SETTINGS,
+    });
   } catch (error) {
-    console.error("Admin settings get error:", error);
-    return NextResponse.json({ error: "Failed to fetch settings" }, { status: 500 });
+    console.warn("[Settings Notice] Database offline or slow, serving default settings:", error);
+    return NextResponse.json({ settings: DEFAULT_SETTINGS });
   }
 }
 

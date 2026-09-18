@@ -122,11 +122,6 @@ export function Footer() {
                   Contact & Support
                 </Link>
               </li>
-              <li>
-                <Link href="/admin/login" className="hover:text-slate-400 text-xs text-slate-600 transition-colors">
-                  Admin Portal
-                </Link>
-              </li>
             </ul>
           </div>
 

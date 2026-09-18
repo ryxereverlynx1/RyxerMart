@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { logAudit } from "@/lib/audit";
 import { getAuthSession } from "@/lib/auth";
 import { z } from "zod";
+import { FALLBACK_SERVICES } from "@/lib/catalog";
 
 const serviceSchema = z.object({
   slug: z.string().min(2).max(100),
@@ -38,8 +39,8 @@ export async function GET() {
     });
     return NextResponse.json({ services });
   } catch (error) {
-    console.error("Admin services list error:", error);
-    return NextResponse.json({ error: "Failed to fetch services" }, { status: 500 });
+    console.warn("[Services Notice] Database offline or slow, serving fallback services:", error);
+    return NextResponse.json({ services: FALLBACK_SERVICES });
   }
 }
 

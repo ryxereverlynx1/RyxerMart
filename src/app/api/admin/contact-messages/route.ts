@@ -9,7 +9,7 @@ export async function GET() {
     });
     return NextResponse.json({ messages });
   } catch (error) {
-    console.error("Admin contact messages error:", error);
-    return NextResponse.json({ error: "Failed to fetch contact messages" }, { status: 500 });
+    console.warn("[Contact Messages Notice] Database offline or slow, serving empty messages:", error);
+    return NextResponse.json({ messages: [] });
   }
 }
