@@ -45,28 +45,66 @@ export async function PUT(request: Request) {
     }
 
     const body = await request.json();
+    if (!body || typeof body !== "object") {
+      return NextResponse.json({ error: "Invalid settings payload" }, { status: 400 });
+    }
 
-    for (const [key, value] of Object.entries(body)) {
-      if (typeof value === "string") {
+    const entries = Object.entries(body);
+    let savedCount = 0;
+
+    for (const [key, rawValue] of entries) {
+      if (rawValue === undefined || rawValue === null) continue;
+      const value = String(rawValue);
+      try {
         await db.setting.upsert({
           where: { key },
           update: { value },
-          create: { key, value },
+          create: { key, value, group: "GENERAL" },
         });
+        savedCount++;
+      } catch (upsertErr) {
+        console.warn(`[Settings Warning] Could not upsert key "${key}":`, upsertErr);
       }
+    }
+
+    // If first pass saved nothing and there were items to save, pause briefly and retry (handles cold start)
+    if (savedCount === 0 && entries.length > 0) {
+      await new Promise((res) => setTimeout(res, 1200));
+      for (const [key, rawValue] of entries) {
+        if (rawValue === undefined || rawValue === null) continue;
+        const value = String(rawValue);
+        try {
+          await db.setting.upsert({
+            where: { key },
+            update: { value },
+            create: { key, value, group: "GENERAL" },
+          });
+          savedCount++;
+        } catch (retryErr) {
+          console.error(`[Settings Error] Retry failed for "${key}":`, retryErr);
+        }
+      }
+    }
+
+    if (savedCount === 0 && entries.length > 0) {
+      return NextResponse.json(
+        { error: "Database was temporarily unreachable during update. Please try again." },
+        { status: 503 }
+      );
     }
 
     await logAudit({
       adminUserId: session.id,
-      adminName: session.name,
+      adminName: session.name || "Admin",
       action: "SETTINGS_UPDATE",
       targetType: "SETTING",
-      metadata: { updatedKeys: Object.keys(body) },
+      metadata: { updatedKeys: Object.keys(body), savedCount },
     });
 
     return NextResponse.json({ success: true, message: "Settings saved successfully" });
   } catch (error) {
     console.error("Admin settings update error:", error);
-    return NextResponse.json({ error: "Failed to update settings" }, { status: 500 });
+    const message = error instanceof Error ? error.message : "Failed to update settings";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

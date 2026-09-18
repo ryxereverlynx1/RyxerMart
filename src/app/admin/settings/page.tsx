@@ -3,8 +3,22 @@
 import React, { useState, useEffect } from "react";
 import { Save, CheckCircle2, RefreshCw, Building } from "lucide-react";
 
+const DEFAULT_FORM_SETTINGS: Record<string, string> = {
+  business_name: "RyxerMart",
+  whatsapp_number: "917719421910",
+  business_email: "ryxereverlynx@gmail.com",
+  admin_email: "ryxereverlynx@gmail.com",
+  phone_number: "+91 7719421910",
+  business_address: "Jalandhar, Punjab, India",
+  website_title: "RyxerMart | Professional Website & E-Commerce Development",
+  website_description: "Grow your business online with professional websites, e-commerce stores, and digital solutions starting at just ₹3,499.",
+  currency_symbol: "₹",
+  instagram_url: "https://instagram.com/ryxermart",
+  facebook_url: "https://facebook.com/ryxermart",
+};
+
 export default function AdminBusinessSettingsPage() {
-  const [settings, setSettings] = useState<Record<string, string>>({});
+  const [settings, setSettings] = useState<Record<string, string>>(DEFAULT_FORM_SETTINGS);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
@@ -13,8 +27,13 @@ export default function AdminBusinessSettingsPage() {
   useEffect(() => {
     fetch("/api/admin/settings")
       .then((res) => res.json())
-      .then((data) => setSettings(data.settings || {}))
-      .catch((err) => console.error("Error loading settings:", err))
+      .then((data) => {
+        setSettings({ ...DEFAULT_FORM_SETTINGS, ...(data.settings || {}) });
+      })
+      .catch((err) => {
+        console.error("Error loading settings:", err);
+        setSettings(DEFAULT_FORM_SETTINGS);
+      })
       .finally(() => setLoading(false));
   }, []);
 

@@ -37,40 +37,49 @@ export async function PUT(request: Request) {
     }
 
     const body = await request.json();
-    const updated = await db.chatbotSetting.upsert({
-      where: { id: "default" },
-      update: {
-        systemPrompt: body.systemPrompt,
-        businessInstructions: body.businessInstructions,
-        restrictions: body.restrictions,
-        tone: body.tone,
-        welcomeMessage: body.welcomeMessage,
-        fallbackMessage: body.fallbackMessage,
-        isEnabled: body.isEnabled !== undefined ? Boolean(body.isEnabled) : true,
-      },
-      create: {
-        id: "default",
-        systemPrompt: body.systemPrompt || "",
-        businessInstructions: body.businessInstructions || "",
-        restrictions: body.restrictions || "",
-        tone: body.tone || "professional",
-        welcomeMessage: body.welcomeMessage || "Hello!",
-        fallbackMessage: body.fallbackMessage || "Contact RyxerMart for details.",
-        isEnabled: body.isEnabled !== undefined ? Boolean(body.isEnabled) : true,
-      },
-    });
+    if (!body || typeof body !== "object") {
+      return NextResponse.json({ error: "Invalid chatbot config payload" }, { status: 400 });
+    }
+
+    const payload = {
+      systemPrompt: body.systemPrompt || "",
+      businessInstructions: body.businessInstructions || "",
+      restrictions: body.restrictions || "",
+      tone: body.tone || "professional",
+      welcomeMessage: body.welcomeMessage || "Hello!",
+      fallbackMessage: body.fallbackMessage || "Contact RyxerMart for details.",
+      isEnabled: body.isEnabled !== undefined ? Boolean(body.isEnabled) : true,
+    };
+
+    let updated: any = null;
+    try {
+      updated = await db.chatbotSetting.upsert({
+        where: { id: "default" },
+        update: payload,
+        create: { id: "default", ...payload },
+      });
+    } catch (upsertErr) {
+      console.warn("[Chatbot Warning] First upsert attempt failed, retrying once:", upsertErr);
+      await new Promise((res) => setTimeout(res, 1200));
+      updated = await db.chatbotSetting.upsert({
+        where: { id: "default" },
+        update: payload,
+        create: { id: "default", ...payload },
+      });
+    }
 
     await logAudit({
       adminUserId: session.id,
-      adminName: session.name,
+      adminName: session.name || "Admin",
       action: "CHATBOT_SETTINGS_UPDATE",
       targetType: "CHATBOT",
-      metadata: { isEnabled: updated.isEnabled },
+      metadata: { isEnabled: updated?.isEnabled },
     });
 
     return NextResponse.json({ success: true, config: updated });
   } catch (error) {
     console.error("Admin chatbot config update error:", error);
-    return NextResponse.json({ error: "Failed to update chatbot config" }, { status: 500 });
+    const message = error instanceof Error ? error.message : "Failed to update chatbot config";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
