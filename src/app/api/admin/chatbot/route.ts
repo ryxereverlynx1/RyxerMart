@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { runWithDbFallback } from "@/lib/db";
 import { logAudit } from "@/lib/audit";
 import { getAuthSession } from "@/lib/auth";
 
@@ -16,9 +16,11 @@ const DEFAULT_CHATBOT_CONFIG = {
 
 export async function GET() {
   try {
-    const config = await db.chatbotSetting.findUnique({
-      where: { id: "default" },
-    });
+    const config = await runWithDbFallback((client) =>
+      client.chatbotSetting.findUnique({
+        where: { id: "default" },
+      })
+    );
     return NextResponse.json({ config: config || DEFAULT_CHATBOT_CONFIG });
   } catch (error) {
     console.warn("[Chatbot Notice] Database offline or slow, serving default config:", error);
@@ -51,22 +53,13 @@ export async function PUT(request: Request) {
       isEnabled: body.isEnabled !== undefined ? Boolean(body.isEnabled) : true,
     };
 
-    let updated: any = null;
-    try {
-      updated = await db.chatbotSetting.upsert({
+    const updated = await runWithDbFallback((client) =>
+      client.chatbotSetting.upsert({
         where: { id: "default" },
         update: payload,
         create: { id: "default", ...payload },
-      });
-    } catch (upsertErr) {
-      console.warn("[Chatbot Warning] First upsert attempt failed, retrying once:", upsertErr);
-      await new Promise((res) => setTimeout(res, 1200));
-      updated = await db.chatbotSetting.upsert({
-        where: { id: "default" },
-        update: payload,
-        create: { id: "default", ...payload },
-      });
-    }
+      })
+    );
 
     await logAudit({
       adminUserId: session.id,

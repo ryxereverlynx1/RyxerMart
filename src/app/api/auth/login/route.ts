@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { db, runWithDbFallback } from "@/lib/db";
 import { verifyPassword, createSessionToken, AUTH_COOKIE_NAME } from "@/lib/auth";
 import { logAudit } from "@/lib/audit";
 import { checkRateLimit } from "@/lib/rate-limit";
@@ -37,9 +37,11 @@ export async function POST(request: Request) {
 
     let user: any = null;
     try {
-      user = await db.adminUser.findUnique({
-        where: { email: email.toLowerCase() },
-      });
+      user = await runWithDbFallback((client) =>
+        client.adminUser.findUnique({
+          where: { email: email.toLowerCase() },
+        })
+      );
     } catch (dbError) {
       console.warn("[Auth Notice] Database offline or unreachable during login check:", dbError);
     }
@@ -95,10 +97,12 @@ export async function POST(request: Request) {
     // Try updating lastLoginAt if db is available
     try {
       if (user.id !== "root-admin-ryxer") {
-        await db.adminUser.update({
-          where: { id: user.id },
-          data: { lastLoginAt: new Date() },
-        });
+        await runWithDbFallback((client) =>
+          client.adminUser.update({
+            where: { id: user.id },
+            data: { lastLoginAt: new Date() },
+          })
+        );
       }
     } catch (err) {
       console.warn("[Auth Notice] Could not update lastLoginAt:", err);

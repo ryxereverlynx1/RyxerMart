@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { runWithDbFallback } from "@/lib/db";
 import { logAudit } from "@/lib/audit";
 import { getAuthSession } from "@/lib/auth";
 
@@ -19,7 +19,7 @@ const DEFAULT_SETTINGS: Record<string, string> = {
 
 export async function GET() {
   try {
-    const settings = await db.setting.findMany();
+    const settings = await runWithDbFallback((client) => client.setting.findMany());
     const settingsMap = settings.reduce((acc, curr) => {
       acc[curr.key] = curr.value;
       return acc;
@@ -51,44 +51,29 @@ export async function PUT(request: Request) {
 
     const entries = Object.entries(body);
     let savedCount = 0;
+    let lastError = "";
 
     for (const [key, rawValue] of entries) {
       if (rawValue === undefined || rawValue === null) continue;
       const value = String(rawValue);
       try {
-        await db.setting.upsert({
-          where: { key },
-          update: { value },
-          create: { key, value, group: "GENERAL" },
-        });
-        savedCount++;
-      } catch (upsertErr) {
-        console.warn(`[Settings Warning] Could not upsert key "${key}":`, upsertErr);
-      }
-    }
-
-    // If first pass saved nothing and there were items to save, pause briefly and retry (handles cold start)
-    if (savedCount === 0 && entries.length > 0) {
-      await new Promise((res) => setTimeout(res, 1200));
-      for (const [key, rawValue] of entries) {
-        if (rawValue === undefined || rawValue === null) continue;
-        const value = String(rawValue);
-        try {
-          await db.setting.upsert({
+        await runWithDbFallback((client) =>
+          client.setting.upsert({
             where: { key },
             update: { value },
             create: { key, value, group: "GENERAL" },
-          });
-          savedCount++;
-        } catch (retryErr) {
-          console.error(`[Settings Error] Retry failed for "${key}":`, retryErr);
-        }
+          })
+        );
+        savedCount++;
+      } catch (upsertErr) {
+        lastError = upsertErr instanceof Error ? upsertErr.message : String(upsertErr);
+        console.warn(`[Settings Warning] Could not upsert key "${key}":`, upsertErr);
       }
     }
 
     if (savedCount === 0 && entries.length > 0) {
       return NextResponse.json(
-        { error: "Database was temporarily unreachable during update. Please try again." },
+        { error: `Database update failed: ${lastError || "Connection timed out"}. Please check your database connection.` },
         { status: 503 }
       );
     }
