@@ -1,0 +1,24 @@
+# RyxerMart
+
+> Modern, ultra-fast, mobile-first websites and custom e-commerce stores engineered for Indian businesses and entrepreneurs.
+
+## Overview
+RyxerMart is an Indian web development agency based in Jalandhar, Punjab, delivering high-converting, SEO-optimized business websites and online stores starting at ₹3,499. Every package includes 1 year free high-speed SSD cloud hosting, free SSL security certificates, mobile responsiveness, and direct WhatsApp customer ordering workflows.
+
+## Website & Packages
+- [Home](https://www.ryxer.site): Agency showcase, packages overview, and live WhatsApp consultation.
+- [Services Catalog](https://www.ryxer.site/services): Full catalog of fixed-price website packages and digital solutions.
+- [Starter Website Package](https://www.ryxer.site/services/starter-website): ₹3,499. 5–10 pages, mobile-first design, WhatsApp ordering, free 1-year hosting & SSL.
+- [Royal Website Package](https://www.ryxer.site/services/royal-website): ₹5,499. 10–15 pages, custom admin panel, premium animations, SEO setup, lead capture.
+- [Ecommerce Starter Package](https://www.ryxer.site/services/ecommerce-starter): ₹9,999. Full online store, product catalog, cart, WhatsApp & online checkout, order notifications.
+- [Ecommerce Premium Package](https://www.ryxer.site/services/ecommerce-premium): ₹14,999. Enterprise store, unlimited inventory, coupon engine, priority support SLA.
+- [How Ordering Works](https://www.ryxer.site/#how-it-works): 3–5 day delivery cycle with direct developer contact.
+- [FAQ](https://www.ryxer.site/faq): Answers to questions regarding hosting renewal, domain integration, SSL, and revisions.
+- [Contact Desk](https://www.ryxer.site/contact): Instant WhatsApp chat and email consultation.
+
+## Contact & Location
+- WhatsApp: +91 7719421910
+- Email: ryxereverlynx@gmail.com
+- Location: Jalandhar, Punjab, India (Serving clients nationwide across India)
+- Currency: INR (₹)
+- Payment Methods: UPI, Net Banking, Credit/Debit Cards, Bank Transfer

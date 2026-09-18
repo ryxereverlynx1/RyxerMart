@@ -15,6 +15,9 @@ const DEFAULT_FORM_SETTINGS: Record<string, string> = {
   currency_symbol: "₹",
   instagram_url: "https://instagram.com/ryxermart",
   facebook_url: "https://facebook.com/ryxermart",
+  google_search_console_token: "",
+  google_analytics_id: "",
+  bing_webmaster_token: "",
 };
 
 export default function AdminBusinessSettingsPage() {
@@ -240,6 +243,56 @@ export default function AdminBusinessSettingsPage() {
               onChange={(e) => handleChange("website_description", e.target.value)}
               className="w-full px-3.5 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-850 focus:outline-none focus:ring-2 focus:ring-brand-violet resize-none"
             />
+          </div>
+
+          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-brand-violet dark:text-purple-400">
+              Webmaster & Search Console Verification
+            </h3>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                Google Search Console Verification Token / Content
+              </label>
+              <input
+                type="text"
+                value={settings.google_search_console_token || ""}
+                onChange={(e) => handleChange("google_search_console_token", e.target.value)}
+                placeholder="e.g. googlee8371948291f09c2 or content from meta tag"
+                className="w-full px-3.5 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-850 focus:outline-none focus:ring-2 focus:ring-brand-violet font-mono text-xs"
+              />
+              <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-1">
+                Paste the token code from Google Search Console (from the HTML Tag or HTML file option).
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  Google Analytics 4 Measurement ID
+                </label>
+                <input
+                  type="text"
+                  value={settings.google_analytics_id || ""}
+                  onChange={(e) => handleChange("google_analytics_id", e.target.value)}
+                  placeholder="G-XXXXXXXXXX"
+                  className="w-full px-3.5 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-850 focus:outline-none focus:ring-2 focus:ring-brand-violet font-mono text-xs"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  Bing Webmaster Verification Code
+                </label>
+                <input
+                  type="text"
+                  value={settings.bing_webmaster_token || ""}
+                  onChange={(e) => handleChange("bing_webmaster_token", e.target.value)}
+                  placeholder="e.g. 1234567890ABCDEF"
+                  className="w-full px-3.5 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-850 focus:outline-none focus:ring-2 focus:ring-brand-violet font-mono text-xs"
+                />
+              </div>
+            </div>
           </div>
         </div>
 

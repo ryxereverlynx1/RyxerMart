@@ -7,7 +7,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { ChatbotWidget } from "@/components/chat/ChatbotWidget";
-import { getOrganizationSchema, getWebsiteSchema } from "@/lib/schema";
+import { getOrganizationSchema, getWebsiteSchema, getSiteNavigationSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ryxer.site"),
@@ -32,10 +32,15 @@ export const metadata: Metadata = {
     "ryxer site",
     "fast loading business website",
     "best web design agency",
+    "website designer jalandhar",
+    "website developer punjab",
+    "online store maker india",
   ],
   authors: [{ name: "RyxerMart Web Solutions", url: "https://www.ryxer.site" }],
   creator: "RyxerMart",
   publisher: "RyxerMart",
+  category: "technology",
+  classification: "Business, Web Development Agency, E-Commerce Solutions",
   formatDetection: {
     email: false,
     address: false,
@@ -43,6 +48,12 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.ryxer.site",
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "googlee8371948291f09c2",
+    other: {
+      "msvalidate.01": process.env.BING_SITE_VERIFICATION || "",
+    },
   },
   openGraph: {
     title: "RyxerMart | Professional Website & E-Commerce Development",
@@ -93,11 +104,24 @@ export default function RootLayout({
 }>) {
   const orgSchema = getOrganizationSchema();
   const websiteSchema = getWebsiteSchema();
+  const siteNavSchema = getSiteNavigationSchema();
 
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <meta name="color-scheme" content="dark light" />
+        {/* Geo-targeting for Indian Local & National Search */}
+        <meta name="geo.region" content="IN-PB" />
+        <meta name="geo.placename" content="Jalandhar, Punjab" />
+        <meta name="geo.position" content="31.3260;75.5762" />
+        <meta name="ICBM" content="31.3260, 75.5762" />
+        {/* Global Distribution & Crawl Frequency */}
+        <meta name="distribution" content="Global" />
+        <meta name="rating" content="General" />
+        <meta name="revisit-after" content="2 days" />
+        <meta name="target" content="all" />
+
+        {/* Structured Data Schemas */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
@@ -105,6 +129,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavSchema) }}
         />
         <script
           dangerouslySetInnerHTML={{

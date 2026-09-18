@@ -4,22 +4,23 @@ import { db } from "@/lib/db";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.APP_URL || "https://www.ryxer.site";
+  const baseUrl = "https://www.ryxer.site";
+  const defaultLogo = `${baseUrl}/images/logo.png`;
 
-  // Fetch all active service slugs from database with fallback
-  let services: { slug: string; updatedAt: Date }[] = [];
+  // Fetch all active service packages from database with resilient fallback
+  let services: { slug: string; updatedAt: Date; thumbnail?: string | null }[] = [];
   try {
     services = await db.service.findMany({
       where: { active: true },
-      select: { slug: true, updatedAt: true },
+      select: { slug: true, updatedAt: true, thumbnail: true },
     });
   } catch (err) {
     console.warn("Could not query services for sitemap during build:", err);
     services = [
-      { slug: "starter-website", updatedAt: new Date() },
-      { slug: "royal-website", updatedAt: new Date() },
-      { slug: "ecommerce-starter", updatedAt: new Date() },
-      { slug: "ecommerce-premium", updatedAt: new Date() },
+      { slug: "starter-website", updatedAt: new Date(), thumbnail: null },
+      { slug: "royal-website", updatedAt: new Date(), thumbnail: null },
+      { slug: "ecommerce-starter", updatedAt: new Date(), thumbnail: null },
+      { slug: "ecommerce-premium", updatedAt: new Date(), thumbnail: null },
     ];
   }
 
@@ -27,32 +28,37 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${baseUrl}`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: "daily",
       priority: 1.0,
+      images: [defaultLogo],
     },
     {
       url: `${baseUrl}/services`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: "daily",
       priority: 0.9,
+      images: [defaultLogo],
     },
     {
-      url: `${baseUrl}/about`,
+      url: `${baseUrl}/faq`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
+      changeFrequency: "weekly",
+      priority: 0.8,
+      images: [defaultLogo],
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
+      images: [defaultLogo],
     },
     {
-      url: `${baseUrl}/faq`,
+      url: `${baseUrl}/about`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.7,
+      changeFrequency: "monthly",
+      priority: 0.75,
+      images: [defaultLogo],
     },
     {
       url: `${baseUrl}/privacy`,
@@ -74,12 +80,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => ({
-    url: `${baseUrl}/services/${s.slug}`,
-    lastModified: s.updatedAt,
-    changeFrequency: "weekly",
-    priority: 0.85,
-  }));
+  const serviceRoutes: MetadataRoute.Sitemap = services.map((s) => {
+    const imageUrl = s.thumbnail
+      ? s.thumbnail.startsWith("http")
+        ? s.thumbnail
+        : `${baseUrl}${s.thumbnail}`
+      : defaultLogo;
+
+    return {
+      url: `${baseUrl}/services/${s.slug}`,
+      lastModified: s.updatedAt,
+      changeFrequency: "weekly",
+      priority: 0.85,
+      images: [imageUrl],
+    };
+  });
 
   return [...staticRoutes, ...serviceRoutes];
 }

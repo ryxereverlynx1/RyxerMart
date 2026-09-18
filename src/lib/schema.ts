@@ -192,3 +192,46 @@ export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
     })),
   };
 }
+
+export function getSiteNavigationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SiteNavigationElement",
+        "@id": `${SITE_URL}/#nav-services`,
+        name: "Website Packages & Catalog",
+        description: "Browse all transparently priced website and e-commerce development packages starting from ₹3,499.",
+        url: `${SITE_URL}/services`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": `${SITE_URL}/#nav-how-it-works`,
+        name: "How Ordering Works",
+        description: "Learn about RyxerMart's rapid 3–5 day development, review, and deployment cycle.",
+        url: `${SITE_URL}/#how-it-works`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": `${SITE_URL}/#nav-faq`,
+        name: "Frequently Asked Questions",
+        description: "Comprehensive answers regarding free hosting, SSL, domain setup, revisions, and post-launch support.",
+        url: `${SITE_URL}/faq`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": `${SITE_URL}/#nav-about`,
+        name: "About RyxerMart",
+        description: "Professional web and e-commerce development agency engineering digital growth for Indian businesses.",
+        url: `${SITE_URL}/about`,
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": `${SITE_URL}/#nav-contact`,
+        name: "Contact & Consultation Desk",
+        description: "Get in touch via direct WhatsApp consultation or email for custom project estimates.",
+        url: `${SITE_URL}/contact`,
+      },
+    ],
+  };
+}

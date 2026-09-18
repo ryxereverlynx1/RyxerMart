@@ -1,0 +1,77 @@
+# RyxerMart — Full Agency & Package Specification
+
+## Company Information
+- Name: RyxerMart (RyxerMart Web Solutions)
+- Website: https://www.ryxer.site
+- Slogan: Build Your Business Online & Fast.
+- Primary Focus: Affordable, enterprise-quality web design, dynamic e-commerce stores, and software solutions for Indian SMEs, startups, and service professionals.
+- Location: Jalandhar, Punjab, India (Remote & nationwide delivery throughout India).
+- Contact: ryxereverlynx@gmail.com | WhatsApp: +91 7719421910
+- Working Hours: Monday to Saturday, 09:00 AM - 08:00 PM IST
+
+## Core Value Propositions
+1. Fixed, 100% Transparent Pricing: No unexpected invoices or hidden maintenance fees.
+2. Free 1-Year Cloud Hosting: High-speed SSD servers included with automatic SSL certificates.
+3. Rapid 3–5 Day Delivery: Quick project turnaround from initial brief to live launch.
+4. Direct WhatsApp Coordination: Fast, direct communication with developers without bureaucracy.
+5. Mobile-First & Speed Optimized: Scores 90+ on Google PageSpeed Insights, built with Next.js and Tailwind CSS.
+6. Search Engine Ready: Pre-configured OpenGraph social previews, Schema.org rich snippets, and Google Search Console sitemaps.
+
+## Service Packages & Specifications
+
+### 1. Starter Website Package
+- Price: ₹3,499 (Fixed one-time)
+- Delivery Time: 3 business days
+- Pages: 5–10 responsive pages (Home, Services, About, Contact, Gallery/Portfolio)
+- Features:
+  - Mobile, tablet, and desktop responsive layout
+  - 1 Year Free High-Speed Cloud SSD Hosting
+  - Free SSL Security Certificate (HTTPS)
+  - Direct WhatsApp Enquiry Integration
+  - Google Maps & Contact Form setup
+  - On-page SEO fundamentals (meta tags, titles, sitemap)
+  - 30 Days Free Technical Support
+
+### 2. Royal Website Package
+- Price: ₹5,499 (Fixed one-time)
+- Delivery Time: 3–5 business days
+- Pages: 10–15 customized pages
+- Features:
+  - Custom UI/UX design with smooth micro-interactions
+  - 1 Year Free Cloud Hosting & SSL Certificate
+  - Custom Admin Dashboard to manage pages and leads
+  - WhatsApp Direct Chat & Interactive Contact Forms
+  - Local SEO optimization & Google Business profile setup assistance
+  - Priority bug fixes & 60 Days Free Support
+
+### 3. Ecommerce Starter Package
+- Price: ₹9,999 (Fixed one-time)
+- Delivery Time: 5 business days
+- Capacity: Full online storefront with up to 100 products
+- Features:
+  - Product catalog, category filters, and live search
+  - Shopping cart with persistent local storage
+  - WhatsApp Direct Checkout & UPI / Razorpay payment gateway options
+  - Real-time admin order notifications
+  - 1 Year Free High-Performance Cloud Hosting & SSL
+  - 60 Days Free Technical Support
+
+### 4. Ecommerce Premium Package
+- Price: ₹14,999 (Fixed one-time)
+- Delivery Time: 7–10 business days
+- Capacity: Unlimited products and categories
+- Features:
+  - Full-featured custom eCommerce platform
+  - Advanced inventory management and order status tracking
+  - Coupon, discount code, and banner promo engines
+  - Customer order notification emails & WhatsApp confirmations
+  - Integrated analytics and revenue reports
+  - 1 Year Enterprise Cloud Hosting & 90 Days SLA Technical Support
+
+## Technical Architecture
+- Framework: Next.js (App Router, Server Components)
+- Language: TypeScript
+- Styling: Tailwind CSS
+- Database: PostgreSQL (Neon Serverless) with Prisma ORM
+- Deployment: Vercel Edge Network
+- Performance: Core Web Vitals optimized, responsive SVG/WebP graphics

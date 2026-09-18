@@ -10,6 +10,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: "/:file(google[a-zA-Z0-9_-]+\\.html)",
+        destination: "/api/google-verify?file=:file",
+      },
+    ];
+  },
   async headers() {
     return [
       {
