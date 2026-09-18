@@ -188,18 +188,6 @@
     animation: shimmer 3.5s infinite;
   }
 
-  /* Word Mask Stagger Reveal */
-  .word-mask {
-    display: inline-block;
-    overflow: hidden;
-    vertical-align: bottom;
-  }
-  .word-mask > span {
-    display: inline-block;
-    transform: translateY(110%);
-    animation: mask-reveal 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
   /* Cart Item Exiting Animation */
   .cart-item-exiting {
     transform: translateX(100%);
