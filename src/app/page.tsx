@@ -38,17 +38,19 @@ export default async function HomePage() {
   const faqSchema = getFaqSchema(faqs);
 
   return (
-    <div className="space-y-20 pb-20">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+
       {/* 1. HERO SECTION */}
-      <section className="border-b border-brand-border dark:border-slate-800 bg-gradient-to-b from-white via-brand-ice/40 to-slate-50 dark:from-slate-950 dark:via-brand-dark dark:to-slate-950">
+      <section className="border-b border-brand-border dark:border-slate-800 bg-gradient-to-b from-white via-brand-ice/40 to-slate-50 dark:from-slate-900 dark:via-brand-dark dark:to-slate-950">
         <HeroInteractive />
       </section>
 
-      {/* 2. SERVICES SECTION */}
+      <div className="space-y-20 py-16 md:py-20">
+        {/* 2. SERVICES SECTION */}
       <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal animation="fade-up">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
@@ -228,6 +230,7 @@ export default async function HomePage() {
           </ScrollReveal>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

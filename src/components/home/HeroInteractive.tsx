@@ -8,7 +8,7 @@ export function HeroInteractive() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <div className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 transition-colors">
+    <div className="relative overflow-hidden pt-8 pb-16 sm:pt-12 md:pt-16 md:pb-24 transition-colors">
       {/* Dynamic Multi-layered Ambient Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
         {/* Drifting ambient blue and purple blobs */}

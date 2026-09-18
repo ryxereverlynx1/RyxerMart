@@ -90,7 +90,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const relatedServices = allServices.filter((s) => s.id !== service.id).slice(0, 3);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
@@ -99,8 +99,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      {/* Breadcrumb / Back button */}
-      <ScrollReveal animation="fade-down">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+        {/* Breadcrumb / Back button */}
+        <ScrollReveal animation="fade-down">
         <div>
           <Link
             href="/services"
@@ -241,6 +242,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 }

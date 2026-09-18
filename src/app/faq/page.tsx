@@ -34,7 +34,7 @@ export default async function FAQPage() {
   ]);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-12">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -43,7 +43,8 @@ export default async function FAQPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <ScrollReveal animation="fade-down">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-12">
+        <ScrollReveal animation="fade-down">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="text-xs font-extrabold uppercase tracking-widest text-brand-violet dark:text-purple-400">
             Help & Guidance
@@ -79,6 +80,7 @@ export default async function FAQPage() {
           </a>
         </div>
       </ScrollReveal>
-    </div>
+      </div>
+    </>
   );
 }

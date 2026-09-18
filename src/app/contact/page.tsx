@@ -29,12 +29,13 @@ export default function ContactPage() {
   ]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-12">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <ScrollReveal animation="fade-down">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-12">
+        <ScrollReveal animation="fade-down">
         <div className="max-w-3xl">
           <span className="text-xs font-extrabold uppercase tracking-widest text-brand-violet dark:text-purple-400">
             Get in Touch
@@ -127,6 +128,7 @@ export default function ContactPage() {
           </ScrollReveal>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

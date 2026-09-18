@@ -29,13 +29,14 @@ export default function AboutPage() {
   ]);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-16">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      {/* Intro Header */}
-      <ScrollReveal animation="fade-down">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-16">
+        {/* Intro Header */}
+        <ScrollReveal animation="fade-down">
         <div className="max-w-3xl space-y-4">
           <span className="text-xs font-extrabold uppercase tracking-widest text-brand-violet dark:text-purple-400">
             About RyxerMart
@@ -120,6 +121,7 @@ export default function AboutPage() {
           </div>
         </div>
       </ScrollReveal>
-    </div>
+      </div>
+    </>
   );
 }
