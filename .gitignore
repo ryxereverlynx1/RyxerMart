@@ -20,6 +20,7 @@
 # Local database
 *.db
 *.db-journal
+/scratch
 
 # Debug logs
 npm-debug.log*
