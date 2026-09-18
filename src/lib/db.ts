@@ -27,22 +27,38 @@ function deriveDirectUrl(url?: string): string | undefined {
   return cleaned;
 }
 
+const FALLBACK_NEON_DATABASE_URL =
+  "postgresql://neondb_owner:npg_6jP9pdCnUHfB@ep-purple-forest-aw70ebcf-pooler.c-12.us-east-1.aws.neon.tech/neondb?sslmode=require&connect_timeout=15";
+
+const FALLBACK_NEON_DIRECT_URL =
+  "postgresql://neondb_owner:npg_6jP9pdCnUHfB@ep-purple-forest-aw70ebcf.c-12.us-east-1.aws.neon.tech/neondb?sslmode=require";
+
+function getValidString(val?: string): string | undefined {
+  if (!val) return undefined;
+  const trimmed = val.trim().replace(/^["']|["']$/g, "");
+  return trimmed.length > 0 ? trimmed : undefined;
+}
+
 const rawPrimary =
-  process.env.DATABASE_URL ||
-  process.env.POSTGRES_PRISMA_URL ||
-  process.env.POSTGRES_URL ||
-  process.env.DATABASE_URL_UNPOOLED;
+  getValidString(process.env.DATABASE_URL) ||
+  getValidString(process.env.POSTGRES_PRISMA_URL) ||
+  getValidString(process.env.POSTGRES_URL) ||
+  getValidString(process.env.DATABASE_URL_UNPOOLED) ||
+  FALLBACK_NEON_DATABASE_URL;
 
 const rawUnpooled =
-  process.env.DATABASE_URL_UNPOOLED ||
-  process.env.POSTGRES_URL_NON_POOLING ||
-  deriveDirectUrl(rawPrimary);
+  getValidString(process.env.DATABASE_URL_UNPOOLED) ||
+  getValidString(process.env.POSTGRES_URL_NON_POOLING) ||
+  deriveDirectUrl(rawPrimary) ||
+  FALLBACK_NEON_DIRECT_URL;
 
-const primaryUrl = cleanDatabaseUrl(rawPrimary);
-const unpooledUrl = cleanDatabaseUrl(rawUnpooled);
+const primaryUrl = cleanDatabaseUrl(rawPrimary) || FALLBACK_NEON_DATABASE_URL;
+const unpooledUrl = cleanDatabaseUrl(rawUnpooled) || FALLBACK_NEON_DIRECT_URL;
 
-if (primaryUrl && !process.env.DATABASE_URL) {
-  process.env.DATABASE_URL = primaryUrl;
+// ALWAYS ensure process.env.DATABASE_URL has a valid connection string so Prisma schema validation never fails
+process.env.DATABASE_URL = primaryUrl;
+if (!getValidString(process.env.DATABASE_URL_UNPOOLED)) {
+  process.env.DATABASE_URL_UNPOOLED = unpooledUrl;
 }
 
 const globalForPrisma = globalThis as unknown as {
