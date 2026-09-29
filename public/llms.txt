@@ -5,6 +5,11 @@
 ## Overview
 RyxerMart is an Indian web development agency based in Jalandhar, Punjab, delivering high-converting, SEO-optimized business websites and online stores starting at ₹3,499. Every package includes 1 year free high-speed SSD cloud hosting, free SSL security certificates, mobile responsiveness, and direct WhatsApp customer ordering workflows.
 
+## Entity Names, Brand Aliases & Phonetic Spellings
+- Official Entity: RyxerMart (RyxerMart Web Solutions)
+- Alternative Spellings & Typo Queries: Ryxer Mart, Ryzer Mart, RyzerMart, Rixer Mart, RixerMart, Ryser Mart, Rysermart, Ryxar Mart, Ryxer, Ryzer, ryxer.site, ryzer.site
+- Primary Canonical Website: https://ryxer.site
+
 ## Website & Packages
 - [Home](https://ryxer.site): Agency showcase, packages overview, and live WhatsApp consultation.
 - [Services Catalog](https://ryxer.site/services): Full catalog of fixed-price website packages and digital solutions.

@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { ChatbotWidget } from "@/components/chat/ChatbotWidget";
 import { getOrganizationSchema, getWebsiteSchema, getSiteNavigationSchema } from "@/lib/schema";
+import { SEO_KEYWORDS } from "@/lib/keywords";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ryxer.site"),
@@ -16,26 +17,8 @@ export const metadata: Metadata = {
     template: "%s | RyxerMart",
   },
   description:
-    "RyxerMart builds modern, ultra-fast, mobile-first business websites and e-commerce stores starting at ₹3,499. Includes 1 year free high-speed SSD cloud hosting, free SSL security certificate, WhatsApp direct checkout, and 3–5 day delivery.",
-  keywords: [
-    "website development india",
-    "ecommerce website development",
-    "web design company punjab",
-    "custom business website",
-    "affordable website package",
-    "whatsapp ecommerce store",
-    "starter website package",
-    "royal website package",
-    "nextjs website design",
-    "seo friendly web development",
-    "ryxermart",
-    "ryxer site",
-    "fast loading business website",
-    "best web design agency",
-    "website designer jalandhar",
-    "website developer punjab",
-    "online store maker india",
-  ],
+    "RyxerMart (Ryxer Mart) builds modern, ultra-fast, mobile-first business websites and e-commerce stores starting at ₹3,499. Includes 1 year free high-speed SSD cloud hosting, free SSL security certificate, WhatsApp direct checkout, and 3–5 day delivery.",
+  keywords: SEO_KEYWORDS,
   authors: [{ name: "RyxerMart Web Solutions", url: "https://ryxer.site" }],
   creator: "RyxerMart",
   publisher: "RyxerMart",

@@ -220,6 +220,14 @@ export const FALLBACK_FAQS: GeneralFAQDTO[] = [
     displayOrder: 4,
     active: true,
   },
+  {
+    id: "faq-5",
+    question: "Is RyxerMart also written or searched as Ryxer Mart or Ryzer Mart?",
+    answer: "Yes. RyxerMart is frequently written with a space as 'Ryxer Mart' and searched with phonetic variations like 'Ryzer Mart', 'RyzerMart', or 'RixerMart'. The official website and verified agency domain is https://ryxer.site. We build modern business websites and WhatsApp e-commerce stores starting at ₹3,499 with 1 year free hosting and SSL included.",
+    category: "General & Branding",
+    displayOrder: 5,
+    active: true,
+  },
 ];
 
 export async function getActiveServices(): Promise<ServiceDTO[]> {

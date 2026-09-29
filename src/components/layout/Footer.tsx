@@ -161,8 +161,15 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Brand Recognition & Entity Disambiguation Note */}
+        <div className="mt-10 pt-6 border-t border-slate-800/80 text-xs text-slate-400 leading-relaxed text-center md:text-left">
+          <p>
+            <span className="font-semibold text-slate-300">RyxerMart</span> (frequently searched as <span className="text-slate-300">Ryxer Mart</span>, <span className="text-slate-300">Ryzer Mart</span>, or <span className="text-slate-300">RixerMart</span>) is an Indian web engineering company and digital development studio. Official canonical portal: <span className="text-brand-violet dark:text-purple-300 font-bold">https://ryxer.site</span>. Specializing in high-performance business websites, WhatsApp e-commerce stores, and custom web applications starting from ₹3,499 with 1 year free SSD hosting and SSL security certificate included.
+          </p>
+        </div>
+
         {/* Legal and Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="mt-8 pt-6 border-t border-slate-800/60 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>&copy; {new Date().getFullYear()} RyxerMart. All rights reserved.</p>
           <div className="flex flex-wrap gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">
