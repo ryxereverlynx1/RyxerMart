@@ -54,7 +54,7 @@ export function ChatbotWidget() {
     {
       id: "welcome",
       role: "model",
-      text: "Hello! Welcome to RyxerMart. I am your customer guidance assistant. How can I assist you with website development or e-commerce packages today?",
+      text: "Hello! Welcome to Ryxer Mart. I am your customer guidance assistant. How can I assist you with website development or e-commerce packages today?",
     },
   ]);
   const [input, setInput] = useState("");

@@ -87,7 +87,7 @@ export function Navbar() {
             >
               <Image
                 src="/images/logo.png"
-                alt="RyxerMart Web Solutions - Web Development & E-Commerce Agency"
+                alt="Ryxer Mart — Web Development & E-Commerce Agency"
                 fill
                 sizes="48px"
                 className="object-contain group-hover:scale-110 group-hover:rotate-1 transition-all duration-300"
@@ -96,7 +96,7 @@ export function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="text-xl sm:text-2xl font-black tracking-tight leading-none text-brand-navy dark:text-white transition-colors group-hover:text-brand-royal dark:group-hover:text-indigo-200">
-                RYXER<span className="text-brand-violet group-hover:text-brand-violet-hover">MART</span>
+                RYXER <span className="text-brand-violet group-hover:text-brand-violet-hover">MART</span>
               </span>
               <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-slate-500 dark:text-slate-400 mt-0.5 transition-colors">
                 Web Development Solutions
@@ -142,7 +142,7 @@ export function Navbar() {
 
             {/* WhatsApp Quick CTA */}
             <a
-              href="https://wa.me/917719421910?text=Hello%20RyxerMart%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+              href="https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 text-xs font-bold text-brand-navy dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-700 rounded-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] btn-shimmer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet"
@@ -208,7 +208,7 @@ export function Navbar() {
               <ThemeToggle showLabel />
             </div>
             <a
-              href="https://wa.me/917719421910?text=Hello%20RyxerMart%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+              href="https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-brand-navy dark:bg-brand-royal text-white rounded-lg text-sm font-bold shadow-subtle hover:opacity-95 transition-opacity active:scale-98"

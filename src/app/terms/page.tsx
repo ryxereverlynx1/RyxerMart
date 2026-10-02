@@ -2,8 +2,8 @@ import React from "react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata = {
-  title: "Terms and Conditions | RyxerMart",
-  description: "Terms of service and service development conditions for RyxerMart customers.",
+  title: "Terms and Conditions",
+  description: "Terms of service and website development conditions for Ryxer Mart clients.",
   alternates: {
     canonical: "https://ryxer.site/terms",
   },

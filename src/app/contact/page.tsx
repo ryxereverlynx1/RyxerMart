@@ -7,16 +7,17 @@ import { Metadata } from "next";
 import { getBreadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Website Consultation & Direct WhatsApp Support | RyxerMart",
+  title: "Contact Us — Website Consultation & Direct WhatsApp Support",
   description:
-    "Get in touch with RyxerMart for instant website quotes, e-commerce stores, and digital solutions. Contact us via WhatsApp (+91 7719421910), direct phone, or email.",
+    "Get in touch with Ryxer Mart for instant website quotes, e-commerce stores, and digital solutions. Contact us via WhatsApp (+91 7719421910), direct phone, or email.",
   alternates: {
     canonical: "https://ryxer.site/contact",
   },
   openGraph: {
-    title: "Contact RyxerMart | Start Your Web Project",
+    title: "Contact Ryxer Mart | Start Your Web Project",
     description: "Message our web engineering team on WhatsApp or submit a query for custom web development.",
     url: "https://ryxer.site/contact",
+    siteName: "Ryxer Mart",
     type: "website",
   },
 };
@@ -40,7 +41,7 @@ export default function ContactPage() {
             Get in Touch
           </span>
           <h1 className="text-3xl sm:text-4xl font-black text-brand-navy dark:text-white tracking-tight mt-1">
-            Contact RyxerMart
+            Contact Ryxer Mart
           </h1>
           <p className="text-base text-slate-600 dark:text-slate-300 mt-2">
             Have questions about our website packages, customized requirements, or enterprise development? We are here to help.
@@ -110,7 +111,7 @@ export default function ContactPage() {
                   Fastest way to get project advice and quick turnaround estimates.
                 </p>
                 <a
-                  href="https://wa.me/917719421910"
+                  href="https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20would%20like%20to%20discuss%20a%20website%20project."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-3 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 active:scale-98"

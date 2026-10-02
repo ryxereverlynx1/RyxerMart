@@ -9,19 +9,20 @@ import { CartDrawer } from "@/components/cart/CartDrawer";
 import { ChatbotWidget } from "@/components/chat/ChatbotWidget";
 import { getOrganizationSchema, getWebsiteSchema, getSiteNavigationSchema } from "@/lib/schema";
 import { SEO_KEYWORDS } from "@/lib/keywords";
+import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ryxer.site"),
+  metadataBase: new URL(BRAND.websiteUrl),
   title: {
-    default: "RyxerMart | Professional Website, E-Commerce & Web Solutions Agency",
-    template: "%s | RyxerMart",
+    default: "Ryxer Mart — Website & E-Commerce Development Services",
+    template: "%s | Ryxer Mart",
   },
   description:
-    "RyxerMart (Ryxer Mart) builds modern, ultra-fast, mobile-first business websites and e-commerce stores starting at ₹3,499. Includes 1 year free high-speed SSD cloud hosting, free SSL security certificate, WhatsApp direct checkout, and 3–5 day delivery.",
+    "Ryxer Mart builds professional websites, e-commerce stores, and custom web solutions for businesses starting at ₹3,499. Includes 1 year free SSD hosting, SSL certificate, and WhatsApp ordering.",
   keywords: SEO_KEYWORDS,
-  authors: [{ name: "RyxerMart Web Solutions", url: "https://ryxer.site" }],
-  creator: "RyxerMart",
-  publisher: "RyxerMart",
+  authors: [{ name: BRAND.legalName, url: BRAND.websiteUrl }],
+  creator: BRAND.name,
+  publisher: BRAND.name,
   category: "technology",
   classification: "Business, Web Development Agency, E-Commerce Solutions",
   formatDetection: {
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: "https://ryxer.site",
+    canonical: BRAND.websiteUrl,
   },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION || process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "googlee8371948291f09c2",
@@ -39,35 +40,35 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "RyxerMart | Professional Website & E-Commerce Development",
+    title: "Ryxer Mart — Professional Website & E-Commerce Development",
     description:
       "Modern, fast, mobile-friendly websites and online stores built for Indian businesses. Starting at ₹3,499 with 1 year free hosting and SSL included.",
-    url: "https://ryxer.site",
-    siteName: "RyxerMart",
+    url: BRAND.websiteUrl,
+    siteName: BRAND.name,
     locale: "en_IN",
     type: "website",
     images: [
       {
-        url: "https://ryxer.site/images/og-image.png",
+        url: BRAND.ogImageUrl,
         width: 1200,
         height: 630,
         type: "image/png",
-        alt: "RyxerMart | Professional Website, E-Commerce & Web Solutions Agency",
+        alt: `${BRAND.name} — Professional Website, E-Commerce & Web Solutions Agency`,
       },
       {
-        url: "https://ryxer.site/images/logo.png",
+        url: BRAND.logoUrl,
         width: 512,
         height: 512,
         type: "image/png",
-        alt: "RyxerMart Web Solutions Agency Logo",
+        alt: `${BRAND.name} Official Logo`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RyxerMart | Web Development & E-Commerce Solutions",
+    title: "Ryxer Mart — Web Development & E-Commerce Solutions",
     description: "Launch your business online with affordable, high-converting websites starting at ₹3,499.",
-    images: ["https://ryxer.site/images/og-image.png"],
+    images: [BRAND.ogImageUrl],
   },
   robots: {
     index: true,

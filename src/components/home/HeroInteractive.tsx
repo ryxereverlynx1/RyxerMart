@@ -45,23 +45,17 @@ export function HeroInteractive() {
                 <Sparkles className="w-3.5 h-3.5 animate-pulse text-brand-violet dark:text-purple-400" />
                 <span>Reliable Indian Web Development Agency</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/40 text-[11px] font-semibold text-amber-800 dark:text-amber-300 shadow-subtle">
-                <div className="flex items-center gap-0.5">
-                  <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                  <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                  <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                  <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                  <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                </div>
-                <span>4.9/5 Rating (120+ Businesses)</span>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 text-[11px] font-semibold text-emerald-800 dark:text-emerald-300 shadow-subtle">
+                <CheckCircle className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                <span>1 Year Free Hosting &amp; SSL Included</span>
               </div>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-brand-navy dark:text-white tracking-tight leading-[1.12]">
-              Build Your Business <br className="hidden sm:inline" />
+              Build Your Business Online &amp; Fast{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-violet via-purple-400 to-indigo-400">
-                Online &amp; Fast.
+                with Ryxer Mart.
               </span>
             </h1>
 
@@ -80,7 +74,7 @@ export function HeroInteractive() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
               <a
-                href="https://wa.me/917719421910?text=Hello%20RyxerMart%2C%20I%20would%20like%20to%20discuss%20a%20website%20project%20for%20my%20business."
+                href="https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20would%20like%20to%20discuss%20a%20website%20project%20for%20my%20business."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-brand-navy dark:text-slate-200 text-base font-bold rounded-xl border border-slate-200 dark:border-slate-700 shadow-subtle hover:border-emerald-400 dark:hover:border-emerald-500/50 transition-all duration-200 flex items-center justify-center gap-2.5 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet"

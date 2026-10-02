@@ -1,91 +1,55 @@
-export const SITE_URL = "https://ryxer.site";
+import { BRAND } from "@/lib/brand";
+
+export const SITE_URL = BRAND.websiteUrl;
 
 export function getOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": ["Organization", "ProfessionalService"],
     "@id": `${SITE_URL}/#organization`,
-    name: "RyxerMart",
-    legalName: "RyxerMart Web Solutions",
-    alternateName: [
-      "Ryxer Mart",
-      "Ryzer Mart",
-      "RyzerMart",
-      "Rixer Mart",
-      "RixerMart",
-      "Ryser Mart",
-      "Rysermart",
-      "Ryxar Mart",
-      "Ryxar",
-      "Ryzer",
-      "Ryxer",
-      "ryxer.site",
-      "ryzer.site",
-      "RyxerMart Web Solutions",
-      "Ryzer Mart Web Solutions",
-      "RyxerMart Agency",
-      "Ryzer Mart Agency",
-    ],
-    disambiguatingDescription:
-      "RyxerMart (frequently searched as Ryxer Mart, Ryzer Mart, or RixerMart) is an Indian web development and e-commerce agency offering complete website packages with free hosting and SSL starting at ₹3,499.",
+    name: BRAND.name,
+    legalName: BRAND.legalName,
+    alternateName: BRAND.alternateNames,
+    disambiguatingDescription: BRAND.disambiguatingDescription,
     url: SITE_URL,
     logo: {
       "@type": "ImageObject",
       "@id": `${SITE_URL}/#logo`,
-      url: `${SITE_URL}/images/logo.png`,
-      caption: "RyxerMart Official Logo",
+      url: BRAND.logoUrl,
+      caption: `${BRAND.name} Official Logo`,
       width: "512",
       height: "512",
     },
-    image: `${SITE_URL}/images/og-image.png`,
-    description:
-      "Leading website design, e-commerce development, and digital web solutions agency in India. High-performing, SEO-optimized business websites starting at ₹3,499 with 1 year free high-speed hosting and SSL certificate.",
-    telephone: "+91 7719421910",
-    email: "ryxereverlynx@gmail.com",
-    priceRange: "₹3,499 - ₹14,999",
-    currenciesAccepted: "INR",
-    paymentAccepted: "UPI, Bank Transfer, Net Banking, Credit Card, Debit Card",
+    image: BRAND.ogImageUrl,
+    description: BRAND.description,
+    telephone: BRAND.phone,
+    email: BRAND.email,
+    priceRange: BRAND.priceRange,
+    currenciesAccepted: BRAND.currenciesAccepted,
+    paymentAccepted: BRAND.paymentAccepted,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Jalandhar",
-      addressRegion: "Punjab",
-      addressCountry: "IN",
+      addressLocality: BRAND.address.locality,
+      addressRegion: BRAND.address.region,
+      addressCountry: BRAND.address.country,
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 31.3260,
-      longitude: 75.5762,
+      latitude: BRAND.geo.latitude,
+      longitude: BRAND.geo.longitude,
     },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-        ],
-        opens: "09:00",
-        closes: "20:00",
+        dayOfWeek: BRAND.openingHours.days,
+        opens: BRAND.openingHours.opens,
+        closes: BRAND.openingHours.closes,
       },
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "128",
-      bestRating: "5",
-      worstRating: "1",
-    },
-    sameAs: [
-      "https://instagram.com/ryxermart",
-      "https://facebook.com/ryxermart",
-      "https://github.com/ryxereverlynx1/RyxerMart",
-    ],
+    sameAs: BRAND.socialProfiles,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "RyxerMart Web Development Packages",
+      name: `${BRAND.name} Web Development Packages`,
       itemListElement: [
         {
           "@type": "Offer",
@@ -138,21 +102,8 @@ export function getWebsiteSchema() {
     "@type": "WebSite",
     "@id": `${SITE_URL}/#website`,
     url: SITE_URL,
-    name: "RyxerMart",
-    alternateName: [
-      "Ryxer Mart",
-      "Ryzer Mart",
-      "RyzerMart",
-      "Rixer Mart",
-      "RixerMart",
-      "Ryser Mart",
-      "Rysermart",
-      "Ryxar Mart",
-      "Ryzer",
-      "Ryxer",
-      "ryxer.site",
-      "ryzer.site",
-    ],
+    name: BRAND.name,
+    alternateName: ["RyxerMart", "Ryzer Mart", "RyzerMart"],
     description: "Professional Website & E-Commerce Solutions for Growing Indian Businesses",
     publisher: {
       "@id": `${SITE_URL}/#organization`,
@@ -193,13 +144,14 @@ export function getProductServiceSchema(service: {
 }) {
   return {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
     name: service.name,
     description: service.shortDescription,
     image: `${SITE_URL}${service.thumbnail || "/images/logo.png"}`,
-    brand: {
-      "@type": "Brand",
-      name: "RyxerMart",
+    provider: {
+      "@type": "ProfessionalService",
+      "@id": `${SITE_URL}/#organization`,
+      name: BRAND.name,
     },
     offers: {
       "@type": "Offer",
@@ -211,13 +163,6 @@ export function getProductServiceSchema(service: {
       seller: {
         "@id": `${SITE_URL}/#organization`,
       },
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "48",
-      bestRating: "5",
-      worstRating: "1",
     },
   };
 }
@@ -250,7 +195,7 @@ export function getSiteNavigationSchema() {
         "@type": "SiteNavigationElement",
         "@id": `${SITE_URL}/#nav-how-it-works`,
         name: "How Ordering Works",
-        description: "Learn about RyxerMart's rapid 3–5 day development, review, and deployment cycle.",
+        description: `Learn about ${BRAND.name}'s rapid 3–5 day development, review, and deployment cycle.`,
         url: `${SITE_URL}/#how-it-works`,
       },
       {
@@ -263,7 +208,7 @@ export function getSiteNavigationSchema() {
       {
         "@type": "SiteNavigationElement",
         "@id": `${SITE_URL}/#nav-about`,
-        name: "About RyxerMart",
+        name: `About ${BRAND.name}`,
         description: "Professional web and e-commerce development agency engineering digital growth for Indian businesses.",
         url: `${SITE_URL}/about`,
       },

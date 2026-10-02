@@ -2,8 +2,8 @@ import React from "react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata = {
-  title: "Privacy Policy | RyxerMart",
-  description: "Privacy policy describing how RyxerMart collects, uses, and protects customer inquiry information.",
+  title: "Privacy Policy",
+  description: "Privacy policy describing how Ryxer Mart collects, uses, and protects customer inquiry information.",
   alternates: {
     canonical: "https://ryxer.site/privacy",
   },

@@ -33,6 +33,9 @@ export function ServiceFormEditor({
     supportInfo: initialData?.supportInfo || "30 Days Free Technical Support",
     warrantyPeriod: initialData?.warrantyPeriod || "30 Days Warranty",
     tags: initialData?.tags || "",
+    seoTitle: initialData?.seoTitle || "",
+    seoDescription: initialData?.seoDescription || "",
+    seoKeywords: initialData?.seoKeywords || "",
     featured: initialData?.featured || false,
     active: initialData?.active !== undefined ? initialData.active : true,
     displayOrder: initialData?.displayOrder ? String(initialData.displayOrder) : "0",
@@ -422,6 +425,59 @@ export function ServiceFormEditor({
             value={formData.tags}
             onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
             placeholder="starter, business, ecommerce, responsive"
+            className="w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:bg-white dark:focus:bg-slate-850 focus:outline-none focus:ring-2 focus:ring-brand-violet"
+          />
+        </div>
+      </div>
+
+      {/* Search Engine Optimization (SEO) */}
+      <div className="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-subtle space-y-4 transition-colors">
+        <div className="border-b border-slate-100 dark:border-slate-800 pb-3">
+          <h2 className="text-base font-bold text-brand-navy dark:text-white">
+            Search Engine Optimization (SEO)
+          </h2>
+          <p className="text-xs text-slate-500 dark:text-slate-400">
+            Define custom meta titles, descriptions, and search keywords for Google indexation.
+          </p>
+        </div>
+
+        <div>
+          <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+            SEO Meta Title
+          </label>
+          <input
+            type="text"
+            value={formData.seoTitle}
+            onChange={(e) => setFormData({ ...formData, seoTitle: e.target.value })}
+            placeholder="e.g. Starter Website Package - ₹3,499 | Ryxer Mart"
+            className="w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:bg-white dark:focus:bg-slate-850 focus:outline-none focus:ring-2 focus:ring-brand-violet"
+          />
+          <p className="text-[11px] text-slate-500 mt-1">Leave blank to use default auto-generated title.</p>
+        </div>
+
+        <div>
+          <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+            SEO Meta Description
+          </label>
+          <textarea
+            rows={2}
+            value={formData.seoDescription}
+            onChange={(e) => setFormData({ ...formData, seoDescription: e.target.value })}
+            placeholder="e.g. Get a professional 5-10 page responsive business website with 1 year free hosting, SSL, and WhatsApp chat setup for ₹3,499 from Ryxer Mart."
+            className="w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:bg-white dark:focus:bg-slate-850 focus:outline-none focus:ring-2 focus:ring-brand-violet"
+          />
+          <p className="text-[11px] text-slate-500 mt-1">Recommended length: 140–160 characters.</p>
+        </div>
+
+        <div>
+          <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+            SEO Target Keywords (Comma separated)
+          </label>
+          <input
+            type="text"
+            value={formData.seoKeywords}
+            onChange={(e) => setFormData({ ...formData, seoKeywords: e.target.value })}
+            placeholder="e.g. website design, small business website, ryxer mart, ryzer mart"
             className="w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:bg-white dark:focus:bg-slate-850 focus:outline-none focus:ring-2 focus:ring-brand-violet"
           />
         </div>

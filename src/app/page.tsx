@@ -105,7 +105,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 4. WHY RYXERMART */}
+      {/* 4. WHY RYXER MART */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal animation="fade-up">
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -113,7 +113,7 @@ export default async function HomePage() {
               Engineered for Real Businesses
             </span>
             <h2 className="text-3xl font-black text-brand-navy dark:text-white tracking-tight mt-1">
-              Why Businesses Choose RyxerMart
+              Why Businesses Choose Ryxer Mart
             </h2>
             <p className="text-slate-600 dark:text-slate-300 text-sm mt-1">
               We focus on tangible business outcomes: fast performance, clear customer communication, and clean maintainable code.
@@ -210,7 +210,7 @@ export default async function HomePage() {
                       For immediate questions regarding packages and quotations, message our support lead.
                     </p>
                     <a
-                      href="https://wa.me/917719421910?text=Hello%20RyxerMart%2C%20I%20have%20a%20question%20about%20your%20services."
+                      href="https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20have%20a%20question%20about%20your%20services."
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 mt-2 text-xs font-bold text-emerald-800 dark:text-emerald-300 hover:underline group"

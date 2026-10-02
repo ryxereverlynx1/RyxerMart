@@ -22,7 +22,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "Googlebot",
         allow: "/",
-        disallow: ["/admin/", "/api/admin/", "/checkout", "/cart"],
+        disallow: ["/admin/", "/api/admin/", "/checkout", "/cart", "/order-success"],
       },
       {
         userAgent: "Googlebot-Image",
@@ -31,7 +31,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "Bingbot",
         allow: "/",
-        disallow: ["/admin/", "/api/admin/", "/checkout", "/cart"],
+        disallow: ["/admin/", "/api/admin/", "/checkout", "/cart", "/order-success"],
       },
       {
         userAgent: [

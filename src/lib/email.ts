@@ -74,8 +74,8 @@ export async function sendNewOrderEmail(
   const fromEmail =
     process.env.SMTP_FROM ||
     (process.env.SMTP_USER
-      ? `RyxerMart <${process.env.SMTP_USER}>`
-      : `RyxerMart <ryxereverlynx@gmail.com>`);
+      ? `Ryxer Mart <${process.env.SMTP_USER}>`
+      : `Ryxer Mart <ryxereverlynx@gmail.com>`);
 
   const transporter = createTransporter();
 
@@ -128,7 +128,7 @@ export async function sendNewOrderEmail(
         <div class="container">
           <div class="header">
             <span class="badge">New Order / Service Enquiry</span>
-            <h1 style="margin: 8px 0 0 0; font-size: 24px; font-weight: 700;">RYXERMART</h1>
+            <h1 style="margin: 8px 0 0 0; font-size: 24px; font-weight: 700;">RYXER MART</h1>
             <p style="margin: 4px 0 0 0; font-size: 14px; opacity: 0.85;">Order #${data.orderNumber}</p>
           </div>
           <div class="content">
@@ -204,7 +204,7 @@ export async function sendNewOrderEmail(
             </div>
           </div>
           <div class="footer">
-            RyxerMart Commerce Platform &copy; ${new Date().getFullYear()} RyxerMart. Confidential business notice.
+            Ryxer Mart Commerce Platform &copy; ${new Date().getFullYear()} Ryxer Mart. Confidential business notice.
           </div>
         </div>
       </body>
@@ -228,7 +228,7 @@ export async function sendNewOrderEmail(
     await transporter.sendMail({
       from: fromEmail,
       to: adminEmail,
-      subject: `[New RyxerMart Order] #${data.orderNumber} - ${data.customerName} (₹${data.total.toLocaleString("en-IN")})`,
+      subject: `[New Ryxer Mart Order] #${data.orderNumber} - ${data.customerName} (₹${data.total.toLocaleString("en-IN")})`,
       html: htmlContent,
     });
 

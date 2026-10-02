@@ -10,17 +10,18 @@ import { getFaqSchema, getBreadcrumbSchema } from "@/lib/schema";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions — Web Design, Hosting & WhatsApp Checkout | RyxerMart",
+  title: "Frequently Asked Questions — Web Design, Hosting & WhatsApp Checkout",
   description:
-    "Everything you need to know about RyxerMart website packages, free hosting, SSL security, WhatsApp checkout, delivery timelines, and post-launch technical support.",
+    "Everything you need to know about Ryxer Mart website packages, free hosting, SSL security, WhatsApp checkout, delivery timelines, and post-launch technical support.",
   alternates: {
     canonical: "https://ryxer.site/faq",
   },
   openGraph: {
-    title: "Frequently Asked Questions | RyxerMart Web Solutions",
+    title: "Frequently Asked Questions | Ryxer Mart",
     description:
-      "Find answers about website packages, pricing, delivery timelines, hosting, SSL, and direct WhatsApp project execution.",
+      "Find answers about website packages, pricing, delivery timelines, hosting, SSL, and direct WhatsApp project execution from Ryxer Mart.",
     url: "https://ryxer.site/faq",
+    siteName: "Ryxer Mart",
     type: "website",
   },
 };
@@ -71,7 +72,7 @@ export default async function FAQPage() {
             Our customer support desk is available on WhatsApp to answer any specific questions about your business requirements.
           </p>
           <a
-            href="https://wa.me/917719421910?text=Hello%20RyxerMart%2C%20I%20have%20a%20question%20not%20covered%20in%20the%20FAQ."
+            href="https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20have%20a%20question%20not%20covered%20in%20the%20FAQ."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 active:scale-98"

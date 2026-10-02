@@ -2,10 +2,14 @@ import React from "react";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 
 export const metadata = {
-  title: "Admin Panel | RyxerMart",
+  title: "Admin Panel | Ryxer Mart",
   robots: {
     index: false,
     follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
   },
 };
 

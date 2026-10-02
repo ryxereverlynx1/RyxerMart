@@ -2,8 +2,8 @@ import React from "react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export const metadata = {
-  title: "Refund & Cancellation Policy | RyxerMart",
-  description: "RyxerMart policies on service cancellations, milestone approvals, and revisions.",
+  title: "Refund & Cancellation Policy",
+  description: "Ryxer Mart policies on service cancellations, milestone approvals, and revisions.",
   alternates: {
     canonical: "https://ryxer.site/refund-policy",
   },

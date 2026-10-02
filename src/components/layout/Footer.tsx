@@ -33,7 +33,7 @@ export function Footer() {
               Browse Packages <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="https://wa.me/917719421910?text=Hello%20RyxerMart%2C%20I%20would%20like%20to%20discuss%20a%20website%20project."
+              href="https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20would%20like%20to%20discuss%20a%20website%20project."
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white text-sm font-bold rounded-lg transition-colors border border-white/20 flex items-center gap-2"
@@ -52,18 +52,18 @@ export function Footer() {
               <div className="relative w-10 h-10 overflow-hidden rounded bg-white p-1">
                 <Image
                   src="/images/logo.png"
-                  alt="RyxerMart Web Solutions - Affordable Web Design Agency Logo"
+                  alt="Ryxer Mart — Web Development & E-Commerce Agency"
                   fill
                   sizes="40px"
                   className="object-contain"
                 />
               </div>
               <span className="text-2xl font-black tracking-tight text-white">
-                RYXER<span className="text-brand-violet">MART</span>
+                RYXER <span className="text-brand-violet">MART</span>
               </span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed pr-4">
-              RyxerMart provides high-impact website development, custom e-commerce stores, and digital web solutions designed specifically for Indian businesses, startups, and service providers. Transparent pricing with no hidden agency fees.
+              Ryxer Mart provides high-impact website development, custom e-commerce stores, and digital web solutions designed specifically for Indian businesses, startups, and service providers. Transparent pricing with no hidden agency fees.
             </p>
             <div className="pt-2 text-xs text-slate-400 flex items-center gap-2">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
@@ -105,7 +105,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm text-slate-400">
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
-                  About RyxerMart
+                  About Ryxer Mart
                 </Link>
               </li>
               <li>
@@ -164,13 +164,13 @@ export function Footer() {
         {/* Brand Recognition & Entity Disambiguation Note */}
         <div className="mt-10 pt-6 border-t border-slate-800/80 text-xs text-slate-400 leading-relaxed text-center md:text-left">
           <p>
-            <span className="font-semibold text-slate-300">RyxerMart</span> (frequently searched as <span className="text-slate-300">Ryxer Mart</span>, <span className="text-slate-300">Ryzer Mart</span>, or <span className="text-slate-300">RixerMart</span>) is an Indian web engineering company and digital development studio. Official canonical portal: <span className="text-brand-violet dark:text-purple-300 font-bold">https://ryxer.site</span>. Specializing in high-performance business websites, WhatsApp e-commerce stores, and custom web applications starting from ₹3,499 with 1 year free SSD hosting and SSL security certificate included.
+            <span className="font-semibold text-slate-300">Ryxer Mart</span> (frequently searched as <span className="text-slate-300">RyxerMart</span>, <span className="text-slate-300">Ryzer Mart</span>, or <span className="text-slate-300">RyzerMart</span>) is an Indian web engineering company and digital development studio. Official canonical portal: <span className="text-brand-violet dark:text-purple-300 font-bold">https://ryxer.site</span>. Specializing in high-performance business websites, WhatsApp e-commerce stores, and custom web applications starting from ₹3,499 with 1 year free SSD hosting and SSL security certificate included.
           </p>
         </div>
 
         {/* Legal and Bottom Bar */}
         <div className="mt-8 pt-6 border-t border-slate-800/60 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>&copy; {new Date().getFullYear()} RyxerMart. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Ryxer Mart. All rights reserved.</p>
           <div className="flex flex-wrap gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">
               Privacy Policy

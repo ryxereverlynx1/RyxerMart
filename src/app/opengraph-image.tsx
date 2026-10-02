@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "RyxerMart | Professional Website, E-Commerce & Web Solutions Agency";
+export const alt = "Ryxer Mart — Professional Website, E-Commerce & Web Solutions Agency";
 export const size = {
   width: 1200,
   height: 630,
@@ -53,7 +53,7 @@ export default async function Image() {
               letterSpacing: "-0.5px",
             }}
           >
-            RyxerMart
+            Ryxer Mart
           </span>
           <span
             style={{

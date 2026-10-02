@@ -32,11 +32,14 @@ export async function generateMetadata({
 
   if (!service || !service.active) {
     return {
-      title: "Service Not Found | RyxerMart",
+      title: "Service Not Found",
     };
   }
 
-  const title = service.seoTitle || `${service.name} - ₹${service.price.toLocaleString("en-IN")} | RyxerMart`;
+  const rawTitle = service.seoTitle || `${service.name} - ₹${service.price.toLocaleString("en-IN")}`;
+  const title = rawTitle.includes("Ryxer")
+    ? { absolute: rawTitle.replace(/RyxerMart/g, "Ryxer Mart") }
+    : rawTitle;
   const description = service.seoDescription || service.shortDescription;
   const canonicalUrl = `https://ryxer.site/services/${slug}`;
 
@@ -48,21 +51,21 @@ export async function generateMetadata({
       canonical: canonicalUrl,
     },
     openGraph: {
-      title,
+      title: typeof title === "string" ? `${title} | Ryxer Mart` : title.absolute,
       description,
       url: canonicalUrl,
       type: "website",
-      siteName: "RyxerMart",
+      siteName: "Ryxer Mart",
       images: [
         {
           url: service.thumbnail || "/images/logo.png",
-          alt: service.name,
+          alt: `${service.name} - Ryxer Mart`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: typeof title === "string" ? `${title} | Ryxer Mart` : title.absolute,
       description,
       images: [service.thumbnail || "/images/logo.png"],
     },

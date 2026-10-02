@@ -25,6 +25,7 @@ const serviceSchema = z.object({
   tags: z.string().optional().nullable(),
   seoTitle: z.string().optional().nullable(),
   seoDescription: z.string().optional().nullable(),
+  seoKeywords: z.string().optional().nullable(),
   features: z.array(z.string()).optional().default([]),
 });
 
