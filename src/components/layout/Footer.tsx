@@ -91,6 +91,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/web-development-jalandhar" className="hover:text-white transition-colors text-emerald-400 font-medium">
+                  Jalandhar Web Development
+                </Link>
+              </li>
+              <li>
                 <Link href="/services" className="hover:text-white transition-colors text-purple-400 font-semibold inline-flex items-center gap-1.5 group">
                   <span>All Service Packages</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
@@ -106,6 +111,11 @@ export function Footer() {
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
                   About Ryxer Mart
+                </Link>
+              </li>
+              <li>
+                <Link href="/web-development-jalandhar" className="hover:text-white transition-colors">
+                  Jalandhar Location Hub
                 </Link>
               </li>
               <li>
@@ -132,7 +142,9 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm text-slate-400">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-brand-violet flex-shrink-0 mt-0.5" />
-                <span>Jalandhar, Punjab, India</span>
+                <Link href="/web-development-jalandhar" className="hover:text-white transition-colors underline decoration-dotted decoration-slate-600">
+                  Jalandhar, Punjab, India
+                </Link>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-brand-violet flex-shrink-0" />
@@ -164,7 +176,7 @@ export function Footer() {
         {/* Brand Recognition & Entity Disambiguation Note */}
         <div className="mt-10 pt-6 border-t border-slate-800/80 text-xs text-slate-400 leading-relaxed text-center md:text-left">
           <p>
-            <span className="font-semibold text-slate-300">Ryxer Mart</span> (frequently searched as <span className="text-slate-300">RyxerMart</span>, <span className="text-slate-300">Ryzer Mart</span>, or <span className="text-slate-300">RyzerMart</span>) is an Indian web engineering company and digital development studio. Official canonical portal: <span className="text-brand-violet dark:text-purple-300 font-bold">https://ryxer.site</span>. Specializing in high-performance business websites, WhatsApp e-commerce stores, and custom web applications starting from ₹3,499 with 1 year free SSD hosting and SSL security certificate included.
+            <span className="font-semibold text-slate-300">Ryxer Mart</span> (frequently searched as <span className="text-slate-300">RyxerMart</span>, <span className="text-slate-300">Ryzer Mart</span>, or <span className="text-slate-300">RyzerMart</span>) is an Indian web engineering company and digital development studio headquartered in <Link href="/web-development-jalandhar" className="text-slate-200 hover:text-white underline decoration-brand-violet font-semibold">Jalandhar, Punjab, India</Link>. Official canonical portal: <span className="text-brand-violet dark:text-purple-300 font-bold">https://ryxer.site</span>. Specializing in high-performance business websites, WhatsApp e-commerce stores, and custom web applications starting from ₹3,499 with 1 year free SSD hosting and SSL security certificate included.
           </p>
         </div>
 

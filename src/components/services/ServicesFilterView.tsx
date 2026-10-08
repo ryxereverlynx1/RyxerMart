@@ -4,7 +4,7 @@ import React, { useState, useMemo } from "react";
 import { ServiceDTO, CategoryDTO } from "@/types";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Search, X, Star, RotateCcw } from "lucide-react";
+import { Search, X, Star, RotateCcw, Sparkles, MapPin } from "lucide-react";
 
 interface ServicesFilterViewProps {
   initialServices: ServiceDTO[];
@@ -20,6 +20,16 @@ export function ServicesFilterView({
   const [selectedPricingType, setSelectedPricingType] = useState("all");
   const [sortBy, setSortBy] = useState<"recommended" | "price_asc" | "price_desc" | "newest">("recommended");
   const [featuredOnly, setFeaturedOnly] = useState(false);
+
+  const BRAND_LOCATION_TERMS = ["ryzer", "ryzermart", "ryxer", "ryxermart", "rixer", "rixermart", "ryser", "jalandhar", "punjab", "website"];
+  
+  const isBrandOrLocationQuery = Boolean(
+    searchQuery.trim() &&
+    BRAND_LOCATION_TERMS.some((term) => {
+      const q = searchQuery.toLowerCase().trim();
+      return q.includes(term) || term.includes(q);
+    })
+  );
 
   const filteredServices = useMemo(() => {
     return initialServices
@@ -39,9 +49,16 @@ export function ServicesFilterView({
           return false;
         }
 
-        // Search query
+        // Search query with Brand Typo & Local Geo awareness
         if (searchQuery.trim()) {
           const q = searchQuery.toLowerCase().trim();
+          const matchesBrandOrLocation = BRAND_LOCATION_TERMS.some((t) => q.includes(t) || t.includes(q));
+
+          // If searching for brand variations (Ryzer Mart, Ryxer) or location (Jalandhar, Punjab), show all matching catalog items
+          if (matchesBrandOrLocation) {
+            return true;
+          }
+
           const matchName = service.name.toLowerCase().includes(q);
           const matchDesc = service.shortDescription.toLowerCase().includes(q);
           const matchTags = service.tags?.toLowerCase().includes(q);
@@ -202,6 +219,18 @@ export function ServicesFilterView({
           </div>
         </div>
       </ScrollReveal>
+
+      {/* Brand Typo & Local Location Search Notice Banner */}
+      {isBrandOrLocationQuery && (
+        <div className="p-4 bg-brand-violet/10 dark:bg-purple-950/40 border border-brand-violet/30 dark:border-purple-800 rounded-2xl text-xs sm:text-sm text-brand-navy dark:text-purple-200 flex items-start sm:items-center gap-3 animate-fade-in">
+          <Sparkles className="w-5 h-5 text-brand-violet dark:text-purple-400 flex-shrink-0 mt-0.5 sm:mt-0" />
+          <div className="flex-1">
+            <p>
+              Showing official packages for &ldquo;<strong>{searchQuery}</strong>&rdquo;. <strong>Ryxer Mart</strong> (commonly searched as <strong>Ryzer Mart</strong> or <strong>RyxerMart</strong>) is headquartered in <strong>Jalandhar, Punjab</strong>.
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Results Header */}
       <div className="flex items-center justify-between">

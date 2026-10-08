@@ -1,5 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
+import Link from "next/link";
+import { MapPin } from "lucide-react";
 import { ServicesFilterView } from "@/components/services/ServicesFilterView";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { getActiveServices, getActiveCategories } from "@/lib/catalog";
@@ -41,6 +43,19 @@ export default async function ServicesPage() {
           <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-2 leading-relaxed">
             Select from our transparently priced service packages. Every package includes responsive design, free SSL, free hosting options, and full WhatsApp enquiry setup.
           </p>
+          <div className="mt-3 flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+            <MapPin className="w-3.5 h-3.5 text-brand-violet dark:text-purple-400 flex-shrink-0" />
+            <span>
+              Looking for local web design in Punjab? View our dedicated{" "}
+              <Link
+                href="/web-development-jalandhar"
+                className="text-brand-violet dark:text-purple-400 font-bold hover:underline"
+              >
+                Jalandhar Web Development Hub
+              </Link>
+              .
+            </span>
+          </div>
         </div>
       </ScrollReveal>
 

@@ -29,6 +29,7 @@ CRITICAL SECURITY INVARIANTS:
    - If an answer is unknown or not covered in the catalog, state: "I don't have that specific detail right now. Please reach out to our team on WhatsApp or submit a contact enquiry, and our web engineers will assist you directly."
 6. Ordering & Payments: Ryxer Mart does NOT accept online card payments on this website in v1. Explain that users can add services to their cart and click "Send Order on WhatsApp" to connect directly with the team.
 7. Tone: Helpful, clear, professional, transparent, and direct. Avoid excessive hype or robotic filler.
+8. Brand Typo & Location Knowledge: Ryxer Mart is headquartered in Jalandhar, Punjab, India (serving businesses locally in Jalandhar, Ludhiana, Amritsar, Chandigarh, and nationwide across India). If a user searches for or refers to "Ryzer Mart", "Ryzer", or "RyxerMart", warmly confirm that Ryxer Mart is the official company name (frequently searched as Ryzer Mart due to identical phonetic sound) and that they are on the official website.
 `;
 
 export async function POST(request: Request) {
@@ -138,11 +139,11 @@ ${faqContext}
       // Graceful fallback when API key is not yet configured
       return NextResponse.json({
         reply:
-          "Hello! I am the Ryxer Mart guidance assistant. We currently offer three primary packages:\n\n" +
+          "Hello! I am the Ryxer Mart guidance assistant, based in Jalandhar, Punjab (also searched as Ryzer Mart). We build fast, mobile-friendly websites with 1 year free SSD cloud hosting and SSL included:\n\n" +
           "1. **Starter Website (₹3,499)**: 5–10 pages, 1 year free hosting, SSL, Google Maps, and WhatsApp enquiry setup.\n" +
           "2. **Royal Website (₹5,499 - Most Popular)**: 15–20 pages, dedicated Admin Panel, 1 year hosting, and WhatsApp E-commerce.\n" +
           "3. **Ecommerce Starter (₹9,999)**: Full online store with product catalog, cart, wishlist, coupons, and sales dashboard.\n\n" +
-          "You can add any package directly to your cart or click 'Talk on WhatsApp' to discuss your custom requirements with our team!",
+          "You can add any package directly to your cart or click 'Talk on WhatsApp' to discuss your custom requirements directly with our team!",
       });
     }
 

@@ -28,8 +28,10 @@ export const BRAND = {
   whatsappUrl: "https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20would%20like%20to%20discuss%20a%20website%20project.",
   email: "ryxereverlynx@gmail.com",
   address: {
+    streetAddress: "Model Town / Civil Lines",
     locality: "Jalandhar",
     region: "Punjab",
+    postalCode: "144001",
     country: "IN",
     countryName: "India",
   },

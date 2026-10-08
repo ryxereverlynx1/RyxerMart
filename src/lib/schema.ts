@@ -29,8 +29,10 @@ export function getOrganizationSchema() {
     paymentAccepted: BRAND.paymentAccepted,
     address: {
       "@type": "PostalAddress",
+      streetAddress: BRAND.address.streetAddress,
       addressLocality: BRAND.address.locality,
       addressRegion: BRAND.address.region,
+      postalCode: BRAND.address.postalCode,
       addressCountry: BRAND.address.country,
     },
     geo: {
@@ -38,6 +40,16 @@ export function getOrganizationSchema() {
       latitude: BRAND.geo.latitude,
       longitude: BRAND.geo.longitude,
     },
+    hasMap: "https://maps.google.com/?q=Jalandhar,+Punjab,+India",
+    areaServed: [
+      { "@type": "City", name: "Jalandhar" },
+      { "@type": "State", name: "Punjab" },
+      { "@type": "Country", name: "India" },
+      { "@type": "City", name: "Ludhiana" },
+      { "@type": "City", name: "Amritsar" },
+      { "@type": "City", name: "Chandigarh" },
+      { "@type": "City", name: "Mohali" },
+    ],
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -220,5 +232,58 @@ export function getSiteNavigationSchema() {
         url: `${SITE_URL}/contact`,
       },
     ],
+  };
+}
+
+export function getLocalBusinessSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "@id": `${SITE_URL}/#localbusiness`,
+    name: "Ryxer Mart Web Solutions - Jalandhar",
+    alternateName: ["Ryzer Mart Jalandhar", "RyxerMart Jalandhar", "RyzerMart", "Ryxer Mart"],
+    description:
+      "Leading website development and e-commerce agency based in Jalandhar, Punjab. Building fast, mobile-first business websites with 1 year free hosting, SSL, and WhatsApp checkout starting at ₹3,499.",
+    url: `${SITE_URL}/web-development-jalandhar`,
+    telephone: BRAND.phone,
+    email: BRAND.email,
+    image: BRAND.ogImageUrl,
+    priceRange: BRAND.priceRange,
+    currenciesAccepted: BRAND.currenciesAccepted,
+    paymentAccepted: BRAND.paymentAccepted,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: BRAND.address.streetAddress,
+      addressLocality: "Jalandhar",
+      addressRegion: "Punjab",
+      postalCode: "144001",
+      addressCountry: "IN",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: BRAND.geo.latitude,
+      longitude: BRAND.geo.longitude,
+    },
+    hasMap: "https://maps.google.com/?q=Jalandhar,+Punjab,+India",
+    areaServed: [
+      { "@type": "City", name: "Jalandhar" },
+      { "@type": "State", name: "Punjab" },
+      { "@type": "City", name: "Ludhiana" },
+      { "@type": "City", name: "Amritsar" },
+      { "@type": "City", name: "Chandigarh" },
+      { "@type": "City", name: "Mohali" },
+      { "@type": "City", name: "Phagwara" },
+      { "@type": "City", name: "Hoshiarpur" },
+      { "@type": "Country", name: "India" },
+    ],
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: BRAND.openingHours.days,
+        opens: BRAND.openingHours.opens,
+        closes: BRAND.openingHours.closes,
+      },
+    ],
+    sameAs: BRAND.socialProfiles,
   };
 }

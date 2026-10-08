@@ -40,6 +40,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       images: [defaultLogo],
     },
     {
+      url: `${baseUrl}/web-development-jalandhar`,
+      lastModified: new Date(),
+      changeFrequency: "daily",
+      priority: 0.9,
+      images: [defaultLogo],
+    },
+    {
       url: `${baseUrl}/faq`,
       lastModified: new Date(),
       changeFrequency: "weekly",

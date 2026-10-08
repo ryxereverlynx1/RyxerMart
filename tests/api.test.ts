@@ -152,6 +152,17 @@ async function runTests() {
   assert(Boolean(chatbotConfig?.systemPrompt.includes("You are a guide, not an order-processing agent")), "Chatbot prompt explicitly restricts order processing and payments");
   assert(Boolean(chatbotConfig?.systemPrompt.toLowerCase().includes("never invent")), "Chatbot prompt forbids hallucination of prices or features");
 
+  // TEST 9: SEO & Schema Entity Integrity Tests (Local SEO & Brand Disambiguation)
+  console.log("\n9. Local SEO & Brand Entity Schema Tests");
+  const { getOrganizationSchema, getLocalBusinessSchema } = await import("../src/lib/schema");
+  const orgSchema = getOrganizationSchema();
+  assert(Boolean(orgSchema.address?.addressLocality === "Jalandhar"), "Organization schema address locality is Jalandhar");
+  assert(Boolean(orgSchema.alternateName?.includes("Ryzer Mart")), "Organization schema includes 'Ryzer Mart' alternate brand name for typo handling");
+  assert(Boolean(orgSchema.areaServed?.some((a: any) => a.name === "Jalandhar")), "Organization schema areaServed includes Jalandhar");
+  const localSchema = getLocalBusinessSchema();
+  assert(Boolean(localSchema["@type"]?.includes("LocalBusiness")), "LocalBusiness schema generated with valid LocalBusiness type");
+  assert(Boolean(localSchema.address?.postalCode === "144001"), "LocalBusiness schema has valid Jalandhar postalCode 144001");
+
   console.log(`\n========================================`);
   console.log(`Summary: ${passed} passed, ${failed} failed out of ${passed + failed} assertions.`);
   console.log(`========================================\n`);

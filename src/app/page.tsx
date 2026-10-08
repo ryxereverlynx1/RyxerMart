@@ -197,7 +197,14 @@ export default async function HomePage() {
                   <MapPin className="w-5 h-5 text-brand-violet dark:text-purple-400 flex-shrink-0 mt-0.5" />
                   <div>
                     <h3 className="text-xs font-bold text-brand-navy dark:text-slate-200 uppercase tracking-wider">Office Location</h3>
-                    <p className="text-sm text-slate-700 dark:text-slate-300">Jalandhar, Punjab, India</p>
+                    <p className="text-sm text-slate-700 dark:text-slate-300">
+                      <Link
+                        href="/web-development-jalandhar"
+                        className="hover:text-brand-violet dark:hover:text-purple-400 transition-colors underline decoration-slate-300 dark:decoration-slate-700"
+                      >
+                        Jalandhar, Punjab, India (Local Web Hub)
+                      </Link>
+                    </p>
                   </div>
                 </div>
 
