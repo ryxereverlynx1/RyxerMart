@@ -1,7 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { Search, ShoppingCart, Send, Rocket, CheckCircle2 } from "lucide-react";
+import {
+  PackageCheck,
+  FileText,
+  MessageSquare,
+  Code2,
+  Rocket,
+  CheckCircle2,
+} from "lucide-react";
 
 export function InteractiveHowItWorks() {
   const [activeStep, setActiveStep] = useState<number>(0);
@@ -9,45 +16,50 @@ export function InteractiveHowItWorks() {
   const steps = [
     {
       number: "01",
-      title: "Choose a Service",
-      description: "Browse our fixed-price website and e-commerce packages. Compare features, delivery estimates, and included hosting specifications.",
-      icon: Search,
-      highlight: "Compare features & hosting",
+      title: "Choose a Package",
+      subtitle: "Fixed pricing from ₹3,499",
+      description: "Select Starter, Royal, or Ecommerce based on your page requirements and whether you need an admin panel or online cart.",
+      icon: PackageCheck,
+      deliverable: "Transparent inclusions",
     },
     {
       number: "02",
-      title: "Add to Cart",
-      description: "Select your desired package and review your order total with transparent, authoritative pricing and zero hidden fees.",
-      icon: ShoppingCart,
-      highlight: "Fixed transparent pricing",
+      title: "Tell Us What You Need",
+      subtitle: "Zero complex paperwork",
+      description: "Submit your business name, contact details, and initial thoughts via our order checkout or direct enquiry form.",
+      icon: FileText,
+      deliverable: "Instant scope logging",
     },
     {
       number: "03",
-      title: "Send Your Scope",
-      description: "Fill in your contact details and project requirements. Your order is logged in our database and emailed to our engineering team.",
-      icon: Send,
-      highlight: "Secure order logging",
+      title: "Discuss & Confirm",
+      subtitle: "Direct on WhatsApp",
+      description: "We connect immediately on WhatsApp (+91 77194-21910) to confirm your design direction, brand assets, and content.",
+      icon: MessageSquare,
+      deliverable: "1-on-1 engineer chat",
     },
     {
       number: "04",
-      title: "Build & Launch",
-      description: "WhatsApp opens with your pre-formatted order summary. Our engineering lead reviews your scope and begins work right away.",
+      title: "We Build & Polish",
+      subtitle: "Speed & mobile optimized",
+      description: "Our engineering team codes your responsive website with free SSD cloud hosting, SSL security, and WhatsApp integration.",
+      icon: Code2,
+      deliverable: "3–5 day development",
+    },
+    {
+      number: "05",
+      title: "Your Website Goes Live",
+      subtitle: "Ready to acquire customers",
+      description: "Your site is deployed on your custom domain, submitted to Google Search Console, and handed over with full support.",
       icon: Rocket,
-      highlight: "Direct WhatsApp kick-off",
+      deliverable: "Live & ranking ready",
     },
   ];
 
   return (
-    <div className="relative">
-      {/* Connecting animated line across steps on desktop */}
-      <div className="hidden lg:block absolute top-1/2 left-10 right-10 h-0.5 -translate-y-12 bg-slate-200 dark:bg-slate-800 -z-0" aria-hidden="true">
-        <div
-          className="h-full bg-gradient-to-r from-brand-royal via-brand-violet to-purple-400 transition-all duration-500 rounded-full"
-          style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
-        />
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+    <div className="space-y-8">
+      {/* Step Tabs / Numbers Progression */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {steps.map((step, index) => {
           const Icon = step.icon;
           const isSelected = activeStep === index;
@@ -56,16 +68,16 @@ export function InteractiveHowItWorks() {
               key={step.number}
               onMouseEnter={() => setActiveStep(index)}
               onClick={() => setActiveStep(index)}
-              className={`p-6 rounded-2xl border transition-all duration-300 cursor-pointer relative space-y-4 h-full flex flex-col justify-between ${
+              className={`p-5 rounded-2xl border transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-4 ${
                 isSelected
-                  ? "bg-white dark:bg-slate-800 border-brand-violet dark:border-purple-500 shadow-card-glow -translate-y-2"
-                  : "bg-slate-50/80 dark:bg-slate-900/60 border-slate-200/80 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:-translate-y-1 shadow-subtle"
+                  ? "bg-white dark:bg-slate-800 border-brand-violet/50 dark:border-purple-500/50 shadow-card -translate-y-1"
+                  : "bg-slate-50/70 dark:bg-slate-900/40 border-slate-200/70 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
               }`}
             >
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <span
-                    className={`text-2xl sm:text-3xl font-black transition-colors duration-200 ${
+                    className={`text-xl font-black transition-colors ${
                       isSelected
                         ? "text-brand-violet dark:text-purple-400"
                         : "text-slate-400 dark:text-slate-600"
@@ -74,27 +86,30 @@ export function InteractiveHowItWorks() {
                     {step.number}
                   </span>
                   <div
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
                       isSelected
-                        ? "bg-brand-violet text-white shadow-md scale-110"
-                        : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
+                        ? "bg-brand-violet text-white shadow-sm"
+                        : "bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200/80 dark:border-slate-700"
                     }`}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-4 h-4" />
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-brand-navy dark:text-white">
+                <h4 className="text-sm font-bold text-brand-navy dark:text-white leading-tight">
                   {step.title}
-                </h3>
-                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                </h4>
+                <p className="text-[11px] text-brand-violet dark:text-purple-300 font-semibold">
+                  {step.subtitle}
+                </p>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                   {step.description}
                 </p>
               </div>
 
-              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 text-[11px] font-bold text-brand-violet dark:text-purple-300">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>{step.highlight}</span>
+              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                <span className="truncate">{step.deliverable}</span>
               </div>
             </div>
           );

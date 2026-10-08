@@ -7,6 +7,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { ChatbotWidget } from "@/components/chat/ChatbotWidget";
+import { MobileStickyBar } from "@/components/layout/MobileStickyBar";
 import { getOrganizationSchema, getWebsiteSchema, getSiteNavigationSchema } from "@/lib/schema";
 import { SEO_KEYWORDS } from "@/lib/keywords";
 import { BRAND } from "@/lib/brand";
@@ -109,9 +110,9 @@ export default function RootLayout({
   const siteNavSchema = getSiteNavigationSchema();
 
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="color-scheme" content="dark light" />
+        <meta name="color-scheme" content="light dark" />
         {/* Favicons & SERP App Icons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48" />
@@ -149,13 +150,13 @@ export default function RootLayout({
               (function() {
                 try {
                   var stored = localStorage.getItem('ryxermart_theme');
-                  if (stored === 'light') {
-                    document.documentElement.classList.remove('dark');
-                  } else {
+                  if (stored === 'dark') {
                     document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
                   }
                 } catch (e) {
-                  document.documentElement.classList.add('dark');
+                  document.documentElement.classList.remove('dark');
                 }
               })();
             `,
@@ -171,6 +172,7 @@ export default function RootLayout({
               <Footer />
               <CartDrawer />
               <ChatbotWidget />
+              <MobileStickyBar />
             </CartProvider>
           </ToastProvider>
         </ThemeProvider>

@@ -15,20 +15,20 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 const THEME_STORAGE_KEY = "ryxermart_theme";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
+  const [theme, setThemeState] = useState<Theme>("light");
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
     try {
       const stored = localStorage.getItem(THEME_STORAGE_KEY);
-      if (stored === "light") {
-        setThemeState("light");
-        applyTheme("light");
-      } else {
-        // Default theme is dark; light is toggleable
+      if (stored === "dark") {
         setThemeState("dark");
         applyTheme("dark");
+      } else {
+        // Default theme is light; dark is toggleable
+        setThemeState("light");
+        applyTheme("light");
       }
     } catch (e) {
       console.warn("Could not read theme from localStorage", e);

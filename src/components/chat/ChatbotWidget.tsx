@@ -175,11 +175,11 @@ export function ChatbotWidget() {
   return (
     <aside
       aria-label="Customer Support Chatbot"
-      className="fixed bottom-6 right-6 z-40 flex flex-col items-end"
+      className="fixed bottom-16 md:bottom-6 right-4 sm:right-6 z-40 flex flex-col items-end"
     >
       {/* Expanded Chat Box */}
       {isOpen && (
-        <div className="w-[calc(100vw-2rem)] sm:w-[26rem] h-[520px] max-h-[82vh] bg-white dark:bg-slate-900 rounded-2xl shadow-elevated border border-brand-border dark:border-slate-800 flex flex-col overflow-hidden mb-3 animate-pop-in transition-all">
+        <div className="w-[calc(100vw-2rem)] sm:w-[26rem] h-[520px] max-h-[80vh] bg-white dark:bg-slate-900 rounded-2xl shadow-elevated border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden mb-3 animate-pop-in transition-all">
           {/* Header */}
           <div className="bg-gradient-to-r from-brand-navy via-brand-royal to-brand-navy dark:from-slate-950 dark:to-slate-900 p-4 text-white flex items-center justify-between border-b border-brand-royal/40 dark:border-slate-800">
             <div className="flex items-center gap-2.5">
@@ -348,15 +348,15 @@ export function ChatbotWidget() {
         </div>
       )}
 
-      {/* Floating Toggle Button with Chatbot Logo and attention badge */}
+      {/* Floating Toggle Button with Custom SVG Chatbot Mark */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2.5 px-4 py-2.5 bg-gradient-to-r from-brand-navy to-brand-royal hover:from-brand-royal hover:to-brand-violet text-white rounded-full shadow-card-hover transition-all duration-300 hover:scale-105 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet border-2 border-white dark:border-slate-800"
+        className="flex items-center gap-2.5 px-4 py-2.5 bg-brand-navy hover:bg-brand-royal dark:bg-brand-royal dark:hover:bg-brand-royal-light text-white rounded-full shadow-card hover:shadow-card-hover transition-all duration-200 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet border border-white/20 dark:border-slate-800"
         aria-label="Chat with RyxerMart Customer Assistant"
       >
         <div className="relative flex items-center justify-center">
-          <ChatbotLogo className="w-7 h-7 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-3 drop-shadow-sm" />
-          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 border-2 border-brand-navy dark:border-slate-900 rounded-full animate-pulse" />
+          <ChatbotLogo className="w-6 h-6 transition-transform duration-200 group-hover:scale-105" />
+          <span className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 border-2 border-brand-navy dark:border-slate-900 rounded-full" />
         </div>
         <span className="text-xs font-bold tracking-wide">
           {isOpen ? "Close Assistant" : "Ask Assistant"}

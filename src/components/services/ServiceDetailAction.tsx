@@ -71,25 +71,18 @@ export function ServiceDetailAction({ service }: ServiceDetailActionProps) {
         </h2>
       </div>
 
-      {/* Pricing and Discount */}
+      {/* Transparent Authoritative Pricing */}
       <div className="py-4 border-y border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/50 -mx-6 sm:-mx-8 px-6 sm:px-8 space-y-1">
-        <div className="flex items-baseline gap-3">
+        <div className="flex items-baseline gap-2">
           <span className="text-3xl sm:text-4xl font-black text-brand-navy dark:text-white">
             ₹{service.price.toLocaleString("en-IN")}
           </span>
-          {service.originalPrice && (
-            <span className="text-base text-slate-400 dark:text-slate-500 line-through">
-              ₹{service.originalPrice.toLocaleString("en-IN")}
-            </span>
-          )}
-          {service.originalPrice && service.originalPrice > service.price && (
-            <span className="text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full">
-              Save ₹{(service.originalPrice - service.price).toLocaleString("en-IN")}
-            </span>
-          )}
+          <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+            one-time package price
+          </span>
         </div>
-        <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-          Fixed package price. Zero recurring monthly platform fees.
+        <p className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
+          ✓ 1 Year Free SSD Cloud Hosting &amp; SSL Included
         </p>
       </div>
 

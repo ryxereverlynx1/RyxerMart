@@ -149,8 +149,8 @@ async function runTests() {
   const chatbotConfig = await db.chatbotSetting.findUnique({ where: { id: "default" } });
   assert(chatbotConfig !== null, "Default chatbot settings exist in database");
   assert(chatbotConfig?.isEnabled === true, "Chatbot is enabled by default");
-  assert(chatbotConfig?.systemPrompt.includes("You are a guide, not an order-processing agent"), "Chatbot prompt explicitly restricts order processing and payments");
-  assert(chatbotConfig?.systemPrompt.toLowerCase().includes("never invent"), "Chatbot prompt forbids hallucination of prices or features");
+  assert(Boolean(chatbotConfig?.systemPrompt.includes("You are a guide, not an order-processing agent")), "Chatbot prompt explicitly restricts order processing and payments");
+  assert(Boolean(chatbotConfig?.systemPrompt.toLowerCase().includes("never invent")), "Chatbot prompt forbids hallucination of prices or features");
 
   console.log(`\n========================================`);
   console.log(`Summary: ${passed} passed, ${failed} failed out of ${passed + failed} assertions.`);

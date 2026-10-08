@@ -6,8 +6,8 @@ import {
   MessageSquare,
   Search,
   SlidersHorizontal,
-  Layers,
-  ShieldCheck,
+  Server,
+  Clock,
   ArrowRight,
 } from "lucide-react";
 
@@ -16,58 +16,40 @@ export function InteractiveWhyCards() {
 
   const features = [
     {
-      title: "Responsive Mobile-First Design",
-      description: "Every website adapts seamlessly across 320px smartphone displays, tablets, laptops, and ultra-wide desktop monitors.",
+      title: "Mobile-First Architecture",
+      description: "Over 80% of web traffic in India comes from mobile smartphones. Every page is tailored to load instantly on 4G/5G mobile connections.",
       icon: Smartphone,
-      color: "from-blue-500 to-indigo-600",
-      bgLight: "bg-blue-50 dark:bg-blue-950/50",
-      textColor: "text-blue-600 dark:text-blue-400",
-      tag: "Touch & Keyboard Optimized",
+      tag: "Tested on 320px–4K displays",
     },
     {
-      title: "Direct WhatsApp Integration",
-      description: "Equipped with click-to-chat widgets and call triggers so Indian customers can reach your sales desk directly without friction.",
+      title: "Direct WhatsApp Lead Funnels",
+      description: "Instead of complex checkout roadblocks, customers connect directly to your business WhatsApp with pre-filled package queries.",
       icon: MessageSquare,
-      color: "from-emerald-500 to-teal-600",
-      bgLight: "bg-emerald-50 dark:bg-emerald-950/50",
-      textColor: "text-emerald-600 dark:text-emerald-400",
-      tag: "Instant Customer Chat",
+      tag: "Zero drop-off communication",
     },
     {
-      title: "SEO-Friendly Architecture",
-      description: "Clean semantic HTML, OpenGraph tags, JSON-LD Schema markup, and speed-optimized assets to rank effectively on Google.",
+      title: "Clean Semantic Google SEO",
+      description: "Includes JSON-LD structured schema markup, OpenGraph metadata, fast core web vitals, and clean sitemaps so search engines index you easily.",
       icon: Search,
-      color: "from-violet-500 to-purple-600",
-      bgLight: "bg-purple-50 dark:bg-purple-950/50",
-      textColor: "text-purple-600 dark:text-purple-400",
-      tag: "Google Ready Metadata",
+      tag: "Google Search Console ready",
     },
     {
-      title: "Admin-Managed Websites",
-      description: "Our Royal and Ecommerce packages come with intuitive admin interfaces so you can edit text, prices, and banners independently.",
+      title: "Intuitive Admin Control",
+      description: "Royal and Ecommerce packages include clean, secure admin portals where you can update content, products, and prices independently.",
       icon: SlidersHorizontal,
-      color: "from-amber-500 to-orange-600",
-      bgLight: "bg-amber-50 dark:bg-amber-950/50",
-      textColor: "text-amber-600 dark:text-amber-400",
-      tag: "Zero Coding Required",
+      tag: "No coding needed after launch",
     },
     {
-      title: "Custom Feature Readiness",
-      description: "Need custom booking forms, multi-currency display, or payment gateway integration? We tailor features to your specific workflow.",
-      icon: Layers,
-      color: "from-pink-500 to-rose-600",
-      bgLight: "bg-rose-50 dark:bg-rose-950/50",
-      textColor: "text-rose-600 dark:text-rose-400",
-      tag: "Bespoke Engineering",
+      title: "Bundled SSD Cloud Hosting & SSL",
+      description: "We eliminate surprising annual hosting bills by including 1 full year of ultra-fast cloud hosting and pre-installed SSL certificates.",
+      icon: Server,
+      tag: "Zero hidden launch fees",
     },
     {
-      title: "SSL & Hosting Included",
-      description: "We eliminate hidden operational fees by bundling high-speed SSD cloud hosting and SSL security certificates in our packages.",
-      icon: ShieldCheck,
-      color: "from-cyan-500 to-blue-600",
-      bgLight: "bg-cyan-50 dark:bg-cyan-950/50",
-      textColor: "text-cyan-600 dark:text-cyan-400",
-      tag: "100% Free Setup",
+      title: "Fast 3–5 Day Turnaround",
+      description: "We don't drag projects out for months. Once your business scope is confirmed, our dedicated engineers build and launch your site quickly.",
+      icon: Clock,
+      tag: "Rapid market deployment",
     },
   ];
 
@@ -81,33 +63,27 @@ export function InteractiveWhyCards() {
             key={feature.title}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
-            className={`p-6 sm:p-7 rounded-2xl border transition-all duration-300 relative space-y-3.5 h-full flex flex-col justify-between ${
+            className={`p-6 sm:p-7 rounded-2xl border transition-all duration-200 relative space-y-4 h-full flex flex-col justify-between ${
               isHovered
-                ? "bg-white dark:bg-slate-800 border-brand-violet/50 dark:border-purple-500/50 shadow-card-glow -translate-y-1.5"
+                ? "bg-white dark:bg-slate-800 border-brand-violet/40 dark:border-purple-500/40 shadow-card -translate-y-1"
                 : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-subtle hover:border-slate-300 dark:hover:border-slate-700"
             }`}
           >
             <div className="space-y-3">
-              <div
-                className={`w-12 h-12 rounded-xl ${feature.bgLight} ${feature.textColor} flex items-center justify-center transition-all duration-300 ${
-                  isHovered ? "scale-110 rotate-3 shadow-sm" : ""
-                }`}
-              >
-                <Icon className="w-6 h-6" />
+              <div className="w-10 h-10 rounded-xl bg-brand-violet-light dark:bg-slate-800 text-brand-violet dark:text-purple-400 flex items-center justify-center">
+                <Icon className="w-5 h-5" />
               </div>
-              <h3 className="text-base font-bold text-brand-navy dark:text-white transition-colors">
+              <h3 className="text-base font-bold text-brand-navy dark:text-white">
                 {feature.title}
               </h3>
-              <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 {feature.description}
               </p>
             </div>
 
-            <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
-              <span className={`text-[11px] font-bold ${feature.textColor}`}>
-                {feature.tag}
-              </span>
-              <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-brand-violet group-hover:translate-x-1 transition-all duration-200" />
+            <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-brand-violet dark:text-purple-300 font-semibold">
+              <span>{feature.tag}</span>
+              <ArrowRight className="w-3.5 h-3.5 opacity-60" />
             </div>
           </div>
         );
