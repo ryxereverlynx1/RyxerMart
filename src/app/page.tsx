@@ -51,7 +51,7 @@ export default async function HomePage() {
       {/* 2. TRUST & VALUE REASSURANCE STRIP */}
       <TrustValueStrip />
 
-      <div className="space-y-24 sm:space-y-32 py-16 sm:py-24">
+      <div className="space-y-14 sm:space-y-20 lg:space-y-28 py-10 sm:py-16 lg:py-24">
         {/* 3. INTERACTIVE PROJECT ESTIMATOR & LEAD CAPTURE (WEBZO-INSPIRED) */}
         <section id="estimator" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="fade-up">

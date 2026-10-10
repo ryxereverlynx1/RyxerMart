@@ -209,25 +209,25 @@ export function WebsiteShowcase() {
               </div>
 
               {/* Website Preview Canvas */}
-              <div className="p-8 sm:p-10 space-y-6 bg-gradient-to-b from-slate-50/50 via-white to-slate-50/30 dark:from-slate-900 dark:via-slate-850 dark:to-slate-900 min-h-[360px] flex flex-col justify-between">
-                <div className="space-y-4">
+              <div className="p-4 sm:p-8 lg:p-10 space-y-4 sm:space-y-6 bg-gradient-to-b from-slate-50/50 via-white to-slate-50/30 dark:from-slate-900 dark:via-slate-850 dark:to-slate-900 min-h-[280px] sm:min-h-[360px] flex flex-col justify-between">
+                <div className="space-y-3 sm:space-y-4">
                   <span className="inline-block text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full bg-brand-violet-light dark:bg-purple-950/60 text-brand-violet dark:text-purple-300">
                     {activeItem.desktopFeatures.badge}
                   </span>
-                  <h4 className="text-2xl sm:text-3xl font-black text-brand-navy dark:text-white tracking-tight max-w-lg">
+                  <h4 className="text-xl sm:text-2xl lg:text-3xl font-black text-brand-navy dark:text-white tracking-tight max-w-lg">
                     {activeItem.desktopFeatures.headline}
                   </h4>
-                  <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-md leading-relaxed">
                     {activeItem.desktopFeatures.subtext}
                   </p>
                 </div>
 
                 {/* Sub-cards inside preview */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-slate-100 dark:border-slate-800">
                   {activeItem.specs.slice(0, 3).map((spec, i) => (
                     <div
                       key={i}
-                      className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200/80 dark:border-slate-700/80 text-xs text-slate-700 dark:text-slate-300 flex items-center gap-2"
+                      className="p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200/80 dark:border-slate-700/80 text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 flex items-center gap-2"
                     >
                       <IoCheckmarkOutline className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                       <span className="truncate">{spec}</span>
@@ -243,7 +243,7 @@ export function WebsiteShowcase() {
               <div className="w-24 h-4 bg-slate-400 dark:bg-slate-800 rounded-full mx-auto mb-2" />
 
               {/* Screen */}
-              <div className="bg-white dark:bg-slate-900 rounded-[28px] overflow-hidden p-5 space-y-4 text-center min-h-[440px] flex flex-col justify-between">
+              <div className="bg-white dark:bg-slate-900 rounded-[28px] overflow-hidden p-4 sm:p-5 space-y-4 text-center min-h-[380px] sm:min-h-[440px] flex flex-col justify-between">
                 <div className="space-y-3 pt-2">
                   <span className="inline-block text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-brand-violet-light dark:bg-purple-950 text-brand-violet dark:text-purple-300">
                     {activeItem.desktopFeatures.badge}

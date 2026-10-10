@@ -45,15 +45,15 @@ export function TrustValueStrip() {
   ];
 
   return (
-    <div className="border-y border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900/60 py-8">
+    <div className="border-y border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900/60 py-6 sm:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-start">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 lg:gap-6 items-start">
           {valueProps.map((item, index) => {
             const Icon = item.icon;
             return (
               <div
                 key={index}
-                className="space-y-1.5 text-left p-3.5 rounded-xl bg-slate-50/70 dark:bg-slate-850/70 border border-slate-200/70 dark:border-slate-800 shadow-subtle hover:shadow-3d-floating dark:hover:shadow-3d-floating-dark card-lift transition-all"
+                className="space-y-1.5 text-left p-3 sm:p-3.5 rounded-xl bg-slate-50/70 dark:bg-slate-850/70 border border-slate-200/70 dark:border-slate-800 shadow-subtle hover:shadow-3d-floating dark:hover:shadow-3d-floating-dark card-lift transition-all"
               >
                 <div className="w-8 h-8 rounded-lg bg-brand-violet-light dark:bg-slate-800 text-brand-violet dark:text-purple-400 flex items-center justify-center transition-colors shadow-sm">
                   <Icon className="w-4 h-4" />

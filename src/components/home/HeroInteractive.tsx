@@ -22,7 +22,7 @@ import { BRAND } from "@/lib/brand";
 
 export function HeroInteractive() {
   return (
-    <div className="relative overflow-hidden pt-8 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28">
+    <div className="relative overflow-hidden pt-6 pb-12 sm:pt-12 sm:pb-20 lg:pt-20 lg:pb-28">
       {/* ========================================================= */}
       {/* ARCHITECTURAL BACKGROUND: GRID + AMBIENT LIGHT DRIFT      */}
       {/* ========================================================= */}
@@ -44,7 +44,7 @@ export function HeroInteractive() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           {/* ========================================================= */}
           {/* LEFT COLUMN: PERSUASIVE VALUE PROPOSITION & CTAS          */}
           {/* ========================================================= */}
@@ -123,8 +123,8 @@ export function HeroInteractive() {
             className="lg:col-span-6 relative flex flex-col items-center animate-fade-up"
             style={{ animationDelay: "200ms" }}
           >
-            {/* Visual Stage Container with generous overflow room for floating mini-cards */}
-            <div className="w-full relative py-6 px-2 sm:px-4 select-none">
+            {/* Visual Stage Container for Desktop (hidden on mobile, full 3D layout on desktop) */}
+            <div className="hidden lg:block w-full relative py-6 px-4 select-none">
               
               {/* ========================================================= */}
               {/* MINI CARD 1 (Top-Left): Core Web Vitals 99/100            */}
@@ -454,6 +454,90 @@ export function HeroInteractive() {
                 </div>
               </div>
 
+            </div>
+
+            {/* ========================================================= */}
+            {/* 2. MOBILE COMPACT HERO PREVIEW (Visible on < lg viewports) */}
+            {/* Streamlined preview without screen-dominating animations  */}
+            {/* ========================================================= */}
+            <div className="block lg:hidden w-full select-none mt-2 sm:mt-4">
+              <div className="w-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-3d-card dark:shadow-3d-card-dark overflow-hidden">
+                {/* Browser Header Bar */}
+                <div className="px-3.5 py-2.5 bg-slate-100/95 dark:bg-slate-850 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-rose-400 inline-block" />
+                    <span className="w-2 h-2 rounded-full bg-amber-400 inline-block" />
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block" />
+                  </div>
+
+                  {/* Browser Address Bar */}
+                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-[10px] text-slate-500 dark:text-slate-400 font-mono flex-1 max-w-[210px] truncate shadow-inner">
+                    <IoLockClosedOutline className="text-emerald-500 w-2.5 h-2.5 shrink-0" />
+                    <span className="text-emerald-600 dark:text-emerald-400 font-bold">https://</span>
+                    <span>yourbusiness.com</span>
+                  </div>
+
+                  <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded flex items-center gap-1 border border-emerald-200/50 dark:border-emerald-800/50 shrink-0">
+                    <IoShieldCheckmarkOutline className="w-2.5 h-2.5" />
+                    <span>SSL</span>
+                  </span>
+                </div>
+
+                {/* Inside Compact Web Preview */}
+                <div className="p-3.5 sm:p-4 space-y-3 bg-slate-50/40 dark:bg-slate-900/40 text-left">
+                  {/* Brand & Speed Header */}
+                  <div className="flex items-center justify-between pb-2 border-b border-slate-200/70 dark:border-slate-800">
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-5 rounded-md bg-brand-violet text-white font-black text-[10px] flex items-center justify-center shadow-sm">
+                        A
+                      </div>
+                      <span className="text-xs font-black text-brand-navy dark:text-white">
+                        Aura Luxe Studio
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full flex items-center gap-1 border border-emerald-200/60 dark:border-emerald-800/60">
+                      <IoFlashOutline className="w-3 h-3 text-amber-500" />
+                      <span>99/100 Speed</span>
+                    </span>
+                  </div>
+
+                  {/* Hero Store Banner */}
+                  <div className="p-3 rounded-xl bg-gradient-to-r from-brand-navy to-slate-800 text-white space-y-1 shadow-sm">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[8px] font-extrabold uppercase tracking-widest text-purple-300 block">
+                        Live Client Architecture Demo
+                      </span>
+                      <span className="text-[8px] font-bold px-1.5 py-0.5 bg-emerald-500/20 text-emerald-300 rounded border border-emerald-400/30">
+                        Active
+                      </span>
+                    </div>
+                    <h4 className="text-xs sm:text-sm font-black leading-snug">
+                      Handcrafted Lifestyle Goods for Modern Homes
+                    </h4>
+                    <div className="flex items-center gap-2 pt-1">
+                      <span className="text-[9px] font-bold px-2 py-0.5 bg-brand-violet text-white rounded shadow-sm">
+                        Shop Catalog
+                      </span>
+                      <span className="text-[9px] text-emerald-300 flex items-center gap-1 font-semibold">
+                        <IoLogoWhatsapp className="w-2.5 h-2.5 text-emerald-400" />
+                        1-Tap WhatsApp Checkout
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Highlights Strip */}
+                  <div className="pt-0.5 flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400">
+                    <span className="flex items-center gap-1 font-semibold text-emerald-600 dark:text-emerald-400">
+                      <IoSpeedometerOutline className="w-3 h-3" />
+                      0.8s LCP Fast Load
+                    </span>
+                    <span className="flex items-center gap-1 font-medium">
+                      <IoServerOutline className="w-3 h-3 text-brand-violet" />
+                      Free 1-Yr Cloud SSD
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
