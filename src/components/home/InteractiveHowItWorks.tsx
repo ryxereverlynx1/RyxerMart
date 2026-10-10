@@ -10,6 +10,8 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
+import { BRAND } from "@/lib/brand";
+
 export function InteractiveHowItWorks() {
   const [activeStep, setActiveStep] = useState<number>(0);
 
@@ -34,7 +36,7 @@ export function InteractiveHowItWorks() {
       number: "03",
       title: "Discuss & Confirm",
       subtitle: "Direct on WhatsApp",
-      description: "We connect immediately on WhatsApp (+91 77194-21910) to confirm your design direction, brand assets, and content.",
+      description: `We connect immediately on WhatsApp (${BRAND.phone}) to confirm your design direction, brand assets, and content.`,
       icon: MessageSquare,
       deliverable: "1-on-1 engineer chat",
     },

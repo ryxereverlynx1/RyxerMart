@@ -8,9 +8,22 @@ import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { ChatbotWidget } from "@/components/chat/ChatbotWidget";
 import { MobileStickyBar } from "@/components/layout/MobileStickyBar";
+import { Inter, Outfit } from "next/font/google";
 import { getOrganizationSchema, getWebsiteSchema, getSiteNavigationSchema } from "@/lib/schema";
 import { SEO_KEYWORDS } from "@/lib/keywords";
 import { BRAND } from "@/lib/brand";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-outfit",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(BRAND.websiteUrl),
@@ -163,7 +176,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#F8FAFC] dark:bg-[#090D1A] text-slate-900 dark:text-slate-100 selection:bg-brand-violet-subtle dark:selection:bg-brand-violet-hover/30 selection:text-brand-navy dark:selection:text-white transition-colors duration-200 overflow-x-hidden w-full">
+      <body className={`${inter.variable} ${outfit.variable} font-sans min-h-screen flex flex-col bg-[#F8FAFC] dark:bg-[#090D1A] text-slate-900 dark:text-slate-100 selection:bg-brand-violet-subtle dark:selection:bg-brand-violet-hover/30 selection:text-brand-navy dark:selection:text-white transition-colors duration-200 overflow-x-hidden w-full antialiased`}>
         <ThemeProvider>
           <ToastProvider>
             <CartProvider>

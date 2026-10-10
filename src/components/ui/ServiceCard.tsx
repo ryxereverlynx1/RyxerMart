@@ -69,10 +69,10 @@ export function ServiceCard({ service }: ServiceCardProps) {
 
   return (
     <div
-      className={`group relative flex flex-col justify-between bg-white dark:bg-slate-900 rounded-2xl border transition-all duration-300 w-full h-full ${
+      className={`group relative flex flex-col justify-between bg-white dark:bg-slate-900 rounded-2xl border transition-[transform,box-shadow,border-color] duration-200 ease-out-emil card-lift w-full h-full ${
         service.featured
-          ? "border-brand-violet/50 ring-2 ring-brand-violet/20 dark:ring-purple-500/20 shadow-card hover:shadow-card-hover -translate-y-1 lg:-translate-y-2 z-10"
-          : "border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-subtle hover:shadow-card hover:-translate-y-1"
+          ? "border-brand-violet/50 ring-2 ring-brand-violet/20 dark:ring-purple-500/20 shadow-card hover:shadow-card-hover z-10"
+          : "border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-subtle hover:shadow-card"
       }`}
     >
       {/* Featured / Most Popular Badge */}
@@ -123,7 +123,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
         {/* Authoritative Pricing */}
         <div className="py-4 border-y border-slate-100 dark:border-slate-800/80 mb-6 bg-slate-50/60 dark:bg-slate-800/40 -mx-6 sm:-mx-7 px-6 sm:px-7">
           <div className="flex items-baseline gap-2">
-            <span className="text-3xl font-black text-brand-navy dark:text-white">
+            <span className="text-3xl font-black text-brand-navy dark:text-white tabular-nums">
               ₹{service.price.toLocaleString("en-IN")}
             </span>
             <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
@@ -162,16 +162,16 @@ export function ServiceCard({ service }: ServiceCardProps) {
       <div className="p-6 sm:p-7 pt-0 mt-auto flex flex-col sm:flex-row items-center gap-2.5">
         <Link
           href={`/services/${service.slug}`}
-          className="w-full sm:flex-1 py-3 px-4 text-center text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-brand-navy dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl transition-all flex items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet active:scale-98"
+          className="w-full sm:flex-1 py-3 px-4 text-center text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-brand-navy dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl btn-press flex items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet group/link"
         >
           <span>View Details</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform duration-150 ease-out-emil" />
         </Link>
         <button
           type="button"
           onClick={handleAddToCart}
           disabled={addState === "adding"}
-          className={`w-full sm:flex-1 py-3 px-4 text-center text-xs font-bold text-white rounded-xl transition-all duration-200 shadow-subtle flex items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet active:scale-98 ${
+          className={`w-full sm:flex-1 py-3 px-4 text-center text-xs font-bold text-white rounded-xl btn-press shadow-subtle flex items-center justify-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet ${
             addState === "added"
               ? "bg-emerald-600 hover:bg-emerald-700 shadow-emerald-500/20"
               : addState === "adding"

@@ -5,6 +5,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 import { Metadata } from "next";
 import { getBreadcrumbSchema } from "@/lib/schema";
+import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: "Contact Us — Website Consultation & Direct WhatsApp Support",
@@ -74,8 +75,8 @@ export default function ContactPage() {
               <div>
                 <h3 className="text-sm font-bold text-brand-navy dark:text-white">Phone Support</h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5">
-                  <a href="tel:+917719421910" className="hover:text-brand-violet dark:hover:text-purple-400 transition-colors">
-                    +91 7719421910
+                  <a href={`tel:${BRAND.phoneRaw}`} className="hover:text-brand-violet dark:hover:text-purple-400 transition-colors">
+                    {BRAND.phone}
                   </a>
                 </p>
                 <span className="text-[11px] text-slate-400 dark:text-slate-500">Mon - Sat: 9:30 AM to 7:00 PM IST</span>
@@ -91,8 +92,8 @@ export default function ContactPage() {
               <div>
                 <h3 className="text-sm font-bold text-brand-navy dark:text-white">Email Desk</h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5">
-                  <a href="mailto:ryxereverlynx@gmail.com" className="hover:text-brand-violet dark:hover:text-purple-400 transition-colors">
-                    ryxereverlynx@gmail.com
+                  <a href={`mailto:${BRAND.email}`} className="hover:text-brand-violet dark:hover:text-purple-400 transition-colors">
+                    {BRAND.email}
                   </a>
                 </p>
                 <span className="text-[11px] text-slate-400 dark:text-slate-500">Typically replies within 4 business hours</span>
@@ -111,7 +112,7 @@ export default function ContactPage() {
                   Fastest way to get project advice and quick turnaround estimates.
                 </p>
                 <a
-                  href="https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20would%20like%20to%20discuss%20a%20website%20project."
+                  href={BRAND.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block mt-3 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 active:scale-98"

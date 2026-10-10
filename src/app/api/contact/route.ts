@@ -43,6 +43,16 @@ export async function POST(request: Request) {
       },
     });
 
+    // Send email alert to admin asynchronously (without blocking response)
+    const { sendContactNotificationEmail } = await import("@/lib/email");
+    sendContactNotificationEmail({
+      name,
+      email,
+      phone,
+      message,
+      id: submission.id,
+    }).catch((err) => console.error("[Contact Email Trigger Error]:", err));
+
     return NextResponse.json({
       success: true,
       message: "Your message has been received! Our team will contact you shortly.",

@@ -10,6 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        slate: {
+          750: "#243247",
+          850: "#131C2E",
+        },
         brand: {
           navy: "#0A2558",
           "navy-dark": "#061536",
@@ -33,6 +37,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        display: ["var(--font-outfit)", "var(--font-inter)", "system-ui", "sans-serif"],
       },
       boxShadow: {
         subtle: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
@@ -89,14 +94,25 @@ const config: Config = {
           "20%, 60%": { transform: "translateX(-4px)" },
           "40%, 80%": { transform: "translateX(4px)" },
         },
+        "slide-down": {
+          "0%": { opacity: "0", transform: "translateY(-8px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      transitionTimingFunction: {
+        "out-emil": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "in-out-emil": "cubic-bezier(0.77, 0, 0.175, 1)",
+        drawer: "cubic-bezier(0.32, 0.72, 0, 1)",
+        spring: "cubic-bezier(0.175, 0.885, 0.32, 1.15)",
       },
       animation: {
-        "fade-in": "fade-in 0.3s ease-out forwards",
-        "fade-up": "fade-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "fade-down": "fade-down 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "scale-in": "scale-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "pop-in": "pop-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards",
-        "slide-in-right": "slide-in-right 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "fade-in": "fade-in 0.24s cubic-bezier(0.23, 1, 0.32, 1) forwards",
+        "fade-up": "fade-up 0.32s cubic-bezier(0.23, 1, 0.32, 1) forwards",
+        "fade-down": "fade-down 0.24s cubic-bezier(0.23, 1, 0.32, 1) forwards",
+        "scale-in": "scale-in 0.2s cubic-bezier(0.23, 1, 0.32, 1) forwards",
+        "pop-in": "pop-in 0.24s cubic-bezier(0.23, 1, 0.32, 1) forwards",
+        "slide-in-right": "slide-in-right 0.28s cubic-bezier(0.32, 0.72, 0, 1) forwards",
+        "slide-down": "slide-down 0.22s cubic-bezier(0.23, 1, 0.32, 1) forwards",
         "bounce-subtle": "bounce-subtle 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
         "pulse-slow": "pulse-slow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "pulse-subtle": "pulse-subtle 3s ease-in-out infinite",

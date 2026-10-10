@@ -72,7 +72,7 @@ export function InteractiveFAQAccordion({
 
             {/* Smooth animated height container */}
             <div
-              className={`grid transition-all duration-300 ease-in-out ${
+              className={`grid transition-[grid-template-rows,opacity] duration-250 ease-out-emil ${
                 isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
               }`}
             >

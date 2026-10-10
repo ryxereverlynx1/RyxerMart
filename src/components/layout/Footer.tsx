@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { MessageSquare, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { BRAND } from "@/lib/brand";
 
 export function Footer() {
   const pathname = usePathname();
@@ -33,7 +34,7 @@ export function Footer() {
               Browse Packages <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20would%20like%20to%20discuss%20a%20website%20project."
+              href={BRAND.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white text-sm font-bold rounded-lg transition-colors border border-white/20 flex items-center gap-2"
@@ -148,20 +149,20 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-brand-violet flex-shrink-0" />
-                <a href="tel:+917719421910" className="hover:text-white transition-colors">
-                  +91 7719421910
+                <a href={`tel:${BRAND.phoneRaw}`} className="hover:text-white transition-colors">
+                  {BRAND.phone}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-brand-violet flex-shrink-0" />
-                <a href="mailto:ryxereverlynx@gmail.com" className="hover:text-white transition-colors">
-                  ryxereverlynx@gmail.com
+                <a href={`mailto:${BRAND.email}`} className="hover:text-white transition-colors">
+                  {BRAND.email}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <MessageSquare className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                 <a
-                  href="https://wa.me/917719421910"
+                  href={BRAND.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"

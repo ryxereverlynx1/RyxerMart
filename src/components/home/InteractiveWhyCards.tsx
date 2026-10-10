@@ -63,9 +63,9 @@ export function InteractiveWhyCards() {
             key={feature.title}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
-            className={`p-6 sm:p-7 rounded-2xl border transition-all duration-200 relative space-y-4 h-full flex flex-col justify-between ${
+            className={`p-6 sm:p-7 rounded-2xl border transition-[transform,border-color,box-shadow,background-color] duration-200 ease-out-emil card-lift relative space-y-4 h-full flex flex-col justify-between ${
               isHovered
-                ? "bg-white dark:bg-slate-800 border-brand-violet/40 dark:border-purple-500/40 shadow-card -translate-y-1"
+                ? "bg-white dark:bg-slate-800 border-brand-violet/40 dark:border-purple-500/40 shadow-card"
                 : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-subtle hover:border-slate-300 dark:hover:border-slate-700"
             }`}
           >

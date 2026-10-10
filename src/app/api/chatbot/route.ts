@@ -175,42 +175,34 @@ ${faqContext}
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    // Primary model: gemini-3.6-flash, with fallback to gemini-3.5-flash-lite
-    const primaryModel = "gemini-3.6-flash";
-    const fallbackModel = "gemini-3.5-flash-lite";
+    // Model candidates: prioritize current 2026 gemini-3.8-flash with backward-compatible fallbacks
+    const candidateModels = ["gemini-3.8-flash", "gemini-1.5-flash", "gemini-2.0-flash"];
 
     let replyText = "";
+    let modelSuccess = false;
 
-    try {
-      const model = genAI.getGenerativeModel({
-        model: primaryModel,
-        systemInstruction: fullSystemPrompt,
-      });
-
-      const chat = model.startChat({
-        history: sanitizedHistory,
-      });
-
-      const result = await chat.sendMessage(message);
-      replyText = result.response.text();
-    } catch (primaryErr) {
-      console.warn(`[Chatbot] ${primaryModel} failed, trying ${fallbackModel}:`, primaryErr);
+    for (const modelName of candidateModels) {
       try {
-        const modelFallback = genAI.getGenerativeModel({
-          model: fallbackModel,
+        const model = genAI.getGenerativeModel({
+          model: modelName,
           systemInstruction: fullSystemPrompt,
         });
 
-        const chatFallback = modelFallback.startChat({
+        const chat = model.startChat({
           history: sanitizedHistory,
         });
 
-        const fallbackResult = await chatFallback.sendMessage(message);
-        replyText = fallbackResult.response.text();
-      } catch (fallbackErr) {
-        console.error("[Chatbot] All Gemini models failed:", fallbackErr);
-        throw fallbackErr;
+        const result = await chat.sendMessage(message);
+        replyText = result.response.text();
+        modelSuccess = true;
+        break;
+      } catch (err) {
+        console.warn(`[Chatbot] Model ${modelName} failed, attempting next candidate:`, err);
       }
+    }
+
+    if (!modelSuccess) {
+      throw new Error("All configured Gemini models failed or returned deprecation notices.");
     }
 
     return NextResponse.json({

@@ -21,6 +21,18 @@
     --border-subtle: #E2E8F0;
     --border-card: #E2E8F0;
 
+    /* Motion System Tokens (Emil Kowalski Philosophy) */
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.15);
+
+    --duration-instant: 120ms;
+    --duration-snappy: 180ms;
+    --duration-standard: 240ms;
+    --duration-relaxed: 320ms;
+    --duration-reveal: 450ms;
+
     color-scheme: light;
   }
 
@@ -46,10 +58,31 @@
   body {
     background-color: var(--bg-page);
     color: var(--text-primary);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-outfit), var(--font-inter), system-ui, sans-serif;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Form control color scheme handling for light and dark modes */
+  input, textarea, select {
+    color-scheme: light;
+  }
+
+  .dark input,
+  .dark textarea,
+  .dark select {
+    color-scheme: dark;
   }
 
   /* Accessible focus indicators */
@@ -143,14 +176,72 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
+
+  /* GPU-Accelerated Micro-Interactions */
+  .transition-motion {
+    transition-timing-function: var(--ease-out);
+    transition-duration: var(--duration-standard);
+  }
+
+  .btn-press {
+    transition: transform var(--duration-instant) var(--ease-out), background-color var(--duration-snappy) ease;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-press:hover {
+      transform: translateY(-1px);
+    }
+    .btn-press:active {
+      transform: translateY(0.5px) scale(0.985);
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .card-lift {
+      transition: transform var(--duration-standard) var(--ease-out), box-shadow var(--duration-standard) var(--ease-out), border-color var(--duration-standard) ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-3px);
+    }
+  }
+
+  /* Chatbot typing dot pulse */
+  @keyframes typing-dot {
+    0%, 80%, 100% {
+      transform: scale(0.65);
+      opacity: 0.35;
+    }
+    40% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+  }
+  .typing-dot {
+    animation: typing-dot 1.2s infinite ease-in-out;
+  }
+  .typing-dot:nth-child(2) {
+    animation-delay: 0.16s;
+  }
+  .typing-dot:nth-child(3) {
+    animation-delay: 0.32s;
+  }
+
+  /* Origin-aware trigger utility for floating widgets */
+  .origin-bottom-right {
+    transform-origin: bottom right;
+  }
 }
 
-/* Reduced motion preference */
+/* Reduced motion preference - maintain opacity transitions, eliminate layout displacement */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .card-lift:hover,
+  .btn-press:hover,
+  .btn-press:active {
+    transform: none !important;
   }
 }

@@ -132,7 +132,7 @@ export function Navbar() {
             {/* Cart Trigger Button */}
             <button
               onClick={() => setIsDrawerOpen(true)}
-              className="relative p-2 rounded-xl text-brand-navy dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 shadow-subtle transition-all duration-200 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet"
+              className="relative p-2 rounded-xl text-brand-navy dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 shadow-subtle btn-press focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet"
               aria-label={`Open shopping cart with ${itemCount} items`}
             >
               <ShoppingCart className="w-5 h-5" />
@@ -146,7 +146,7 @@ export function Navbar() {
             {/* Primary Get Started CTA */}
             <Link
               href="/#services"
-              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-brand-navy hover:bg-brand-royal dark:bg-brand-royal dark:hover:bg-brand-royal-light text-white text-xs font-bold rounded-xl transition-all shadow-subtle hover:shadow-card active:scale-98"
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-brand-navy hover:bg-brand-royal dark:bg-brand-royal dark:hover:bg-brand-royal-light text-white text-xs font-bold rounded-xl shadow-subtle hover:shadow-card btn-press"
             >
               <span>Get Started</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -177,13 +177,14 @@ export function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-5 pt-3 pb-6 space-y-3 shadow-elevated transition-all animate-fade-in">
-          {navLinks.map((link) => (
+        <div className="md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-5 pt-3 pb-6 space-y-3 shadow-elevated animate-slide-down">
+          {navLinks.map((link, idx) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
               className="block px-3 py-2.5 rounded-lg text-base font-semibold text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              style={{ animationDelay: `${idx * 40}ms` }}
             >
               {link.name}
             </Link>
@@ -196,7 +197,7 @@ export function Navbar() {
             <Link
               href="/#services"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-brand-violet hover:bg-brand-violet-hover text-white rounded-xl text-sm font-bold shadow-subtle transition-all active:scale-98"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-brand-violet hover:bg-brand-violet-hover text-white rounded-xl text-sm font-bold shadow-subtle btn-press"
             >
               <span>Explore Packages (from ₹3,499)</span>
               <ArrowRight className="w-4 h-4" />
@@ -205,7 +206,7 @@ export function Navbar() {
               href="https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-800 text-brand-navy dark:text-white rounded-xl text-sm font-bold border border-slate-200 dark:border-slate-700 transition-colors active:scale-98"
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-800 text-brand-navy dark:text-white rounded-xl text-sm font-bold border border-slate-200 dark:border-slate-700 btn-press"
             >
               <MessageSquare className="w-4 h-4 text-emerald-500" />
               <span>Chat on WhatsApp</span>

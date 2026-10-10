@@ -5,6 +5,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 import { Metadata } from "next";
 import { getBreadcrumbSchema } from "@/lib/schema";
+import { BRAND } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: "About Us — Web Development & E-Commerce Agency",
@@ -123,7 +124,7 @@ export default function AboutPage() {
               Explore Service Packages <ArrowRight className="w-4 h-4" />
             </Link>
             <a
-              href="https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20would%20like%20to%20discuss%20a%20website%20project."
+              href={BRAND.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-brand-navy dark:text-slate-200 text-sm font-bold rounded-xl transition-colors inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet active:scale-98"

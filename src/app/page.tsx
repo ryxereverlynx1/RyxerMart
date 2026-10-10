@@ -20,6 +20,7 @@ import { InteractiveWhyCards } from "@/components/home/InteractiveWhyCards";
 import { InteractiveFAQAccordion } from "@/components/ui/InteractiveFAQAccordion";
 import { getActiveServices, getGeneralFaqs } from "@/lib/catalog";
 import { getFaqSchema } from "@/lib/schema";
+import { BRAND } from "@/lib/brand";
 
 export const dynamic = "force-dynamic";
 
@@ -212,7 +213,11 @@ export default async function HomePage() {
                   <Phone className="w-5 h-5 text-brand-violet dark:text-purple-400 flex-shrink-0 mt-0.5" />
                   <div>
                     <h3 className="text-xs font-bold text-brand-navy dark:text-slate-200 uppercase tracking-wider">Direct Phone Desk</h3>
-                    <p className="text-sm text-slate-700 dark:text-slate-300">+91 77194-21910</p>
+                    <p className="text-sm text-slate-700 dark:text-slate-300">
+                      <a href={`tel:${BRAND.phoneRaw}`} className="hover:text-brand-violet dark:hover:text-purple-400 transition-colors">
+                        {BRAND.phone}
+                      </a>
+                    </p>
                   </div>
                 </div>
 
@@ -221,8 +226,8 @@ export default async function HomePage() {
                   <div>
                     <h3 className="text-xs font-bold text-brand-navy dark:text-slate-200 uppercase tracking-wider">Business Email</h3>
                     <p className="text-sm text-slate-700 dark:text-slate-300">
-                      <a href="mailto:ryxereverlynx@gmail.com" className="hover:text-brand-violet dark:hover:text-purple-400 transition-colors">
-                        ryxereverlynx@gmail.com
+                      <a href={`mailto:${BRAND.email}`} className="hover:text-brand-violet dark:hover:text-purple-400 transition-colors">
+                        {BRAND.email}
                       </a>
                     </p>
                   </div>
@@ -236,7 +241,7 @@ export default async function HomePage() {
                       For immediate package guidance and custom quotations, message our engineering lead directly.
                     </p>
                     <a
-                      href="https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20have%20a%20question%20about%20your%20services."
+                      href={BRAND.whatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 mt-2.5 text-xs font-bold text-emerald-800 dark:text-emerald-300 hover:underline group"

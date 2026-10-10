@@ -179,7 +179,7 @@ export function ChatbotWidget() {
     >
       {/* Expanded Chat Box */}
       {isOpen && (
-        <div className="w-[calc(100vw-2rem)] sm:w-[26rem] h-[520px] max-h-[80vh] bg-white dark:bg-slate-900 rounded-2xl shadow-elevated border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden mb-3 animate-pop-in transition-all">
+        <div className="w-[calc(100vw-2rem)] sm:w-[26rem] h-[520px] max-h-[80vh] bg-white dark:bg-slate-900 rounded-2xl shadow-elevated border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden mb-3 animate-pop-in origin-bottom-right transition-colors">
           {/* Header */}
           <div className="bg-gradient-to-r from-brand-navy via-brand-royal to-brand-navy dark:from-slate-950 dark:to-slate-900 p-4 text-white flex items-center justify-between border-b border-brand-royal/40 dark:border-slate-800">
             <div className="flex items-center gap-2.5">
@@ -293,12 +293,12 @@ export function ChatbotWidget() {
 
             {/* Typing Indicator */}
             {loading && (
-              <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs py-2 px-1">
-                <ChatbotLogo className="w-7 h-7 flex-shrink-0 animate-pulse drop-shadow-sm" />
-                <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-3 py-2 flex items-center gap-1.5 shadow-subtle">
-                  <span className="w-2 h-2 rounded-full bg-brand-violet animate-bounce" style={{ animationDelay: "0ms" }} />
-                  <span className="w-2 h-2 rounded-full bg-brand-violet animate-bounce" style={{ animationDelay: "150ms" }} />
-                  <span className="w-2 h-2 rounded-full bg-brand-violet animate-bounce" style={{ animationDelay: "300ms" }} />
+              <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-xs py-2 px-1 animate-fade-in">
+                <ChatbotLogo className="w-7 h-7 flex-shrink-0 drop-shadow-sm" />
+                <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-3.5 py-2 flex items-center gap-1.5 shadow-subtle">
+                  <span className="w-2 h-2 rounded-full bg-brand-violet typing-dot" />
+                  <span className="w-2 h-2 rounded-full bg-brand-violet typing-dot" />
+                  <span className="w-2 h-2 rounded-full bg-brand-violet typing-dot" />
                 </div>
               </div>
             )}

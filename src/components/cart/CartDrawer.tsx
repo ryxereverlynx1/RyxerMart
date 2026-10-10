@@ -213,7 +213,7 @@ export function CartDrawer() {
                 <Link
                   href="/checkout"
                   onClick={() => setIsDrawerOpen(false)}
-                  className="w-full py-3.5 px-4 bg-brand-violet hover:bg-brand-violet-hover text-white text-sm font-bold rounded-xl shadow-subtle hover:shadow-card transition-all flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet active:scale-98"
+                  className="w-full py-3.5 px-4 bg-brand-violet hover:bg-brand-violet-hover text-white text-sm font-bold rounded-xl shadow-subtle hover:shadow-card btn-press flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet"
                 >
                   <span>Continue to Order Review</span>
                   <ArrowRight className="w-4 h-4" />

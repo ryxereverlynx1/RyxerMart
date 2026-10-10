@@ -67,16 +67,16 @@ export function ScrollReveal({
     return <div className={className}>{children}</div>;
   }
 
-  // Base transformations
-  let initialTransform = "translateY(24px)";
+  // Base transformations - restrained 16px distance prevents jarring jumps
+  let initialTransform = "translateY(16px)";
   if (animation === "fade-in") initialTransform = "translateY(0)";
-  if (animation === "fade-down") initialTransform = "translateY(-24px)";
-  if (animation === "scale-up") initialTransform = "scale(0.95)";
+  if (animation === "fade-down") initialTransform = "translateY(-16px)";
+  if (animation === "scale-up") initialTransform = "scale(0.96)";
 
   const style: React.CSSProperties = {
     opacity: isVisible ? 1 : 0,
     transform: isVisible ? "none" : initialTransform,
-    transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+    transition: `opacity ${duration}ms cubic-bezier(0.23, 1, 0.32, 1) ${delay}ms, transform ${duration}ms cubic-bezier(0.23, 1, 0.32, 1) ${delay}ms`,
     willChange: isVisible ? "auto" : "opacity, transform",
   };
 

@@ -294,3 +294,54 @@ export async function retryFailedOrderEmail(
     createdAt: order.createdAt,
   });
 }
+
+/**
+ * Sends contact enquiry notification email to admin
+ */
+export async function sendContactNotificationEmail(data: {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  id: string;
+}): Promise<{ success: boolean; error?: string }> {
+  const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER || "ryxereverlynx@gmail.com";
+  const fromEmail =
+    process.env.SMTP_FROM ||
+    (process.env.SMTP_USER
+      ? `Ryxer Mart <${process.env.SMTP_USER}>`
+      : `Ryxer Mart <ryxereverlynx@gmail.com>`);
+
+  const transporter = createTransporter();
+  if (!transporter) {
+    return { success: false, error: "SMTP transporter not configured" };
+  }
+
+  try {
+    await transporter.sendMail({
+      from: fromEmail,
+      to: adminEmail,
+      subject: `[New Contact Enquiry] from ${data.name} (${data.phone})`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #E2E8F0; border-radius: 8px;">
+          <h2 style="color: #0A2558; margin-top: 0;">New Contact Form Enquiry</h2>
+          <p><strong>Name:</strong> ${data.name}</p>
+          <p><strong>Phone:</strong> <a href="tel:${data.phone}">${data.phone}</a></p>
+          <p><strong>Email:</strong> <a href="mailto:${data.email}">${data.email}</a></p>
+          <p><strong>Message:</strong></p>
+          <div style="background: #F8FAFC; padding: 12px; border-radius: 6px; border-left: 4px solid #6C3CE9;">
+            ${data.message.replace(/\n/g, "<br>")}
+          </div>
+          <p style="margin-top: 20px; font-size: 12px; color: #64748B;">
+            Submission ID: ${data.id} &bull; Ryxer Mart Lead Notification
+          </p>
+        </div>
+      `,
+    });
+    return { success: true };
+  } catch (err: unknown) {
+    console.error("[Contact Email Failed]:", err);
+    return { success: false, error: err instanceof Error ? err.message : "Failed to deliver email" };
+  }
+}
+

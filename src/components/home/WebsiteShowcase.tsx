@@ -203,9 +203,9 @@ export function WebsiteShowcase() {
                 </div>
                 <div className="py-1 px-4 bg-white dark:bg-slate-800 rounded-md border border-slate-200 dark:border-slate-700 text-[10px] text-slate-500 dark:text-slate-400 font-mono flex items-center gap-2">
                   <Shield className="w-3 h-3 text-emerald-600" />
-                  <span>https://preview.{activeItem.id}.ryxer.site</span>
+                  <span>Architecture Demo • {activeItem.categoryLabel}</span>
                 </div>
-                <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400">
+                <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
                   {activeItem.desktopFeatures.stat}
                 </span>
               </div>
