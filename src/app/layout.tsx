@@ -123,7 +123,7 @@ export default function RootLayout({
   const siteNavSchema = getSiteNavigationSchema();
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <meta name="color-scheme" content="light dark" />
         {/* Favicons & SERP App Icons */}

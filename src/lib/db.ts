@@ -5,7 +5,15 @@ function cleanDatabaseUrl(url?: string): string | undefined {
   let cleaned = url.trim().replace(/^["']|["']$/g, "");
   if (!cleaned.includes("connect_timeout=")) {
     const sep = cleaned.includes("?") ? "&" : "?";
-    cleaned = `${cleaned}${sep}connect_timeout=15`;
+    cleaned = `${cleaned}${sep}connect_timeout=30`;
+  }
+  if (!cleaned.includes("pool_timeout=")) {
+    const sep = cleaned.includes("?") ? "&" : "?";
+    cleaned = `${cleaned}${sep}pool_timeout=30`;
+  }
+  if (!cleaned.includes("connection_limit=")) {
+    const sep = cleaned.includes("?") ? "&" : "?";
+    cleaned = `${cleaned}${sep}connection_limit=10`;
   }
   return cleaned;
 }
@@ -22,7 +30,15 @@ function deriveDirectUrl(url?: string): string | undefined {
   }
   if (!cleaned.includes("connect_timeout=")) {
     const sep = cleaned.includes("?") ? "&" : "?";
-    cleaned = `${cleaned}${sep}connect_timeout=15`;
+    cleaned = `${cleaned}${sep}connect_timeout=30`;
+  }
+  if (!cleaned.includes("pool_timeout=")) {
+    const sep = cleaned.includes("?") ? "&" : "?";
+    cleaned = `${cleaned}${sep}pool_timeout=30`;
+  }
+  if (!cleaned.includes("connection_limit=")) {
+    const sep = cleaned.includes("?") ? "&" : "?";
+    cleaned = `${cleaned}${sep}connection_limit=10`;
   }
   return cleaned;
 }

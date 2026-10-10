@@ -15,12 +15,14 @@ import {
   IoCheckmarkOutline,
   IoCartOutline,
   IoCallOutline,
+  IoWifiOutline,
+  IoBatteryFullOutline,
+  IoSearchOutline,
 } from "react-icons/io5";
 import { BRAND } from "@/lib/brand";
 
 export function HeroInteractive() {
   const [activeDeviceView, setActiveDeviceView] = useState<"desktop" | "mobile">("desktop");
-  const [activePreviewNiche, setActivePreviewNiche] = useState<"retail" | "service">("retail");
 
   return (
     <div className="relative overflow-hidden pt-8 pb-16 sm:pt-16 sm:pb-24 lg:pt-20 lg:pb-28">
@@ -113,11 +115,11 @@ export function HeroInteractive() {
           {/* RIGHT COLUMN: ORIGINAL INTERACTIVE BROWSER & MOCKUP ASSET */}
           {/* ========================================================= */}
           <div
-            className="lg:col-span-5 animate-fade-up relative"
+            className="lg:col-span-5 animate-fade-up relative flex flex-col items-center"
             style={{ animationDelay: "200ms" }}
           >
             {/* Viewport Control Bar */}
-            <div className="flex items-center justify-between mb-3 px-1">
+            <div className="w-full flex items-center justify-between mb-3 px-1">
               <div className="flex items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300">
                 <button
                   type="button"
@@ -150,9 +152,11 @@ export function HeroInteractive() {
               </span>
             </div>
 
-            {/* Desktop Browser Frame Mockup */}
+            {/* ========================================================= */}
+            {/* OPTION A: DESKTOP BROWSER FRAME MOCKUP                     */}
+            {/* ========================================================= */}
             {activeDeviceView === "desktop" && (
-              <div className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-card overflow-hidden transition-all duration-300">
+              <div className="w-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-card overflow-hidden transition-all duration-300">
                 {/* Browser Top Window Bar */}
                 <div className="px-4 py-3 bg-slate-100/90 dark:bg-slate-850 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1.5">
@@ -252,59 +256,134 @@ export function HeroInteractive() {
               </div>
             )}
 
-            {/* Mobile Phone Frame Mockup */}
+            {/* ========================================================= */}
+            {/* OPTION B: REALISTIC TALL SMARTPHONE FRAME (ASPECT 9:19)    */}
+            {/* ========================================================= */}
             {activeDeviceView === "mobile" && (
-              <div className="max-w-[280px] mx-auto rounded-3xl border-4 border-slate-800 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-card overflow-hidden transition-all duration-300">
-                {/* Phone Speaker Notch */}
-                <div className="bg-slate-800 dark:bg-slate-750 py-1 flex justify-center">
-                  <div className="w-16 h-1 bg-slate-600 rounded-full" />
+              <div className="w-[270px] sm:w-[280px] h-[550px] sm:h-[570px] rounded-[44px] bg-slate-950 p-2.5 shadow-2xl border-4 border-slate-800 dark:border-slate-700 ring-1 ring-slate-700/50 relative flex flex-col justify-between mx-auto overflow-hidden transition-all duration-300">
+                {/* Smartphone Dynamic Island Notch & Status Bar */}
+                <div className="w-full pt-1 pb-1.5 px-3 flex items-center justify-between text-white text-[10px] font-semibold shrink-0 z-10 bg-slate-950">
+                  <span className="font-bold">9:41</span>
+                  {/* Dynamic Island Pill */}
+                  <div className="w-20 h-4 bg-black rounded-full flex items-center justify-center gap-1 border border-slate-800">
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-800" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-950" />
+                  </div>
+                  <div className="flex items-center gap-1 text-[11px] text-slate-300">
+                    <IoWifiOutline />
+                    <IoBatteryFullOutline />
+                  </div>
                 </div>
 
-                {/* Mobile Screen Inside */}
-                <div className="p-3.5 space-y-3 bg-slate-50/50 dark:bg-slate-900/50">
-                  <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                    <span className="text-xs font-black text-brand-navy dark:text-white">
-                      Aura Luxe
-                    </span>
-                    <span className="text-[10px] bg-brand-violet text-white px-2 py-0.5 rounded font-bold">
-                      Menu
-                    </span>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-brand-navy text-white space-y-1">
-                    <span className="text-[8px] uppercase tracking-wider text-purple-300 font-bold">
-                      Mobile Responsive
-                    </span>
-                    <h5 className="text-xs font-black leading-tight">
-                      Fast 1-Tap WhatsApp Checkout
-                    </h5>
-                    <p className="text-[9px] text-slate-300">
-                      Optimized for all Android &amp; iOS screens.
-                    </p>
-                  </div>
-
-                  <div className="p-2.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-850 flex items-center gap-2">
-                    <div className="w-10 h-10 rounded bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-[9px] font-bold text-slate-500">
-                      Product
+                {/* Smartphone Inside Screen */}
+                <div className="flex-1 rounded-[32px] bg-white dark:bg-slate-900 overflow-hidden flex flex-col justify-between border border-slate-200/60 dark:border-slate-800 text-left">
+                  {/* Mobile Browser Top Bar */}
+                  <div className="px-3 py-1.5 bg-slate-100 dark:bg-slate-850 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between text-[10px]">
+                    <div className="flex items-center gap-1 text-slate-500 font-mono truncate">
+                      <span className="text-emerald-500">🔒</span>
+                      <span>auraluxe.in</span>
                     </div>
-                    <div className="min-w-0 flex-1">
-                      <span className="text-[10px] font-bold text-brand-navy dark:text-white block truncate">
-                        Nordic Lamp
-                      </span>
-                      <span className="text-[9px] font-extrabold text-slate-700 dark:text-slate-300">
-                        ₹1,899
+                    <span className="text-[9px] font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
+                      SSL
+                    </span>
+                  </div>
+
+                  {/* Mobile Website Body */}
+                  <div className="p-3 space-y-2.5 flex-1 overflow-y-auto">
+                    {/* Header */}
+                    <div className="flex items-center justify-between pb-1.5 border-b border-slate-100 dark:border-slate-800">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-5 h-5 rounded-md bg-brand-violet text-white font-black text-[10px] flex items-center justify-center">
+                          A
+                        </span>
+                        <span className="text-xs font-black text-brand-navy dark:text-white">
+                          Aura Luxe
+                        </span>
+                      </div>
+                      <span className="text-[9px] bg-brand-violet text-white px-2 py-0.5 rounded-md font-bold">
+                        Cart (1)
                       </span>
                     </div>
-                    <span className="px-2 py-1 bg-emerald-600 text-white text-[9px] font-bold rounded flex items-center gap-0.5">
-                      <IoLogoWhatsapp className="w-2.5 h-2.5" /> Order
-                    </span>
+
+                    {/* Banner */}
+                    <div className="p-3 rounded-xl bg-gradient-to-r from-brand-navy to-slate-800 text-white space-y-1 shadow-sm">
+                      <span className="text-[8px] uppercase tracking-wider text-purple-300 font-extrabold block">
+                        2026 Collection
+                      </span>
+                      <h5 className="text-xs font-black leading-tight">
+                        Modern Decor Built for Style
+                      </h5>
+                      <span className="inline-block mt-1 text-[9px] font-bold px-2 py-0.5 bg-brand-violet text-white rounded">
+                        Shop Now
+                      </span>
+                    </div>
+
+                    {/* Product Card 1 */}
+                    <div className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-850 flex items-center gap-2">
+                      <div className="w-10 h-10 rounded-md bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-[9px] font-bold text-slate-500 shrink-0">
+                        Lamp
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <span className="text-[11px] font-bold text-brand-navy dark:text-white block truncate">
+                          Nordic Lamp
+                        </span>
+                        <span className="text-[10px] font-extrabold text-slate-700 dark:text-slate-300">
+                          ₹1,899
+                        </span>
+                      </div>
+                      <a
+                        href={BRAND.whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-2 py-1 bg-emerald-600 text-white text-[9px] font-bold rounded-md flex items-center gap-0.5 shrink-0"
+                      >
+                        <IoLogoWhatsapp className="w-2.5 h-2.5" /> Order
+                      </a>
+                    </div>
+
+                    {/* Product Card 2 */}
+                    <div className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-850 flex items-center gap-2">
+                      <div className="w-10 h-10 rounded-md bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-[9px] font-bold text-slate-500 shrink-0">
+                        Vase
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <span className="text-[11px] font-bold text-brand-navy dark:text-white block truncate">
+                          Ceramic Vase
+                        </span>
+                        <span className="text-[10px] font-extrabold text-slate-700 dark:text-slate-300">
+                          ₹1,249
+                        </span>
+                      </div>
+                      <a
+                        href={BRAND.whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-2 py-1 bg-emerald-600 text-white text-[9px] font-bold rounded-md flex items-center gap-0.5 shrink-0"
+                      >
+                        <IoLogoWhatsapp className="w-2.5 h-2.5" /> Order
+                      </a>
+                    </div>
+
+                    {/* Mobile Speed Callout */}
+                    <div className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900 text-center text-[9px] font-bold text-emerald-700 dark:text-emerald-300">
+                      ⚡ 1-Tap WhatsApp Checkout &bull; 99/100 Mobile Speed
+                    </div>
                   </div>
 
-                  <div className="text-center pt-1">
-                    <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400">
-                      ⚡ 100% Mobile Optimized Architecture
+                  {/* Mobile Screen Bottom Floating Action Bar */}
+                  <div className="p-2 bg-slate-100 dark:bg-slate-850 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-[9px] font-bold text-slate-600 dark:text-slate-300">
+                    <span className="text-brand-violet dark:text-purple-400">● Home</span>
+                    <span>Catalog</span>
+                    <span>Cart (1)</span>
+                    <span className="text-emerald-600 flex items-center gap-0.5">
+                      <IoLogoWhatsapp /> Chat
                     </span>
                   </div>
+                </div>
+
+                {/* Smartphone Home Indicator Bar */}
+                <div className="w-full pt-1.5 pb-0.5 flex justify-center shrink-0">
+                  <div className="w-28 h-1 bg-slate-600 rounded-full" />
                 </div>
               </div>
             )}

@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { db, runWithDbFallback } from "@/lib/db";
 import { ServiceDTO, GeneralFAQDTO } from "@/types";
 
 export const FALLBACK_SERVICES: ServiceDTO[] = [
@@ -248,23 +248,25 @@ export const FALLBACK_FAQS: GeneralFAQDTO[] = [
 
 export async function getActiveServices(): Promise<ServiceDTO[]> {
   try {
-    const services = await db.service.findMany({
-      where: { active: true },
-      orderBy: { displayOrder: "asc" },
-      include: {
-        category: true,
-        features: {
-          where: { isIncluded: true },
-          orderBy: { displayOrder: "asc" },
+    const services = await runWithDbFallback((client) =>
+      client.service.findMany({
+        where: { active: true },
+        orderBy: { displayOrder: "asc" },
+        include: {
+          category: true,
+          features: {
+            where: { isIncluded: true },
+            orderBy: { displayOrder: "asc" },
+          },
         },
-      },
-    });
+      })
+    );
 
     if (services && services.length > 0) {
       return services as unknown as ServiceDTO[];
     }
   } catch (error) {
-    console.error("[Database Notice] Error fetching services from database, serving fallback data:", error);
+    console.warn("[Database Notice] Error fetching services from database, serving fallback data");
   }
 
   return FALLBACK_SERVICES;
@@ -272,27 +274,29 @@ export async function getActiveServices(): Promise<ServiceDTO[]> {
 
 export async function getServiceBySlug(slug: string): Promise<ServiceDTO | null> {
   try {
-    const service = await db.service.findUnique({
-      where: { slug },
-      include: {
-        category: true,
-        features: {
-          orderBy: { displayOrder: "asc" },
+    const service = await runWithDbFallback((client) =>
+      client.service.findUnique({
+        where: { slug },
+        include: {
+          category: true,
+          features: {
+            orderBy: { displayOrder: "asc" },
+          },
+          faqs: {
+            orderBy: { displayOrder: "asc" },
+          },
+          images: {
+            orderBy: { displayOrder: "asc" },
+          },
         },
-        faqs: {
-          orderBy: { displayOrder: "asc" },
-        },
-        images: {
-          orderBy: { displayOrder: "asc" },
-        },
-      },
-    });
+      })
+    );
 
     if (service) {
       return service as unknown as ServiceDTO;
     }
   } catch (error) {
-    console.error(`[Database Notice] Error fetching service '${slug}' from database, serving fallback:`, error);
+    console.warn(`[Database Notice] Error fetching service '${slug}' from database, serving fallback`);
   }
 
   const fallback = FALLBACK_SERVICES.find((s) => s.slug === slug);
@@ -301,16 +305,18 @@ export async function getServiceBySlug(slug: string): Promise<ServiceDTO | null>
 
 export async function getGeneralFaqs(): Promise<GeneralFAQDTO[]> {
   try {
-    const faqs = await db.generalFAQ.findMany({
-      where: { active: true },
-      orderBy: { displayOrder: "asc" },
-    });
+    const faqs = await runWithDbFallback((client) =>
+      client.generalFAQ.findMany({
+        where: { active: true },
+        orderBy: { displayOrder: "asc" },
+      })
+    );
 
     if (faqs && faqs.length > 0) {
       return faqs as unknown as GeneralFAQDTO[];
     }
   } catch (error) {
-    console.error("[Database Notice] Error fetching FAQs from database, serving fallback data:", error);
+    console.warn("[Database Notice] Error fetching FAQs from database, serving fallback data");
   }
 
   return FALLBACK_FAQS;
@@ -324,16 +330,18 @@ export const FALLBACK_CATEGORIES = [
 
 export async function getActiveCategories() {
   try {
-    const categories = await db.category.findMany({
-      where: { active: true },
-      orderBy: { displayOrder: "asc" },
-    });
+    const categories = await runWithDbFallback((client) =>
+      client.category.findMany({
+        where: { active: true },
+        orderBy: { displayOrder: "asc" },
+      })
+    );
 
     if (categories && categories.length > 0) {
       return categories;
     }
   } catch (error) {
-    console.error("[Database Notice] Error fetching categories from database, serving fallback data:", error);
+    console.warn("[Database Notice] Error fetching categories from database, serving fallback data");
   }
 
   return FALLBACK_CATEGORIES;
