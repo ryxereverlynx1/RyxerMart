@@ -23,7 +23,7 @@ export const BRAND = {
   websiteUrl: "https://ryxer.site",
   logoUrl: "https://ryxer.site/images/logo.png",
   ogImageUrl: "https://ryxer.site/images/og-image.png",
-  phone: "+91 7719421910",
+  phone: "+91 77194-21910",
   phoneRaw: "917719421910",
   whatsappUrl: "https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20would%20like%20to%20discuss%20a%20website%20project.",
   email: "ryxereverlynx@gmail.com",
