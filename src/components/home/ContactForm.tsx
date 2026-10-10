@@ -1,7 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { Send, CheckCircle2, AlertCircle, RefreshCw } from "lucide-react";
+import {
+  IoPaperPlaneOutline,
+  IoCheckmarkCircleOutline,
+  IoAlertCircleOutline,
+  IoRefreshOutline,
+} from "react-icons/io5";
 import { useToast } from "@/context/ToastContext";
 
 export function ContactForm() {
@@ -49,7 +54,7 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <div className="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-2xl p-8 text-center space-y-3 animate-fade-in">
-        <CheckCircle2 className="w-12 h-12 text-emerald-600 dark:text-emerald-400 mx-auto" />
+        <IoCheckmarkCircleOutline className="w-12 h-12 text-emerald-600 dark:text-emerald-400 mx-auto" />
         <h4 className="text-lg font-bold text-emerald-900 dark:text-emerald-100">Message Received!</h4>
         <p className="text-sm text-emerald-700 dark:text-emerald-300 max-w-sm mx-auto">
           Thank you for reaching out. Our development team has received your enquiry and will respond via phone or WhatsApp shortly.
@@ -67,7 +72,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-4 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-card dark:shadow-dark-card transition-colors"
+      className="space-y-4 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-3d-card transition-colors"
     >
       <h3 className="text-xl font-bold text-brand-navy dark:text-white tracking-tight mb-2">
         Send Us an Enquiry
@@ -78,7 +83,7 @@ export function ContactForm() {
 
       {status === "error" && (
         <div className="p-3 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 rounded-xl text-xs text-rose-700 dark:text-rose-300 flex items-center gap-2 animate-shake-error">
-          <AlertCircle className="w-4 h-4 flex-shrink-0" />
+          <IoAlertCircleOutline className="w-4 h-4 flex-shrink-0" />
           <span>{errorMessage}</span>
         </div>
       )}
@@ -147,12 +152,12 @@ export function ContactForm() {
       >
         {status === "loading" ? (
           <>
-            <RefreshCw className="w-4 h-4 animate-spin" />
+            <IoRefreshOutline className="w-4 h-4 animate-spin" />
             <span>Sending Enquiry...</span>
           </>
         ) : (
           <>
-            <Send className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <IoPaperPlaneOutline className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             <span>Submit Enquiry</span>
           </>
         )}

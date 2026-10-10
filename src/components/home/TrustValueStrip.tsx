@@ -51,8 +51,11 @@ export function TrustValueStrip() {
           {valueProps.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div key={index} className="space-y-1.5 text-left card-lift">
-                <div className="w-8 h-8 rounded-lg bg-brand-violet-light dark:bg-slate-800 text-brand-violet dark:text-purple-400 flex items-center justify-center transition-colors">
+              <div
+                key={index}
+                className="space-y-1.5 text-left p-3.5 rounded-xl bg-slate-50/70 dark:bg-slate-850/70 border border-slate-200/70 dark:border-slate-800 shadow-subtle hover:shadow-3d-floating dark:hover:shadow-3d-floating-dark card-lift transition-all"
+              >
+                <div className="w-8 h-8 rounded-lg bg-brand-violet-light dark:bg-slate-800 text-brand-violet dark:text-purple-400 flex items-center justify-center transition-colors shadow-sm">
                   <Icon className="w-4 h-4" />
                 </div>
                 <h4 className="text-xs font-bold text-brand-navy dark:text-white leading-tight">

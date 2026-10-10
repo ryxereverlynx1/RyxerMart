@@ -1,7 +1,13 @@
 "use client";
 
 import React, { createContext, useContext, useState, useCallback } from "react";
-import { CheckCircle2, AlertCircle, Info, AlertTriangle, X } from "lucide-react";
+import {
+  IoCheckmarkCircleOutline,
+  IoAlertCircleOutline,
+  IoInformationCircleOutline,
+  IoWarningOutline,
+  IoCloseOutline,
+} from "react-icons/io5";
 
 export type ToastType = "success" | "error" | "info" | "warning";
 
@@ -79,16 +85,16 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
           >
             <div className="flex-shrink-0 mt-0.5">
               {t.type === "success" && (
-                <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                <IoCheckmarkCircleOutline className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               )}
               {t.type === "error" && (
-                <AlertCircle className="w-5 h-5 text-rose-600 dark:text-rose-400" />
+                <IoAlertCircleOutline className="w-5 h-5 text-rose-600 dark:text-rose-400" />
               )}
               {t.type === "warning" && (
-                <AlertTriangle className="w-5 h-5 text-amber-500" />
+                <IoWarningOutline className="w-5 h-5 text-amber-500" />
               )}
               {t.type === "info" && (
-                <Info className="w-5 h-5 text-brand-violet dark:text-brand-violet-hover" />
+                <IoInformationCircleOutline className="w-5 h-5 text-brand-violet dark:text-brand-violet-hover" />
               )}
             </div>
             <div className="flex-1 text-sm">
@@ -100,7 +106,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
               className="flex-shrink-0 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded-md transition-colors"
               aria-label="Close notification"
             >
-              <X className="w-4 h-4" />
+              <IoCloseOutline className="w-4 h-4" />
             </button>
           </div>
         ))}

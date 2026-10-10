@@ -71,8 +71,8 @@ export function InteractiveHowItWorks() {
               onClick={() => setActiveStep(index)}
               className={`p-5 rounded-2xl border transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-4 ${
                 isSelected
-                  ? "bg-white dark:bg-slate-800 border-brand-violet/50 dark:border-purple-500/50 shadow-card -translate-y-1"
-                  : "bg-slate-50/70 dark:bg-slate-900/40 border-slate-200/70 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
+                  ? "bg-white dark:bg-slate-800 border-brand-violet/50 dark:border-purple-500/50 shadow-3d-floating dark:shadow-3d-floating-dark -translate-y-1"
+                  : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-subtle hover:shadow-card hover:border-slate-300 dark:hover:border-slate-700"
               }`}
             >
               <div className="space-y-2">

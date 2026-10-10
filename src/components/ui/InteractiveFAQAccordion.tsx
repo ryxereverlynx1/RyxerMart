@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { IoChevronDownOutline, IoHelpCircleOutline } from "react-icons/io5";
 
 interface FAQItem {
   id: string;
@@ -48,7 +48,7 @@ export function InteractiveFAQAccordion({
               className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet transition-colors group"
             >
               <div className="flex items-start gap-3">
-                <HelpCircle
+                <IoHelpCircleOutline
                   className={`w-5 h-5 flex-shrink-0 mt-0.5 transition-colors duration-200 ${
                     isOpen
                       ? "text-brand-violet dark:text-purple-400"
@@ -66,7 +66,7 @@ export function InteractiveFAQAccordion({
                     : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:bg-brand-violet/10 group-hover:text-brand-violet"
                 }`}
               >
-                <ChevronDown className="w-4 h-4" />
+                <IoChevronDownOutline className="w-4 h-4" />
               </div>
             </button>
 

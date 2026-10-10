@@ -5,7 +5,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 import { useToast } from "@/context/ToastContext";
-import { MessageSquare, X, Send, User, ShoppingBag, ArrowRight, Check, Star } from "lucide-react";
+import {
+  IoCloseOutline,
+  IoSendOutline,
+  IoPersonOutline,
+  IoBagOutline,
+  IoArrowForwardOutline,
+  IoCheckmarkOutline,
+} from "react-icons/io5";
 import { ChatbotLogo } from "@/components/ui/ChatbotLogo";
 
 interface ChatMessage {
@@ -179,7 +186,7 @@ export function ChatbotWidget() {
     >
       {/* Expanded Chat Box */}
       {isOpen && (
-        <div className="w-[calc(100vw-2rem)] sm:w-[26rem] h-[520px] max-h-[80vh] bg-white dark:bg-slate-900 rounded-2xl shadow-elevated border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden mb-3 animate-pop-in origin-bottom-right transition-colors">
+        <div className="w-[calc(100vw-2rem)] sm:w-[26rem] h-[520px] max-h-[80vh] bg-white dark:bg-slate-900 rounded-2xl shadow-3d-stage dark:shadow-3d-stage-dark border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden mb-3 animate-pop-in origin-bottom-right transition-colors">
           {/* Header */}
           <div className="bg-gradient-to-r from-brand-navy via-brand-royal to-brand-navy dark:from-slate-950 dark:to-slate-900 p-4 text-white flex items-center justify-between border-b border-brand-royal/40 dark:border-slate-800">
             <div className="flex items-center gap-2.5">
@@ -199,7 +206,7 @@ export function ChatbotWidget() {
               className="p-1.5 text-slate-300 hover:text-white rounded-lg hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               aria-label="Close assistant chat"
             >
-              <X className="w-5 h-5" />
+              <IoCloseOutline className="w-5 h-5" />
             </button>
           </div>
 
@@ -228,7 +235,7 @@ export function ChatbotWidget() {
                     </div>
                     {msg.role === "user" && (
                       <div className="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-700 text-slate-700 dark:text-slate-200 flex items-center justify-center flex-shrink-0 mt-1">
-                        <User className="w-3.5 h-3.5" />
+                        <IoPersonOutline className="w-3.5 h-3.5" />
                       </div>
                     )}
                   </div>
@@ -261,7 +268,7 @@ export function ChatbotWidget() {
                           className="flex-1 text-center py-1.5 px-2.5 text-[11px] font-bold text-brand-navy dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-750 rounded-lg transition-colors flex items-center justify-center gap-1"
                         >
                           <span>View</span>
-                          <ArrowRight className="w-3 h-3" />
+                          <IoArrowForwardOutline className="w-3 h-3" />
                         </Link>
                         <button
                           type="button"
@@ -275,11 +282,11 @@ export function ChatbotWidget() {
                           {addedSlug === matchedService.slug ? (
                             <span className="inline-flex items-center gap-1">
                               <span>Added</span>
-                              <Check className="w-3.5 h-3.5 text-white animate-scale-in" />
+                              <IoCheckmarkOutline className="w-3.5 h-3.5 text-white animate-scale-in" />
                             </span>
                           ) : (
                             <>
-                              <ShoppingBag className="w-3 h-3" />
+                              <IoBagOutline className="w-3 h-3" />
                               <span>Add to Cart</span>
                             </>
                           )}
@@ -342,7 +349,7 @@ export function ChatbotWidget() {
               className="p-2.5 bg-brand-violet hover:bg-brand-violet-hover disabled:bg-slate-200 dark:disabled:bg-slate-800 disabled:text-slate-400 dark:disabled:text-slate-600 text-white rounded-xl transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet shadow-sm"
               aria-label="Send message"
             >
-              <Send className="w-4 h-4" />
+              <IoSendOutline className="w-4 h-4" />
             </button>
           </form>
         </div>
@@ -351,7 +358,7 @@ export function ChatbotWidget() {
       {/* Floating Toggle Button with Custom SVG Chatbot Mark */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2.5 px-4 py-2.5 bg-brand-navy hover:bg-brand-royal dark:bg-brand-royal dark:hover:bg-brand-royal-light text-white rounded-full shadow-card hover:shadow-card-hover transition-all duration-200 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet border border-white/20 dark:border-slate-800"
+        className="flex items-center gap-2.5 px-4 py-2.5 bg-brand-navy hover:bg-brand-royal dark:bg-brand-royal dark:hover:bg-brand-royal-light text-white rounded-full shadow-3d-floating dark:shadow-3d-floating-dark transition-all duration-200 active:scale-95 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet border border-white/20 dark:border-slate-800"
         aria-label="Chat with RyxerMart Customer Assistant"
       >
         <div className="relative flex items-center justify-center">

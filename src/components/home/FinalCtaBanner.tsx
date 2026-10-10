@@ -13,7 +13,7 @@ import { BRAND } from "@/lib/brand";
 export function FinalCtaBanner() {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-brand-navy via-slate-900 to-brand-navy text-white p-8 sm:p-12 lg:p-16 border border-slate-800 shadow-card">
+      <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-brand-navy via-slate-900 to-brand-navy text-white p-8 sm:p-12 lg:p-16 border border-slate-800 shadow-3d-stage dark:shadow-3d-stage-dark">
         {/* Ambient glow accent */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-violet/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-600/10 rounded-full blur-2xl pointer-events-none" />

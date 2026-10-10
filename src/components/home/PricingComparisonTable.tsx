@@ -2,17 +2,17 @@
 
 import React, { useState } from "react";
 import {
-  Check,
-  Minus,
-  ArrowRight,
-  Star,
-  ShoppingCart,
-  Layers,
-  Table as TableIcon,
-  ChevronDown,
-  ChevronUp,
-  MessageCircle,
-} from "lucide-react";
+  IoCheckmark,
+  IoRemove,
+  IoArrowForwardOutline,
+  IoStar,
+  IoCartOutline,
+  IoLayersOutline,
+  IoGridOutline,
+  IoChevronDownOutline,
+  IoChevronUpOutline,
+  IoLogoWhatsapp,
+} from "react-icons/io5";
 import { useCart } from "@/context/CartContext";
 import { useToast } from "@/context/ToastContext";
 import { generateWhatsAppContactLink } from "@/lib/whatsapp";
@@ -150,11 +150,11 @@ export function PricingComparisonTable() {
     if (typeof val === "boolean") {
       return val ? (
         <div className="w-5 h-5 rounded-full bg-emerald-50 dark:bg-emerald-950/70 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto">
-          <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+          <IoCheckmark className="w-3.5 h-3.5 stroke-[2.5]" />
         </div>
       ) : (
         <div className="w-5 h-5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-400 flex items-center justify-center mx-auto">
-          <Minus className="w-3.5 h-3.5" />
+          <IoRemove className="w-3.5 h-3.5" />
         </div>
       );
     }
@@ -168,7 +168,7 @@ export function PricingComparisonTable() {
   return (
     <div
       id="comparison-matrix"
-      className="mt-12 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-subtle overflow-hidden"
+      className="mt-12 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-3d-card overflow-hidden"
     >
       {/* Header Bar */}
       <div className="p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-200/80 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-850">
@@ -191,9 +191,9 @@ export function PricingComparisonTable() {
         >
           <span>{isOpen ? "Hide Comparison" : "View Detailed Comparison Table"}</span>
           {isOpen ? (
-            <ChevronUp className="w-4 h-4 text-brand-violet dark:text-purple-400" />
+            <IoChevronUpOutline className="w-4 h-4 text-brand-violet dark:text-purple-400" />
           ) : (
-            <ChevronDown className="w-4 h-4 text-brand-violet dark:text-purple-400" />
+            <IoChevronDownOutline className="w-4 h-4 text-brand-violet dark:text-purple-400" />
           )}
         </button>
       </div>
@@ -215,7 +215,7 @@ export function PricingComparisonTable() {
                     : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                 }`}
               >
-                <Layers className="w-3.5 h-3.5 text-brand-violet dark:text-purple-400" />
+                <IoLayersOutline className="w-3.5 h-3.5 text-brand-violet dark:text-purple-400" />
                 <span>Single Page View</span>
               </button>
               <button
@@ -227,7 +227,7 @@ export function PricingComparisonTable() {
                     : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                 }`}
               >
-                <TableIcon className="w-3.5 h-3.5 text-brand-violet dark:text-purple-400" />
+                <IoGridOutline className="w-3.5 h-3.5 text-brand-violet dark:text-purple-400" />
                 <span>Side-by-Side Grid</span>
               </button>
             </div>
@@ -259,7 +259,7 @@ export function PricingComparisonTable() {
                       >
                         <span className="truncate w-full flex items-center justify-center gap-1 text-[11px] font-extrabold">
                           {tier.isPopular && (
-                            <Star className="w-2.5 h-2.5 fill-amber-300 text-amber-300 inline shrink-0" />
+                            <IoStar className="w-2.5 h-2.5 text-amber-300 inline shrink-0" />
                           )}
                           {tier.shortName}
                         </span>
@@ -313,7 +313,7 @@ export function PricingComparisonTable() {
                           : "bg-brand-navy hover:bg-brand-navy-light"
                       }`}
                     >
-                      <ShoppingCart className="w-3.5 h-3.5" />
+                      <IoCartOutline className="w-3.5 h-3.5" />
                       <span>Add to Cart</span>
                     </button>
                   </div>
@@ -357,12 +357,12 @@ export function PricingComparisonTable() {
                                   {typeof val === "boolean" ? (
                                     val ? (
                                       <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/60 px-2 py-0.5 rounded-md">
-                                        <Check className="w-3 h-3 stroke-[2.5]" />
+                                        <IoCheckmark className="w-3 h-3 stroke-[2.5]" />
                                         Included
                                       </span>
                                     ) : (
                                       <span className="inline-flex items-center gap-1 text-[10px] font-medium text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
-                                        <Minus className="w-3 h-3" />
+                                        <IoRemove className="w-3 h-3" />
                                         Not in tier
                                       </span>
                                     )
@@ -397,7 +397,7 @@ export function PricingComparisonTable() {
                       onClick={() => handleQuickAdd(activeTier.slug, activeTier.name, activeTier.price)}
                       className="flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-bold bg-brand-violet hover:bg-brand-violet-hover text-white shadow-sm flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
                     >
-                      <ShoppingCart className="w-3.5 h-3.5" />
+                      <IoCartOutline className="w-3.5 h-3.5" />
                       <span>Add to Cart</span>
                     </button>
                     <a
@@ -407,7 +407,7 @@ export function PricingComparisonTable() {
                       className="px-3 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm flex items-center justify-center gap-1 active:scale-95 transition-transform"
                       title="Enquire on WhatsApp"
                     >
-                      <MessageCircle className="w-3.5 h-3.5" />
+                      <IoLogoWhatsapp className="w-3.5 h-3.5" />
                       <span className="sr-only sm:not-sr-only">WhatsApp</span>
                     </a>
                   </div>
@@ -445,7 +445,7 @@ export function PricingComparisonTable() {
                               onClick={() => handleQuickAdd("starter-website", "Starter Website", 3499)}
                               className="text-[10px] font-bold px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 inline-flex items-center gap-1 active:scale-95"
                             >
-                              <ShoppingCart className="w-2.5 h-2.5" />
+                              <IoCartOutline className="w-2.5 h-2.5" />
                               Add
                             </button>
                           </div>
@@ -455,7 +455,7 @@ export function PricingComparisonTable() {
                         <th className="p-2.5 text-center w-[140px] min-w-[140px] bg-brand-violet-light/30 dark:bg-purple-950/30 border-x border-brand-violet/20">
                           <div className="space-y-1">
                             <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-brand-violet text-white text-[8px] font-black uppercase">
-                              <Star className="w-2 h-2 fill-amber-300 text-amber-300" />
+                              <IoStar className="w-2 h-2 text-amber-300" />
                               Royal
                             </span>
                             <span className="text-sm font-black text-brand-violet dark:text-purple-300 block tabular-nums">
@@ -466,7 +466,7 @@ export function PricingComparisonTable() {
                               onClick={() => handleQuickAdd("royal-website", "Royal Website", 5499)}
                               className="text-[10px] font-bold px-2 py-1 rounded-md bg-brand-violet text-white inline-flex items-center gap-1 active:scale-95"
                             >
-                              <ShoppingCart className="w-2.5 h-2.5" />
+                              <IoCartOutline className="w-2.5 h-2.5" />
                               Add
                             </button>
                           </div>
@@ -484,7 +484,7 @@ export function PricingComparisonTable() {
                               onClick={() => handleQuickAdd("ecommerce-starter", "Ecommerce Starter", 9999)}
                               className="text-[10px] font-bold px-2 py-1 rounded-md bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 inline-flex items-center gap-1 active:scale-95"
                             >
-                              <ShoppingCart className="w-2.5 h-2.5" />
+                              <IoCartOutline className="w-2.5 h-2.5" />
                               Add
                             </button>
                           </div>
@@ -556,7 +556,7 @@ export function PricingComparisonTable() {
                         onClick={() => handleQuickAdd("starter-website", "Starter Website", 3499)}
                         className="mt-2 text-xs font-bold px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors inline-flex items-center gap-1 active:scale-95"
                       >
-                        <ShoppingCart className="w-3.5 h-3.5" />
+                        <IoCartOutline className="w-3.5 h-3.5" />
                         Add to Cart
                       </button>
                     </div>
@@ -564,7 +564,7 @@ export function PricingComparisonTable() {
                   <th className="p-5 text-center w-1/5 bg-brand-violet-light/30 dark:bg-purple-950/20 border-x border-brand-violet/20">
                     <div className="space-y-1 relative">
                       <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-brand-violet text-white text-[9px] font-extrabold uppercase mb-1">
-                        <Star className="w-2.5 h-2.5 fill-amber-300 text-amber-300" />
+                        <IoStar className="w-2.5 h-2.5 text-amber-300" />
                         Most Popular
                       </span>
                       <span className="text-sm font-bold text-brand-violet dark:text-purple-300 block">Royal</span>
@@ -576,7 +576,7 @@ export function PricingComparisonTable() {
                         onClick={() => handleQuickAdd("royal-website", "Royal Website", 5499)}
                         className="mt-2 text-xs font-bold px-3.5 py-1.5 rounded-lg bg-brand-violet hover:bg-brand-violet-hover text-white transition-colors inline-flex items-center gap-1 active:scale-95"
                       >
-                        <ShoppingCart className="w-3.5 h-3.5" />
+                        <IoCartOutline className="w-3.5 h-3.5" />
                         Add to Cart
                       </button>
                     </div>
@@ -592,7 +592,7 @@ export function PricingComparisonTable() {
                         onClick={() => handleQuickAdd("ecommerce-starter", "Ecommerce Starter", 9999)}
                         className="mt-2 text-xs font-bold px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-colors inline-flex items-center gap-1 active:scale-95"
                       >
-                        <ShoppingCart className="w-3.5 h-3.5" />
+                        <IoCartOutline className="w-3.5 h-3.5" />
                         Add to Cart
                       </button>
                     </div>

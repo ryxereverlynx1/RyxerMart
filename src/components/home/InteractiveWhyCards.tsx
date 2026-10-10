@@ -2,14 +2,14 @@
 
 import React, { useState } from "react";
 import {
-  Smartphone,
-  MessageSquare,
-  Search,
-  SlidersHorizontal,
-  Server,
-  Clock,
-  ArrowRight,
-} from "lucide-react";
+  IoPhonePortraitOutline,
+  IoLogoWhatsapp,
+  IoSearchOutline,
+  IoOptionsOutline,
+  IoServerOutline,
+  IoTimeOutline,
+  IoArrowForwardOutline,
+} from "react-icons/io5";
 
 export function InteractiveWhyCards() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -18,37 +18,37 @@ export function InteractiveWhyCards() {
     {
       title: "Mobile-First Architecture",
       description: "Over 80% of web traffic in India comes from mobile smartphones. Every page is tailored to load instantly on 4G/5G mobile connections.",
-      icon: Smartphone,
+      icon: IoPhonePortraitOutline,
       tag: "Tested on 320px–4K displays",
     },
     {
       title: "Direct WhatsApp Lead Funnels",
       description: "Instead of complex checkout roadblocks, customers connect directly to your business WhatsApp with pre-filled package queries.",
-      icon: MessageSquare,
+      icon: IoLogoWhatsapp,
       tag: "Zero drop-off communication",
     },
     {
       title: "Clean Semantic Google SEO",
       description: "Includes JSON-LD structured schema markup, OpenGraph metadata, fast core web vitals, and clean sitemaps so search engines index you easily.",
-      icon: Search,
+      icon: IoSearchOutline,
       tag: "Google Search Console ready",
     },
     {
       title: "Intuitive Admin Control",
       description: "Royal and Ecommerce packages include clean, secure admin portals where you can update content, products, and prices independently.",
-      icon: SlidersHorizontal,
+      icon: IoOptionsOutline,
       tag: "No coding needed after launch",
     },
     {
       title: "Bundled SSD Cloud Hosting & SSL",
       description: "We eliminate surprising annual hosting bills by including 1 full year of ultra-fast cloud hosting and pre-installed SSL certificates.",
-      icon: Server,
+      icon: IoServerOutline,
       tag: "Zero hidden launch fees",
     },
     {
       title: "Fast 3–5 Day Turnaround",
       description: "We don't drag projects out for months. Once your business scope is confirmed, our dedicated engineers build and launch your site quickly.",
-      icon: Clock,
+      icon: IoTimeOutline,
       tag: "Rapid market deployment",
     },
   ];
@@ -65,8 +65,8 @@ export function InteractiveWhyCards() {
             onMouseLeave={() => setHoveredIndex(null)}
             className={`p-6 sm:p-7 rounded-2xl border transition-[transform,border-color,box-shadow,background-color] duration-200 ease-out-emil card-lift relative space-y-4 h-full flex flex-col justify-between ${
               isHovered
-                ? "bg-white dark:bg-slate-800 border-brand-violet/40 dark:border-purple-500/40 shadow-card"
-                : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-subtle hover:border-slate-300 dark:hover:border-slate-700"
+                ? "bg-white dark:bg-slate-800 border-brand-violet/40 dark:border-purple-500/40 shadow-3d-floating dark:shadow-3d-floating-dark"
+                : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-3d-card hover:border-slate-300 dark:hover:border-slate-700"
             }`}
           >
             <div className="space-y-3">
@@ -83,7 +83,7 @@ export function InteractiveWhyCards() {
 
             <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-brand-violet dark:text-purple-300 font-semibold">
               <span>{feature.tag}</span>
-              <ArrowRight className="w-3.5 h-3.5 opacity-60" />
+              <IoArrowForwardOutline className="w-3.5 h-3.5 opacity-60" />
             </div>
           </div>
         );

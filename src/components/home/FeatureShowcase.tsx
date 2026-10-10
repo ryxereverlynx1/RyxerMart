@@ -36,7 +36,7 @@ export function FeatureShowcase() {
         {/* ========================================================================= */}
         {/* BENTO 1: RESPONSIVE ARCHITECTURE (SPAN 7 COLS)                            */}
         {/* ========================================================================= */}
-        <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-card flex flex-col justify-between card-lift">
+        <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-3d-card flex flex-col justify-between card-lift">
           <div className="space-y-2 mb-6">
             <div className="flex items-center gap-2">
               <span className="p-2 rounded-xl bg-purple-50 dark:bg-purple-950/50 text-brand-violet dark:text-purple-300">
@@ -105,7 +105,7 @@ export function FeatureShowcase() {
         {/* ========================================================================= */}
         {/* BENTO 2: WHATSAPP LEAD CAPTURE (SPAN 5 COLS)                               */}
         {/* ========================================================================= */}
-        <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-card flex flex-col justify-between card-lift">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-3d-card flex flex-col justify-between card-lift">
           <div className="space-y-2 mb-6">
             <div className="flex items-center gap-2">
               <span className="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400">
@@ -144,7 +144,7 @@ export function FeatureShowcase() {
         {/* ========================================================================= */}
         {/* BENTO 3: ADMIN CONTROL PANEL (SPAN 5 COLS)                                 */}
         {/* ========================================================================= */}
-        <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-card flex flex-col justify-between card-lift">
+        <div className="lg:col-span-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-3d-card flex flex-col justify-between card-lift">
           <div className="space-y-2 mb-6">
             <div className="flex items-center gap-2">
               <span className="p-2 rounded-xl bg-purple-50 dark:bg-purple-950/50 text-brand-violet dark:text-purple-300">
@@ -193,7 +193,7 @@ export function FeatureShowcase() {
         {/* ========================================================================= */}
         {/* BENTO 4: FULL ECOMMERCE & PAYMENTS (SPAN 7 COLS)                            */}
         {/* ========================================================================= */}
-        <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-card flex flex-col justify-between card-lift">
+        <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-3d-card flex flex-col justify-between card-lift">
           <div className="space-y-2 mb-6">
             <div className="flex items-center gap-2">
               <span className="p-2 rounded-xl bg-purple-50 dark:bg-purple-950/50 text-brand-violet dark:text-purple-300">
@@ -230,7 +230,7 @@ export function FeatureShowcase() {
         {/* ========================================================================= */}
         {/* BENTO 5: CLOUD HOSTING & SSL (SPAN 6 COLS)                                 */}
         {/* ========================================================================= */}
-        <div className="lg:col-span-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-card flex flex-col justify-between card-lift">
+        <div className="lg:col-span-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-3d-card flex flex-col justify-between card-lift">
           <div className="space-y-2 mb-4">
             <div className="flex items-center gap-2">
               <span className="p-2 rounded-xl bg-purple-50 dark:bg-purple-950/50 text-brand-violet dark:text-purple-300">
@@ -260,7 +260,7 @@ export function FeatureShowcase() {
         {/* ========================================================================= */}
         {/* BENTO 6: GOOGLE SEO ARCHITECTURE (SPAN 6 COLS)                             */}
         {/* ========================================================================= */}
-        <div className="lg:col-span-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-card flex flex-col justify-between card-lift">
+        <div className="lg:col-span-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-3d-card flex flex-col justify-between card-lift">
           <div className="space-y-2 mb-4">
             <div className="flex items-center gap-2">
               <span className="p-2 rounded-xl bg-purple-50 dark:bg-purple-950/50 text-brand-violet dark:text-purple-300">

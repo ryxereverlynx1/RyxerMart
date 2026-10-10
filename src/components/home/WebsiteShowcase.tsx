@@ -191,7 +191,7 @@ export function WebsiteShowcase() {
         <div className="lg:col-span-8 flex justify-center">
           {deviceMode === "desktop" ? (
             /* Desktop Browser Frame */
-            <div className="w-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-elevated overflow-hidden transition-all duration-300">
+            <div className="w-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-3d-stage dark:shadow-3d-stage-dark overflow-hidden transition-all duration-300">
               {/* Window Bar */}
               <div className="px-4 py-3 bg-slate-100/80 dark:bg-slate-850 border-b border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
@@ -238,7 +238,7 @@ export function WebsiteShowcase() {
             </div>
           ) : (
             /* Mobile Phone Frame */
-            <div className="w-[280px] sm:w-[320px] bg-slate-900 rounded-[36px] p-3 shadow-2xl border-4 border-slate-800 relative transition-all duration-300">
+            <div className="w-[280px] sm:w-[320px] bg-slate-900 rounded-[36px] p-3 shadow-3d-phone dark:shadow-3d-phone-dark border-4 border-slate-800 relative transition-all duration-300">
               {/* Notch */}
               <div className="w-24 h-4 bg-slate-800 rounded-full mx-auto mb-2" />
 

@@ -70,7 +70,7 @@ export function ProblemSolutionComparison() {
         {/* ========================================================================= */}
         {/* COLUMN 1: WITHOUT A WEBSITE (THE FRICTION & MISSED LEADS)                 */}
         {/* ========================================================================= */}
-        <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 shadow-subtle flex flex-col justify-between">
+        <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 shadow-3d-card flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2 pb-4 mb-6 border-b border-slate-100 dark:border-slate-800">
               <span className="w-8 h-8 rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 flex items-center justify-center font-bold text-sm">
@@ -111,7 +111,7 @@ export function ProblemSolutionComparison() {
         {/* ========================================================================= */}
         {/* COLUMN 2: WITH A RYXER MART WEBSITE (AUTHORITY & CONVERSION)              */}
         {/* ========================================================================= */}
-        <div className="rounded-2xl border border-brand-violet/30 dark:border-purple-500/30 bg-purple-50/20 dark:bg-purple-950/20 p-6 sm:p-8 shadow-card flex flex-col justify-between relative overflow-hidden">
+        <div className="rounded-2xl border border-brand-violet/30 dark:border-purple-500/30 bg-purple-50/20 dark:bg-purple-950/20 p-6 sm:p-8 shadow-3d-card flex flex-col justify-between relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-brand-violet/10 rounded-full blur-2xl pointer-events-none" />
 
           <div>

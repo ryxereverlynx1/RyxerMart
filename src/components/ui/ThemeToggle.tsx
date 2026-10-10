@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useTheme } from "@/context/ThemeContext";
-import { Sun, Moon } from "lucide-react";
+import { IoSunnyOutline, IoMoonOutline } from "react-icons/io5";
 
 interface ThemeToggleProps {
   className?: string;
@@ -47,10 +47,10 @@ export function ThemeToggle({ className = "", showLabel = false }: ThemeTogglePr
 
         {/* Ambient static icons in track */}
         <span className="absolute left-1.5 flex items-center justify-center text-amber-500 pointer-events-none transition-opacity duration-200">
-          <Sun className="w-3.5 h-3.5" />
+          <IoSunnyOutline className="w-3.5 h-3.5" />
         </span>
         <span className="absolute right-1.5 flex items-center justify-center text-indigo-400 pointer-events-none transition-opacity duration-200">
-          <Moon className="w-3.5 h-3.5" />
+          <IoMoonOutline className="w-3.5 h-3.5" />
         </span>
 
         {/* Sliding thumb pill with dynamic icon */}
@@ -62,9 +62,9 @@ export function ThemeToggle({ className = "", showLabel = false }: ThemeTogglePr
           }`}
         >
           {isDark ? (
-            <Moon className="w-3.5 h-3.5 transition-transform duration-300 rotate-0" />
+            <IoMoonOutline className="w-3.5 h-3.5 transition-transform duration-300 rotate-0" />
           ) : (
-            <Sun className="w-3.5 h-3.5 transition-transform duration-300 rotate-0" />
+            <IoSunnyOutline className="w-3.5 h-3.5 transition-transform duration-300 rotate-0" />
           )}
         </span>
       </button>

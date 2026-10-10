@@ -81,14 +81,14 @@ export function ServiceCard({ service }: ServiceCardProps) {
     <div
       className={`group relative flex flex-col justify-between bg-white dark:bg-slate-900 rounded-2xl border transition-[transform,box-shadow,border-color] duration-200 ease-out-emil card-lift w-full h-full ${
         service.featured
-          ? "border-brand-violet/50 ring-2 ring-brand-violet/20 dark:ring-purple-500/20 shadow-card hover:shadow-card-hover z-10"
-          : "border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-subtle hover:shadow-card"
+          ? "border-brand-violet/50 ring-2 ring-brand-violet/20 dark:ring-purple-500/30 shadow-3d-card hover:shadow-card-hover z-10"
+          : "border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-card hover:shadow-card-hover"
       }`}
     >
       {/* Featured / Most Popular Badge */}
       {service.featured && (
         <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brand-violet text-white text-[11px] font-extrabold uppercase tracking-wider shadow-sm">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brand-violet text-white text-[11px] font-extrabold uppercase tracking-wider shadow-3d-floating dark:shadow-3d-floating-dark">
             <IoStar className="w-3 h-3 fill-amber-300 text-amber-300" />
             <span>Most Popular</span>
           </span>

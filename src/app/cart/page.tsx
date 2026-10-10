@@ -4,7 +4,14 @@ import React from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Trash2, Plus, Minus, ShoppingBag, ArrowRight, ArrowLeft } from "lucide-react";
+import {
+  IoTrashOutline,
+  IoAddOutline,
+  IoRemoveOutline,
+  IoBagOutline,
+  IoArrowForwardOutline,
+  IoArrowBackOutline,
+} from "react-icons/io5";
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, subtotal, itemCount, clearCart } = useCart();
@@ -13,7 +20,7 @@ export default function CartPage() {
     return (
       <div className="max-w-3xl mx-auto px-4 py-20 text-center space-y-6">
         <div className="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto text-slate-400 dark:text-slate-500">
-          <ShoppingBag className="w-10 h-10" />
+          <IoBagOutline className="w-10 h-10" />
         </div>
         <h1 className="text-2xl sm:text-3xl font-black text-brand-navy dark:text-white tracking-tight">
           Your Service Cart is Empty
@@ -26,7 +33,7 @@ export default function CartPage() {
             href="/services"
             className="inline-flex items-center gap-2 px-6 py-3 bg-brand-navy dark:bg-brand-royal hover:bg-brand-royal dark:hover:bg-brand-royal-light text-white text-sm font-bold rounded-xl shadow-subtle transition-all active:scale-98"
           >
-            Explore Service Packages <ArrowRight className="w-4 h-4" />
+            Explore Service Packages <IoArrowForwardOutline className="w-4 h-4" />
           </Link>
         </div>
       </div>
@@ -85,7 +92,7 @@ export default function CartPage() {
                       className="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors"
                       aria-label="Decrease quantity"
                     >
-                      <Minus className="w-3.5 h-3.5" />
+                      <IoRemoveOutline className="w-3.5 h-3.5" />
                     </button>
                     <span className="px-3 text-xs font-bold text-slate-800 dark:text-slate-200">
                       {item.quantity}
@@ -95,7 +102,7 @@ export default function CartPage() {
                       className="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors"
                       aria-label="Increase quantity"
                     >
-                      <Plus className="w-3.5 h-3.5" />
+                      <IoAddOutline className="w-3.5 h-3.5" />
                     </button>
                   </div>
 
@@ -110,7 +117,7 @@ export default function CartPage() {
                     className="p-2 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition-colors"
                     aria-label="Remove item"
                   >
-                    <Trash2 className="w-4 h-4" />
+                    <IoTrashOutline className="w-4 h-4" />
                   </button>
                 </div>
               </div>
@@ -122,7 +129,7 @@ export default function CartPage() {
               href="/services"
               className="inline-flex items-center gap-2 text-xs font-bold text-brand-navy dark:text-slate-200 hover:text-brand-violet dark:hover:text-purple-400 transition-colors"
             >
-              <ArrowLeft className="w-4 h-4" /> Add more packages or services
+              <IoArrowBackOutline className="w-4 h-4" /> Add more packages or services
             </Link>
           </div>
         </div>
@@ -162,7 +169,7 @@ export default function CartPage() {
                 href="/checkout"
                 className="w-full py-3.5 px-4 bg-brand-violet hover:bg-brand-violet-hover text-white text-sm font-extrabold rounded-xl shadow-card transition-all flex items-center justify-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet active:scale-98"
               >
-                Proceed to Checkout <ArrowRight className="w-4 h-4" />
+                Proceed to Checkout <IoArrowForwardOutline className="w-4 h-4" />
               </Link>
             </div>
           </ScrollReveal>
