@@ -4,7 +4,14 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { MessageSquare, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import {
+  IoLogoWhatsapp,
+  IoCallOutline,
+  IoMailOutline,
+  IoLocationOutline,
+  IoArrowForwardOutline,
+  IoSparklesOutline,
+} from "react-icons/io5";
 import { BRAND } from "@/lib/brand";
 
 export function Footer() {
@@ -23,23 +30,25 @@ export function Footer() {
           <div>
             <h3 className="text-xl font-bold text-white">Ready to build your business website?</h3>
             <p className="text-slate-300 text-sm mt-1">
-              Choose a package, send your requirements on WhatsApp, and launch within days.
+              Choose a package, send your requirements on WhatsApp, and launch within 3–5 business days.
             </p>
           </div>
           <div className="flex items-center gap-3">
             <Link
-              href="/services"
-              className="px-5 py-2.5 bg-brand-violet hover:bg-brand-violet-hover text-white text-sm font-bold rounded-lg transition-colors flex items-center gap-2"
+              href="/#services"
+              className="px-5 py-2.5 bg-brand-violet hover:bg-brand-violet-hover text-white text-xs font-bold rounded-xl transition-colors flex items-center gap-2 shadow-sm"
             >
-              Browse Packages <ArrowRight className="w-4 h-4" />
+              <span>Browse Packages</span>
+              <IoArrowForwardOutline className="w-4 h-4" />
             </Link>
             <a
               href={BRAND.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white text-sm font-bold rounded-lg transition-colors border border-white/20 flex items-center gap-2"
+              className="px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-xl transition-colors border border-white/20 flex items-center gap-2"
             >
-              <MessageSquare className="w-4 h-4 text-emerald-400" /> WhatsApp Us
+              <IoLogoWhatsapp className="w-4 h-4 text-emerald-400" />
+              <span>WhatsApp Us</span>
             </a>
           </div>
         </div>
@@ -63,19 +72,19 @@ export function Footer() {
                 RYXER <span className="text-brand-violet">MART</span>
               </span>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed pr-4">
-              Ryxer Mart provides high-impact website development, custom e-commerce stores, and digital web solutions designed specifically for Indian businesses, startups, and service providers. Transparent pricing with no hidden agency fees.
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed pr-4">
+              Ryxer Mart provides high-impact website development, custom e-commerce stores, and digital web solutions designed specifically for Indian businesses, startups, and service providers. Transparent pricing with zero hidden agency retainers.
             </p>
             <div className="pt-2 text-xs text-slate-400 flex items-center gap-2">
               <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-              <span>Accepting New Web & E-Commerce Projects</span>
+              <span>Accepting New Web &amp; E-Commerce Projects</span>
             </div>
           </div>
 
           {/* Col 2: Services */}
           <div className="space-y-3">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">Packages</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <h4 className="text-xs font-extrabold text-white uppercase tracking-wider">Packages</h4>
+            <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <Link href="/services/starter-website" className="hover:text-white transition-colors">
                   Starter Website (₹3,499)
@@ -99,7 +108,7 @@ export function Footer() {
               <li>
                 <Link href="/services" className="hover:text-white transition-colors text-purple-400 font-semibold inline-flex items-center gap-1.5 group">
                   <span>All Service Packages</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
+                  <IoArrowForwardOutline className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
                 </Link>
               </li>
             </ul>
@@ -107,8 +116,8 @@ export function Footer() {
 
           {/* Col 3: Company & Quick Links */}
           <div className="space-y-3">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">Company</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <h4 className="text-xs font-extrabold text-white uppercase tracking-wider">Company</h4>
+            <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
                   About Ryxer Mart
@@ -131,7 +140,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/contact" className="hover:text-white transition-colors">
-                  Contact & Support
+                  Contact &amp; Support
                 </Link>
               </li>
             </ul>
@@ -139,28 +148,28 @@ export function Footer() {
 
           {/* Col 4: Contact & Location */}
           <div className="space-y-3">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider">Get in Touch</h4>
-            <ul className="space-y-2.5 text-sm text-slate-400">
+            <h4 className="text-xs font-extrabold text-white uppercase tracking-wider">Get in Touch</h4>
+            <ul className="space-y-2.5 text-xs text-slate-400">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-brand-violet flex-shrink-0 mt-0.5" />
+                <IoLocationOutline className="w-4 h-4 text-brand-violet shrink-0 mt-0.5" />
                 <Link href="/web-development-jalandhar" className="hover:text-white transition-colors underline decoration-dotted decoration-slate-600">
                   Jalandhar, Punjab, India
                 </Link>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-brand-violet flex-shrink-0" />
+                <IoCallOutline className="w-4 h-4 text-brand-violet shrink-0" />
                 <a href={`tel:${BRAND.phoneRaw}`} className="hover:text-white transition-colors">
                   {BRAND.phone}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-brand-violet flex-shrink-0" />
+                <IoMailOutline className="w-4 h-4 text-brand-violet shrink-0" />
                 <a href={`mailto:${BRAND.email}`} className="hover:text-white transition-colors">
                   {BRAND.email}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <MessageSquare className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <IoLogoWhatsapp className="w-4 h-4 text-emerald-400 shrink-0" />
                 <a
                   href={BRAND.whatsappUrl}
                   target="_blank"
@@ -189,10 +198,10 @@ export function Footer() {
               Privacy Policy
             </Link>
             <Link href="/terms" className="hover:text-white transition-colors">
-              Terms & Conditions
+              Terms &amp; Conditions
             </Link>
             <Link href="/refund-policy" className="hover:text-white transition-colors">
-              Refund & Cancellation Policy
+              Refund &amp; Cancellation Policy
             </Link>
           </div>
         </div>

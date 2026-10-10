@@ -2,45 +2,45 @@
 
 import React from "react";
 import {
-  Server,
-  ShieldCheck,
-  MessageSquare,
-  Smartphone,
-  Clock,
-  BadgeCheck,
-} from "lucide-react";
+  IoSpeedometerOutline,
+  IoShieldCheckmarkOutline,
+  IoLogoWhatsapp,
+  IoPhonePortraitOutline,
+  IoRocketOutline,
+  IoCheckmarkCircleOutline,
+} from "react-icons/io5";
 
 export function TrustValueStrip() {
   const valueProps = [
     {
-      icon: Server,
-      title: "1-Year SSD Hosting Free",
-      description: "Fast cloud servers included with zero setup charges.",
+      icon: IoSpeedometerOutline,
+      title: "1-Yr Free SSD Hosting",
+      description: "Cloud servers included with pre-installed SSL.",
     },
     {
-      icon: ShieldCheck,
-      title: "Free SSL Certificate",
-      description: "Pre-installed HTTPS lockdown for trusted browsing.",
+      icon: IoShieldCheckmarkOutline,
+      title: "SSL Security Lockdown",
+      description: "256-bit HTTPS encryption for customer trust.",
     },
     {
-      icon: MessageSquare,
-      title: "WhatsApp 1-Tap Ordering",
-      description: "Direct engineering coordination with zero bureaucracy.",
+      icon: IoLogoWhatsapp,
+      title: "WhatsApp Direct Enquiry",
+      description: "Direct customer leads sent straight to your phone.",
     },
     {
-      icon: Smartphone,
+      icon: IoPhonePortraitOutline,
       title: "100% Mobile Responsive",
-      description: "Pixel-perfect on phones, tablets, laptops & desktops.",
+      description: "Fluid UX across phones, tablets & laptops.",
     },
     {
-      icon: Clock,
-      title: "3–5 Day Delivery",
-      description: "Fast turnarounds so your business launches quickly.",
+      icon: IoRocketOutline,
+      title: "Rapid 3–5 Day Launch",
+      description: "Clear milestones to get your brand live fast.",
     },
     {
-      icon: BadgeCheck,
+      icon: IoCheckmarkCircleOutline,
       title: "Transparent Fixed Pricing",
-      description: "Clear packages from ₹3,499 with zero hidden invoices.",
+      description: "Packages from ₹3,499 with zero hidden invoices.",
     },
   ];
 
@@ -51,8 +51,8 @@ export function TrustValueStrip() {
           {valueProps.map((item, index) => {
             const Icon = item.icon;
             return (
-              <div key={index} className="space-y-1.5 text-left">
-                <div className="w-8 h-8 rounded-lg bg-brand-violet-light dark:bg-slate-800 text-brand-violet dark:text-purple-400 flex items-center justify-center">
+              <div key={index} className="space-y-1.5 text-left card-lift">
+                <div className="w-8 h-8 rounded-lg bg-brand-violet-light dark:bg-slate-800 text-brand-violet dark:text-purple-400 flex items-center justify-center transition-colors">
                   <Icon className="w-4 h-4" />
                 </div>
                 <h4 className="text-xs font-bold text-brand-navy dark:text-white leading-tight">

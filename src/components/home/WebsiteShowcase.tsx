@@ -3,17 +3,15 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import {
-  Monitor,
-  Smartphone,
-  ExternalLink,
-  ShoppingBag,
-  Building,
-  Layers,
-  ArrowRight,
-  Shield,
-  Zap,
-  Check,
-} from "lucide-react";
+  IoDesktopOutline,
+  IoPhonePortraitOutline,
+  IoShieldCheckmarkOutline,
+  IoCheckmarkOutline,
+  IoArrowForwardOutline,
+  IoLogoWhatsapp,
+  IoSpeedometerOutline,
+  IoSparklesOutline,
+} from "react-icons/io5";
 
 interface ShowcaseItem {
   id: string;
@@ -97,7 +95,7 @@ export function WebsiteShowcase() {
       {/* Category Pills & Device Switcher */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         {/* Category Filter */}
-        <div className="flex items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200/80 dark:border-slate-700/80 overflow-x-auto max-w-full">
+        <div className="flex items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200/80 dark:border-slate-750 overflow-x-auto max-w-full">
           <button
             type="button"
             onClick={() => {
@@ -157,7 +155,7 @@ export function WebsiteShowcase() {
         </div>
 
         {/* Desktop / Mobile Frame Toggle */}
-        <div className="flex items-center gap-1 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200/80 dark:border-slate-700/80">
+        <div className="flex items-center gap-1 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl border border-slate-200/80 dark:border-slate-750">
           <button
             type="button"
             onClick={() => setDeviceMode("desktop")}
@@ -168,7 +166,7 @@ export function WebsiteShowcase() {
             }`}
             aria-label="Desktop preview view"
           >
-            <Monitor className="w-3.5 h-3.5" />
+            <IoDesktopOutline className="w-3.5 h-3.5" />
             <span>Desktop</span>
           </button>
           <button
@@ -181,7 +179,7 @@ export function WebsiteShowcase() {
             }`}
             aria-label="Mobile preview view"
           >
-            <Smartphone className="w-3.5 h-3.5" />
+            <IoPhonePortraitOutline className="w-3.5 h-3.5" />
             <span>Mobile</span>
           </button>
         </div>
@@ -197,12 +195,12 @@ export function WebsiteShowcase() {
               {/* Window Bar */}
               <div className="px-4 py-3 bg-slate-100/80 dark:bg-slate-850 border-b border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-rose-400 inline-block" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block" />
                 </div>
                 <div className="py-1 px-4 bg-white dark:bg-slate-800 rounded-md border border-slate-200 dark:border-slate-700 text-[10px] text-slate-500 dark:text-slate-400 font-mono flex items-center gap-2">
-                  <Shield className="w-3 h-3 text-emerald-600" />
+                  <IoShieldCheckmarkOutline className="w-3 h-3 text-emerald-600" />
                   <span>Architecture Demo • {activeItem.categoryLabel}</span>
                 </div>
                 <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
@@ -231,7 +229,7 @@ export function WebsiteShowcase() {
                       key={i}
                       className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200/80 dark:border-slate-700/80 text-xs text-slate-700 dark:text-slate-300 flex items-center gap-2"
                     >
-                      <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                      <IoCheckmarkOutline className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                       <span className="truncate">{spec}</span>
                     </div>
                   ))}
@@ -260,7 +258,7 @@ export function WebsiteShowcase() {
 
                 <div className="space-y-2 pt-3 border-t border-slate-100 dark:border-slate-800">
                   <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-[11px] font-bold text-emerald-600 dark:text-emerald-400 flex items-center justify-center gap-1.5">
-                    <Check className="w-3 h-3" />
+                    <IoLogoWhatsapp className="w-3.5 h-3.5 text-emerald-600" />
                     <span>WhatsApp 1-Tap Trigger</span>
                   </div>
                   <div className="p-2.5 rounded-xl bg-brand-navy dark:bg-brand-royal text-white text-[11px] font-bold">
@@ -310,7 +308,7 @@ export function WebsiteShowcase() {
             <ul className="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
               {activeItem.specs.map((spec, i) => (
                 <li key={i} className="flex items-center gap-2">
-                  <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
+                  <IoCheckmarkOutline className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                   <span>{spec}</span>
                 </li>
               ))}
@@ -323,10 +321,15 @@ export function WebsiteShowcase() {
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-navy hover:bg-brand-royal dark:bg-brand-royal dark:hover:bg-brand-royal-light text-white text-xs font-bold rounded-xl transition-all shadow-subtle active:scale-98"
             >
               <span>Select This Package</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <IoArrowForwardOutline className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>
+      </div>
+
+      {/* Honest Distinction Note */}
+      <div className="text-center pt-4 text-xs text-slate-400 dark:text-slate-500 font-medium">
+        <span>* Interactive architecture demonstrations. Every client website is custom-designed and tailored to your specific commercial niche.</span>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MessageSquare, ArrowRight } from "lucide-react";
+import { IoArrowForwardOutline, IoLogoWhatsapp } from "react-icons/io5";
 
 export function MobileStickyBar() {
   const pathname = usePathname();
@@ -35,8 +35,8 @@ export function MobileStickyBar() {
           href="/#services"
           className="flex-1 py-2.5 px-3 bg-brand-navy dark:bg-brand-royal text-white text-xs font-bold rounded-xl text-center shadow-subtle flex items-center justify-center gap-1.5 active:scale-95"
         >
-          <span>Packages (₹3,499)</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          <span>Packages (from ₹3,499)</span>
+          <IoArrowForwardOutline className="w-3.5 h-3.5" />
         </Link>
         <a
           href="https://wa.me/917719421910?text=Hello%20Ryxer%20Mart%2C%20I%20would%20like%20to%20discuss%20a%20website%20project."
@@ -45,7 +45,7 @@ export function MobileStickyBar() {
           className="py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 shadow-subtle active:scale-95 flex-shrink-0"
           aria-label="Chat directly on WhatsApp"
         >
-          <MessageSquare className="w-3.5 h-3.5 text-white" />
+          <IoLogoWhatsapp className="w-3.5 h-3.5 text-white" />
           <span>WhatsApp</span>
         </a>
       </div>

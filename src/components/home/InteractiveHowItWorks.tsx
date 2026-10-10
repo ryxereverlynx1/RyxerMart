@@ -2,14 +2,13 @@
 
 import React, { useState } from "react";
 import {
-  PackageCheck,
-  FileText,
-  MessageSquare,
-  Code2,
-  Rocket,
-  CheckCircle2,
-} from "lucide-react";
-
+  IoLayersOutline,
+  IoDocumentTextOutline,
+  IoLogoWhatsapp,
+  IoCodeSlashOutline,
+  IoRocketOutline,
+  IoCheckmarkCircleOutline,
+} from "react-icons/io5";
 import { BRAND } from "@/lib/brand";
 
 export function InteractiveHowItWorks() {
@@ -21,7 +20,7 @@ export function InteractiveHowItWorks() {
       title: "Choose a Package",
       subtitle: "Fixed pricing from ₹3,499",
       description: "Select Starter, Royal, or Ecommerce based on your page requirements and whether you need an admin panel or online cart.",
-      icon: PackageCheck,
+      icon: IoLayersOutline,
       deliverable: "Transparent inclusions",
     },
     {
@@ -29,7 +28,7 @@ export function InteractiveHowItWorks() {
       title: "Tell Us What You Need",
       subtitle: "Zero complex paperwork",
       description: "Submit your business name, contact details, and initial thoughts via our order checkout or direct enquiry form.",
-      icon: FileText,
+      icon: IoDocumentTextOutline,
       deliverable: "Instant scope logging",
     },
     {
@@ -37,7 +36,7 @@ export function InteractiveHowItWorks() {
       title: "Discuss & Confirm",
       subtitle: "Direct on WhatsApp",
       description: `We connect immediately on WhatsApp (${BRAND.phone}) to confirm your design direction, brand assets, and content.`,
-      icon: MessageSquare,
+      icon: IoLogoWhatsapp,
       deliverable: "1-on-1 engineer chat",
     },
     {
@@ -45,7 +44,7 @@ export function InteractiveHowItWorks() {
       title: "We Build & Polish",
       subtitle: "Speed & mobile optimized",
       description: "Our engineering team codes your responsive website with free SSD cloud hosting, SSL security, and WhatsApp integration.",
-      icon: Code2,
+      icon: IoCodeSlashOutline,
       deliverable: "3–5 day development",
     },
     {
@@ -53,7 +52,7 @@ export function InteractiveHowItWorks() {
       title: "Your Website Goes Live",
       subtitle: "Ready to acquire customers",
       description: "Your site is deployed on your custom domain, submitted to Google Search Console, and handed over with full support.",
-      icon: Rocket,
+      icon: IoRocketOutline,
       deliverable: "Live & ranking ready",
     },
   ];
@@ -110,7 +109,7 @@ export function InteractiveHowItWorks() {
               </div>
 
               <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 text-[11px] font-semibold text-slate-600 dark:text-slate-300">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                <IoCheckmarkCircleOutline className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
                 <span className="truncate">{step.deliverable}</span>
               </div>
             </div>

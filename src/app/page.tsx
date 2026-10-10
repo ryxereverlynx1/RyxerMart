@@ -4,20 +4,24 @@ import { ServiceCard } from "@/components/ui/ServiceCard";
 import { ContactForm } from "@/components/home/ContactForm";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import {
-  ArrowRight,
-  MessageSquare,
-  Phone,
-  Mail,
-  MapPin,
-} from "lucide-react";
+  IoArrowForwardOutline,
+  IoLocationOutline,
+  IoCallOutline,
+  IoMailOutline,
+  IoLogoWhatsapp,
+  IoSparklesOutline,
+} from "react-icons/io5";
 
 import { HeroInteractive } from "@/components/home/HeroInteractive";
 import { TrustValueStrip } from "@/components/home/TrustValueStrip";
+import { QuickQuoteEstimator } from "@/components/home/QuickQuoteEstimator";
+import { FeatureShowcase } from "@/components/home/FeatureShowcase";
+import { ProblemSolutionComparison } from "@/components/home/ProblemSolutionComparison";
 import { WebsiteShowcase } from "@/components/home/WebsiteShowcase";
 import { PricingComparisonTable } from "@/components/home/PricingComparisonTable";
 import { InteractiveHowItWorks } from "@/components/home/InteractiveHowItWorks";
-import { InteractiveWhyCards } from "@/components/home/InteractiveWhyCards";
 import { InteractiveFAQAccordion } from "@/components/ui/InteractiveFAQAccordion";
+import { FinalCtaBanner } from "@/components/home/FinalCtaBanner";
 import { getActiveServices, getGeneralFaqs } from "@/lib/catalog";
 import { getFaqSchema } from "@/lib/schema";
 import { BRAND } from "@/lib/brand";
@@ -48,7 +52,24 @@ export default async function HomePage() {
       <TrustValueStrip />
 
       <div className="space-y-24 sm:space-y-32 py-16 sm:py-24">
-        {/* 3. PURCHASABLE SERVICE PACKAGES */}
+        {/* 3. INTERACTIVE PROJECT ESTIMATOR & LEAD CAPTURE (WEBZO-INSPIRED) */}
+        <section id="estimator" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal animation="fade-up">
+            <QuickQuoteEstimator />
+          </ScrollReveal>
+        </section>
+
+        {/* 4. FEATURE SHOWCASE BENTO GRID (ORIGINAL GRAPHICS & CAPABILITIES) */}
+        <ScrollReveal animation="fade-up">
+          <FeatureShowcase />
+        </ScrollReveal>
+
+        {/* 5. BUSINESS PROBLEM VS SOLUTION (WITHOUT WEBSITE VS WITH RYXER MART) */}
+        <ScrollReveal animation="fade-up">
+          <ProblemSolutionComparison />
+        </ScrollReveal>
+
+        {/* 6. PURCHASABLE SERVICE PACKAGES & RESPONSIVE COMPARISON MATRIX */}
         <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="fade-up">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
@@ -68,7 +89,7 @@ export default async function HomePage() {
                 className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-violet dark:text-purple-400 hover:underline self-start md:self-auto group"
               >
                 <span>View all packages &amp; filters</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                <IoArrowForwardOutline className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
             </div>
           </ScrollReveal>
@@ -82,11 +103,11 @@ export default async function HomePage() {
             ))}
           </div>
 
-          {/* Interactive Side-by-Side Comparison Table */}
+          {/* Interactive Side-by-Side Comparison Table (Dual Responsive Mode) */}
           <PricingComparisonTable />
         </section>
 
-        {/* 4. WEBSITE POSSIBILITIES / WHAT WE BUILD */}
+        {/* 7. WEBSITE POSSIBILITIES / OUR WORK */}
         <section id="showcase" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="fade-up">
             <div className="text-center max-w-3xl mx-auto mb-14">
@@ -105,7 +126,7 @@ export default async function HomePage() {
           <WebsiteShowcase />
         </section>
 
-        {/* 5. HOW IT WORKS */}
+        {/* 8. HOW IT WORKS (TRANSPARENT PROCESS) */}
         <section id="how-it-works" className="bg-slate-50/60 dark:bg-slate-900/50 py-20 border-y border-slate-200/80 dark:border-slate-800 transition-colors">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollReveal animation="fade-up">
@@ -126,26 +147,7 @@ export default async function HomePage() {
           </div>
         </section>
 
-        {/* 6. WHY RYXER MART */}
-        <section id="why-us" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal animation="fade-up">
-            <div className="text-center max-w-2xl mx-auto mb-14">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-brand-violet dark:text-purple-400">
-                Engineered for Real Growth
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-brand-navy dark:text-white tracking-tight mt-1">
-                Why Businesses Choose Ryxer Mart
-              </h2>
-              <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-2">
-                We focus on tangible business outcomes: fast performance, clear customer communication, and clean maintainable code.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <InteractiveWhyCards />
-        </section>
-
-        {/* 7. FREQUENTLY ASKED QUESTIONS */}
+        {/* 9. FREQUENTLY ASKED QUESTIONS */}
         <section id="faq" className="bg-slate-50/60 dark:bg-slate-900/50 py-20 border-y border-slate-200/80 dark:border-slate-800 transition-colors">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollReveal animation="fade-up">
@@ -170,13 +172,18 @@ export default async function HomePage() {
                 className="text-xs sm:text-sm font-bold text-brand-violet dark:text-purple-400 hover:underline inline-flex items-center gap-1.5 group"
               >
                 <span>Browse complete knowledgebase &amp; FAQs</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
+                <IoArrowForwardOutline className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
             </div>
           </div>
         </section>
 
-        {/* 8. CONTACT & BESPOKE PROJECT CONSULTATION */}
+        {/* 10. FINAL HIGH-CONVERTING CTA BANNER */}
+        <ScrollReveal animation="fade-up">
+          <FinalCtaBanner />
+        </ScrollReveal>
+
+        {/* 11. CONTACT & BESPOKE PROJECT CONSULTATION */}
         <section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Contact Information */}
@@ -195,7 +202,7 @@ export default async function HomePage() {
 
               <div className="space-y-3.5 pt-2">
                 <div className="flex items-start gap-3 p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-subtle">
-                  <MapPin className="w-5 h-5 text-brand-violet dark:text-purple-400 flex-shrink-0 mt-0.5" />
+                  <IoLocationOutline className="w-5 h-5 text-brand-violet dark:text-purple-400 shrink-0 mt-0.5" />
                   <div>
                     <h3 className="text-xs font-bold text-brand-navy dark:text-slate-200 uppercase tracking-wider">Office Location</h3>
                     <p className="text-sm text-slate-700 dark:text-slate-300">
@@ -210,7 +217,7 @@ export default async function HomePage() {
                 </div>
 
                 <div className="flex items-start gap-3 p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-subtle">
-                  <Phone className="w-5 h-5 text-brand-violet dark:text-purple-400 flex-shrink-0 mt-0.5" />
+                  <IoCallOutline className="w-5 h-5 text-brand-violet dark:text-purple-400 shrink-0 mt-0.5" />
                   <div>
                     <h3 className="text-xs font-bold text-brand-navy dark:text-slate-200 uppercase tracking-wider">Direct Phone Desk</h3>
                     <p className="text-sm text-slate-700 dark:text-slate-300">
@@ -222,7 +229,7 @@ export default async function HomePage() {
                 </div>
 
                 <div className="flex items-start gap-3 p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-subtle">
-                  <Mail className="w-5 h-5 text-brand-violet dark:text-purple-400 flex-shrink-0 mt-0.5" />
+                  <IoMailOutline className="w-5 h-5 text-brand-violet dark:text-purple-400 shrink-0 mt-0.5" />
                   <div>
                     <h3 className="text-xs font-bold text-brand-navy dark:text-slate-200 uppercase tracking-wider">Business Email</h3>
                     <p className="text-sm text-slate-700 dark:text-slate-300">
@@ -234,7 +241,7 @@ export default async function HomePage() {
                 </div>
 
                 <div className="flex items-start gap-3 p-4 bg-emerald-50 dark:bg-emerald-950/30 rounded-xl border border-emerald-200 dark:border-emerald-900/50">
-                  <MessageSquare className="w-5 h-5 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <IoLogoWhatsapp className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                   <div>
                     <h3 className="text-xs font-bold text-emerald-900 dark:text-emerald-200 uppercase tracking-wider">Instant WhatsApp Chat</h3>
                     <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-0.5">
@@ -247,7 +254,7 @@ export default async function HomePage() {
                       className="inline-flex items-center gap-1.5 mt-2.5 text-xs font-bold text-emerald-800 dark:text-emerald-300 hover:underline group"
                     >
                       <span>Open WhatsApp Chat</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
+                      <IoArrowForwardOutline className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200" />
                     </a>
                   </div>
                 </div>
