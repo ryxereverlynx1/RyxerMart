@@ -51,7 +51,7 @@ const config: Config = {
         "3d-stage-dark": "0 24px 60px -10px rgba(0, 0, 0, 0.85), 0 40px 90px -20px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.12), 0 0 60px -15px rgba(108, 60, 233, 0.3)",
         "3d-floating": "0 10px 25px -4px rgba(10, 37, 88, 0.16), 0 20px 40px -8px rgba(10, 37, 88, 0.20), 0 2px 6px rgba(10, 37, 88, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.9)",
         "3d-floating-dark": "0 12px 30px -4px rgba(0, 0, 0, 0.8), 0 24px 50px -8px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.15), 0 0 35px -8px rgba(108, 60, 233, 0.35)",
-        "3d-phone": "0 25px 60px -12px rgba(0, 0, 0, 0.45), 0 45px 90px -20px rgba(10, 37, 88, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.15)",
+        "3d-phone": "0 20px 45px -10px rgba(10, 37, 88, 0.20), 0 35px 70px -15px rgba(10, 37, 88, 0.25), 0 0 0 1px rgba(10, 37, 88, 0.08)",
         "3d-phone-dark": "0 30px 70px -15px rgba(0, 0, 0, 0.95), 0 50px 100px -25px rgba(0, 0, 0, 1), 0 0 0 1px rgba(255, 255, 255, 0.18), 0 0 40px -10px rgba(108, 60, 233, 0.4)",
       },
       keyframes: {

@@ -238,9 +238,9 @@ export function WebsiteShowcase() {
             </div>
           ) : (
             /* Mobile Phone Frame */
-            <div className="w-[280px] sm:w-[320px] bg-slate-900 rounded-[36px] p-3 shadow-3d-phone dark:shadow-3d-phone-dark border-4 border-slate-800 relative transition-all duration-300">
+            <div className="w-[280px] sm:w-[320px] bg-slate-200/90 dark:bg-slate-900 rounded-[36px] p-3 shadow-3d-phone dark:shadow-3d-phone-dark border-4 border-slate-300 dark:border-slate-800 relative transition-all duration-300">
               {/* Notch */}
-              <div className="w-24 h-4 bg-slate-800 rounded-full mx-auto mb-2" />
+              <div className="w-24 h-4 bg-slate-400 dark:bg-slate-800 rounded-full mx-auto mb-2" />
 
               {/* Screen */}
               <div className="bg-white dark:bg-slate-900 rounded-[28px] overflow-hidden p-5 space-y-4 text-center min-h-[440px] flex flex-col justify-between">

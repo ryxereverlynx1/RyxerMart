@@ -130,7 +130,7 @@ export function HeroInteractive() {
               {/* MINI CARD 1 (Top-Left): Core Web Vitals 99/100            */}
               {/* ========================================================= */}
               <div
-                className="absolute -top-3 left-0 sm:-top-5 sm:-left-3 z-30 p-2.5 sm:p-3 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/90 dark:border-slate-700 shadow-3d-floating dark:shadow-3d-floating-dark flex items-center gap-2.5 animate-float-slow pointer-events-none"
+                className="absolute -top-3 left-0 sm:-top-5 sm:-left-3 z-30 p-2.5 sm:p-3 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/90 dark:border-slate-700 shadow-3d-floating dark:shadow-3d-floating-dark flex items-center gap-2.5 animate-float-card-1 pointer-events-none"
               >
                 <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 font-black text-xs shrink-0 shadow-sm">
                   99
@@ -150,7 +150,7 @@ export function HeroInteractive() {
               {/* MINI CARD 2 (Top-Right): Free SSD Cloud Hosting & Uptime  */}
               {/* ========================================================= */}
               <div
-                className="absolute -top-4 right-2 sm:-top-6 sm:right-0 z-30 p-2.5 sm:p-3 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/90 dark:border-slate-700 shadow-3d-floating dark:shadow-3d-floating-dark flex items-center gap-2.5 animate-float-gentle pointer-events-none"
+                className="absolute -top-4 right-2 sm:-top-6 sm:right-0 z-30 p-2.5 sm:p-3 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/90 dark:border-slate-700 shadow-3d-floating dark:shadow-3d-floating-dark flex items-center gap-2.5 animate-float-card-2 pointer-events-none"
               >
                 <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800 flex items-center justify-center text-brand-violet dark:text-purple-400 shrink-0 shadow-sm">
                   <IoServerOutline className="w-4 h-4" />
@@ -279,16 +279,16 @@ export function HeroInteractive() {
               {/* FOREGROUND OVERLAPPING SMARTPHONE MOCKUP (DEEP 3D SHADOW)  */}
               {/* ========================================================= */}
               <div
-                className="absolute -bottom-6 -right-2 sm:-bottom-8 sm:-right-4 w-[220px] sm:w-[245px] h-[460px] sm:h-[490px] z-20 rounded-[40px] bg-slate-950 p-2 shadow-3d-phone dark:shadow-3d-phone-dark border-4 border-slate-800 dark:border-slate-700 ring-1 ring-slate-700/60 flex flex-col justify-between overflow-hidden animate-float-gentle pointer-events-none"
+                className="absolute -bottom-6 -right-2 sm:-bottom-8 sm:-right-4 w-[220px] sm:w-[245px] h-[460px] sm:h-[490px] z-20 rounded-[40px] bg-slate-200/90 dark:bg-slate-950 p-2 shadow-3d-phone dark:shadow-3d-phone-dark border-4 border-slate-300 dark:border-slate-800 ring-1 ring-slate-200 dark:ring-slate-700/60 flex flex-col justify-between overflow-hidden animate-float-card-3 pointer-events-none transition-colors"
               >
                 {/* Dynamic Island & Status Bar */}
-                <div className="w-full pt-1 pb-1 px-3 flex items-center justify-between text-white text-[10px] font-semibold shrink-0 z-10 bg-slate-950">
+                <div className="w-full pt-1 pb-1 px-3 flex items-center justify-between text-slate-800 dark:text-white text-[10px] font-semibold shrink-0 z-10 bg-slate-200/90 dark:bg-slate-950 transition-colors">
                   <span className="font-bold">9:41</span>
-                  <div className="w-16 h-3.5 bg-black rounded-full flex items-center justify-center gap-1 border border-slate-800">
+                  <div className="w-16 h-3.5 bg-slate-900 dark:bg-black rounded-full flex items-center justify-center gap-1 border border-slate-700/60 dark:border-slate-800">
                     <span className="w-1 h-1 rounded-full bg-slate-800" />
                     <span className="w-1 h-1 rounded-full bg-blue-950" />
                   </div>
-                  <div className="flex items-center gap-1 text-[11px] text-slate-300">
+                  <div className="flex items-center gap-1 text-[11px] text-slate-700 dark:text-slate-300">
                     <IoWifiOutline />
                     <IoBatteryFullOutline />
                   </div>
@@ -391,8 +391,8 @@ export function HeroInteractive() {
                 </div>
 
                 {/* Smartphone Home Indicator Bar */}
-                <div className="w-full pt-1 pb-0.5 flex justify-center shrink-0">
-                  <div className="w-20 h-1 bg-slate-600 rounded-full" />
+                <div className="w-full pt-1 pb-0.5 flex justify-center shrink-0 bg-slate-200/90 dark:bg-slate-950 transition-colors">
+                  <div className="w-20 h-1 bg-slate-400 dark:bg-slate-600 rounded-full" />
                 </div>
               </div>
 
@@ -400,7 +400,7 @@ export function HeroInteractive() {
               {/* MINI CARD 3 (Bottom-Left): Direct WhatsApp Lead Funnel     */}
               {/* ========================================================= */}
               <div
-                className="absolute -bottom-4 left-1 sm:-bottom-5 sm:left-2 z-30 p-2.5 sm:p-3 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/90 dark:border-slate-700 shadow-3d-floating dark:shadow-3d-floating-dark flex items-center gap-2.5 animate-float-slow pointer-events-none"
+                className="absolute -bottom-4 left-1 sm:-bottom-5 sm:left-2 z-30 p-2.5 sm:p-3 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/90 dark:border-slate-700 shadow-3d-floating dark:shadow-3d-floating-dark flex items-center gap-2.5 animate-float-card-2 pointer-events-none"
               >
                 <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 shadow-sm">
                   <IoLogoWhatsapp className="w-4 h-4" />
@@ -420,7 +420,7 @@ export function HeroInteractive() {
               {/* MINI CARD 4 (Mid-Left Floating): Google SEO Schema Ready  */}
               {/* ========================================================= */}
               <div
-                className="hidden sm:flex absolute top-1/2 -left-6 -translate-y-1/2 z-30 p-2.5 sm:p-3 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/90 dark:border-slate-700 shadow-3d-floating dark:shadow-3d-floating-dark items-center gap-2.5 animate-float-gentle pointer-events-none"
+                className="hidden sm:flex absolute top-1/2 -left-6 z-30 p-2.5 sm:p-3 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/90 dark:border-slate-700 shadow-3d-floating dark:shadow-3d-floating-dark items-center gap-2.5 animate-float-card-side pointer-events-none"
               >
                 <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0 shadow-sm">
                   <IoSearchOutline className="w-4 h-4" />
@@ -439,7 +439,7 @@ export function HeroInteractive() {
               {/* MINI CARD 5 (Floating Center Bottom): Mobile-First UX      */}
               {/* ========================================================= */}
               <div
-                className="hidden md:flex absolute bottom-12 right-48 z-30 p-2.5 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/90 dark:border-slate-700 shadow-3d-floating dark:shadow-3d-floating-dark items-center gap-2 animate-float-slow pointer-events-none"
+                className="hidden md:flex absolute bottom-12 right-48 z-30 p-2.5 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/90 dark:border-slate-700 shadow-3d-floating dark:shadow-3d-floating-dark items-center gap-2 animate-float-card-4 pointer-events-none"
               >
                 <div className="w-8 h-8 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 flex items-center justify-center text-indigo-600 dark:text-indigo-400 shrink-0 shadow-sm">
                   <IoPhonePortraitOutline className="w-4 h-4" />
