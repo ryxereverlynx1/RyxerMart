@@ -172,9 +172,9 @@ export function QuickQuoteEstimator() {
                       key={pkg.id}
                       type="button"
                       onClick={() => setSelectedPkg(pkg.id)}
-                      className={`p-3.5 rounded-xl border text-left transition-all ${
+                      className={`p-3.5 rounded-xl border text-left btn-press transition-[transform,border-color,background-color,box-shadow] duration-150 ease-out-emil ${
                         isSelected
-                          ? "border-brand-violet bg-brand-violet-subtle/50 dark:bg-purple-950/40 ring-2 ring-brand-violet/20"
+                          ? "border-brand-violet bg-brand-violet-subtle/50 dark:bg-purple-950/40 ring-2 ring-brand-violet/20 shadow-card scale-[1.01]"
                           : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-850 hover:border-slate-300 dark:hover:border-slate-700"
                       }`}
                     >
@@ -270,7 +270,7 @@ export function QuickQuoteEstimator() {
                   href={getWhatsAppEstimateLink()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-3 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm flex items-center justify-center gap-1.5 active:scale-95 transition-all"
+                  className="px-5 py-3 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm flex items-center justify-center gap-1.5 btn-press"
                 >
                   <IoLogoWhatsapp className="w-4 h-4" />
                   <span>Send via WhatsApp</span>
@@ -279,7 +279,7 @@ export function QuickQuoteEstimator() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="px-6 py-3 rounded-xl text-xs font-bold bg-brand-navy hover:bg-brand-royal dark:bg-brand-royal dark:hover:bg-brand-royal-light text-white shadow-sm flex items-center justify-center gap-1.5 active:scale-95 transition-all"
+                  className="px-6 py-3 rounded-xl text-xs font-bold bg-brand-navy hover:bg-brand-royal dark:bg-brand-royal dark:hover:bg-brand-royal-light text-white shadow-sm flex items-center justify-center gap-1.5 btn-press"
                 >
                   {status === "loading" ? (
                     <>

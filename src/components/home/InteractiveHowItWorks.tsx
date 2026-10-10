@@ -69,7 +69,7 @@ export function InteractiveHowItWorks() {
               key={step.number}
               onMouseEnter={() => setActiveStep(index)}
               onClick={() => setActiveStep(index)}
-              className={`p-5 rounded-2xl border transition-all duration-200 cursor-pointer flex flex-col justify-between space-y-4 ${
+              className={`p-5 rounded-2xl border transition-[transform,box-shadow,border-color,background-color] duration-200 ease-out-emil cursor-pointer flex flex-col justify-between space-y-4 active:scale-[0.985] ${
                 isSelected
                   ? "bg-white dark:bg-slate-800 border-brand-violet/50 dark:border-purple-500/50 shadow-3d-floating dark:shadow-3d-floating-dark -translate-y-1"
                   : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-subtle hover:shadow-card hover:border-slate-300 dark:hover:border-slate-700"
@@ -78,7 +78,7 @@ export function InteractiveHowItWorks() {
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <span
-                    className={`text-xl font-black transition-colors ${
+                    className={`text-xl font-black transition-colors duration-150 ${
                       isSelected
                         ? "text-brand-violet dark:text-purple-400"
                         : "text-slate-400 dark:text-slate-600"
@@ -87,7 +87,7 @@ export function InteractiveHowItWorks() {
                     {step.number}
                   </span>
                   <div
-                    className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center transition-[background-color,color,border-color,box-shadow] duration-200 ease-out-emil ${
                       isSelected
                         ? "bg-brand-violet text-white shadow-sm"
                         : "bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200/80 dark:border-slate-700"

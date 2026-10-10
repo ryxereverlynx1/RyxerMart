@@ -35,7 +35,7 @@ export function InteractiveFAQAccordion({
         return (
           <div
             key={faq.id}
-            className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+            className={`rounded-2xl border transition-[border-color,background-color,box-shadow] duration-200 ease-out-emil overflow-hidden ${
               isOpen
                 ? "bg-white dark:bg-slate-900 border-brand-violet/40 dark:border-purple-500/40 shadow-card"
                 : "bg-white/80 dark:bg-slate-900/80 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-subtle"
@@ -45,22 +45,22 @@ export function InteractiveFAQAccordion({
               type="button"
               onClick={() => toggleIndex(index)}
               aria-expanded={isOpen}
-              className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet transition-colors group"
+              className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-violet transition-colors duration-150 group btn-press"
             >
               <div className="flex items-start gap-3">
                 <IoHelpCircleOutline
-                  className={`w-5 h-5 flex-shrink-0 mt-0.5 transition-colors duration-200 ${
+                  className={`w-5 h-5 flex-shrink-0 mt-0.5 transition-colors duration-150 ${
                     isOpen
                       ? "text-brand-violet dark:text-purple-400"
                       : "text-slate-400 dark:text-slate-500 group-hover:text-brand-violet dark:group-hover:text-purple-300"
                   }`}
                 />
-                <span className="text-sm sm:text-base font-bold text-brand-navy dark:text-white group-hover:text-brand-violet dark:group-hover:text-purple-300 transition-colors">
+                <span className="text-sm sm:text-base font-bold text-brand-navy dark:text-white group-hover:text-brand-violet dark:group-hover:text-purple-300 transition-colors duration-150">
                   {faq.question}
                 </span>
               </div>
               <div
-                className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${
+                className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-transform duration-200 ease-out-emil ${
                   isOpen
                     ? "rotate-180 bg-brand-violet/10 dark:bg-purple-950/50 text-brand-violet dark:text-purple-400"
                     : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:bg-brand-violet/10 group-hover:text-brand-violet"
@@ -72,7 +72,7 @@ export function InteractiveFAQAccordion({
 
             {/* Smooth animated height container */}
             <div
-              className={`grid transition-[grid-template-rows,opacity] duration-250 ease-out-emil ${
+              className={`grid transition-[grid-template-rows,opacity] duration-200 ease-out-emil ${
                 isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
               }`}
             >

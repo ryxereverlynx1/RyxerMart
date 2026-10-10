@@ -102,7 +102,7 @@ export function WebsiteShowcase() {
               setSelectedCategory("all");
               setActiveItem(SHOWCASE_ITEMS[0]);
             }}
-            className={`px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all ${
+            className={`px-3.5 py-1.5 text-xs font-bold rounded-lg btn-press transition-[background-color,color,box-shadow,transform] duration-150 ease-out-emil ${
               selectedCategory === "all"
                 ? "bg-white dark:bg-slate-900 text-brand-navy dark:text-white shadow-subtle"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
@@ -116,7 +116,7 @@ export function WebsiteShowcase() {
               setSelectedCategory("corporate");
               setActiveItem(SHOWCASE_ITEMS[1]);
             }}
-            className={`px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all ${
+            className={`px-3.5 py-1.5 text-xs font-bold rounded-lg btn-press transition-[background-color,color,box-shadow,transform] duration-150 ease-out-emil ${
               selectedCategory === "corporate"
                 ? "bg-white dark:bg-slate-900 text-brand-violet dark:text-purple-300 shadow-subtle"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
@@ -130,7 +130,7 @@ export function WebsiteShowcase() {
               setSelectedCategory("ecommerce");
               setActiveItem(SHOWCASE_ITEMS[2]);
             }}
-            className={`px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all ${
+            className={`px-3.5 py-1.5 text-xs font-bold rounded-lg btn-press transition-[background-color,color,box-shadow,transform] duration-150 ease-out-emil ${
               selectedCategory === "ecommerce"
                 ? "bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-subtle"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
@@ -144,7 +144,7 @@ export function WebsiteShowcase() {
               setSelectedCategory("business");
               setActiveItem(SHOWCASE_ITEMS[0]);
             }}
-            className={`px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all ${
+            className={`px-3.5 py-1.5 text-xs font-bold rounded-lg btn-press transition-[background-color,color,box-shadow,transform] duration-150 ease-out-emil ${
               selectedCategory === "business"
                 ? "bg-white dark:bg-slate-900 text-brand-navy dark:text-white shadow-subtle"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
@@ -159,7 +159,7 @@ export function WebsiteShowcase() {
           <button
             type="button"
             onClick={() => setDeviceMode("desktop")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg btn-press transition-[background-color,color,box-shadow,transform] duration-150 ease-out-emil ${
               deviceMode === "desktop"
                 ? "bg-white dark:bg-slate-900 text-brand-navy dark:text-white shadow-subtle"
                 : "text-slate-500 dark:text-slate-400"
@@ -172,7 +172,7 @@ export function WebsiteShowcase() {
           <button
             type="button"
             onClick={() => setDeviceMode("mobile")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg btn-press transition-[background-color,color,box-shadow,transform] duration-150 ease-out-emil ${
               deviceMode === "mobile"
                 ? "bg-white dark:bg-slate-900 text-brand-navy dark:text-white shadow-subtle"
                 : "text-slate-500 dark:text-slate-400"
